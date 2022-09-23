@@ -4,17 +4,17 @@ Authz
 API
 ---
 
-.. autoclass:: terra_sdk.client.lcd.api.authz.AuthzAPI
+.. autoclass:: paloma_sdk.client.lcd.api.authz.AuthzAPI
     :members: 
 
 Data
 ----
 
-.. automodule:: terra_sdk.core.authz.data
+.. automodule:: paloma_sdk.core.authz.data
     :members:
 
 Messages
 --------
 
-.. automodule:: terra_sdk.core.authz.msgs
+.. automodule:: paloma_sdk.core.authz.msgs
     :members:

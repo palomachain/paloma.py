@@ -1,11 +1,11 @@
-from terra_sdk.core.feegrant import MsgGrantAllowance, MsgRevokeAllowance
+from paloma_sdk.core.feegrant import MsgGrantAllowance, MsgRevokeAllowance
 
 
 def test_deserializes_msg_grant_allowance_examples():
     msg = {
         "@type": "/cosmos.feegrant.v1beta1.MsgGrantAllowance",
-        "granter": "terra1mzhc9gvfyh9swxed7eaxn2d6zzc3msgftk4w9e",
-        "grantee": "terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+        "granter": "paloma1mzhc9gvfyh9swxed7eaxn2d6zzc3msgftk4w9e",
+        "grantee": "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
         "allowance": {
             "@type": "/cosmos.feegrant.v1beta1.BasicAllowance",
             "spend_limit": [{"denom": "uluna", "amount": "1000"}],

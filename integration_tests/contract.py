@@ -1,20 +1,20 @@
 from pathlib import Path
 
-from terra_proto.cosmwasm.wasm.v1 import AccessType
+from paloma_proto.cosmwasm.wasm.v1 import AccessType
 
-from terra_sdk.client.lcd.api.tx import CreateTxOptions
-from terra_sdk.client.localterra import LocalTerra
-from terra_sdk.core import Coins
-from terra_sdk.core.fee import Fee
-from terra_sdk.core.wasm import MsgExecuteContract, MsgInstantiateContract, MsgStoreCode
-from terra_sdk.core.wasm.data import AccessConfig
-from terra_sdk.util.contract import get_code_id, get_contract_address, read_file_as_b64
+from paloma_sdk.client.lcd.api.tx import CreateTxOptions
+from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.core import Coins
+from paloma_sdk.core.fee import Fee
+from paloma_sdk.core.wasm import MsgExecuteContract, MsgInstantiateContract, MsgStoreCode
+from paloma_sdk.core.wasm.data import AccessConfig
+from paloma_sdk.util.contract import get_code_id, get_contract_address, read_file_as_b64
 
 
 def main():
-    terra = LocalTerra()
-    terra.gas_prices = "1uluna"
-    test1 = terra.wallets["test1"]
+    paloma = LocalTerra()
+    paloma.gas_prices = "1uluna"
+    test1 = paloma.wallets["test1"]
 
     store_code_tx = test1.create_and_sign_tx(
         CreateTxOptions(
@@ -28,7 +28,7 @@ def main():
             gas_adjustment=1.75,
         )
     )
-    store_code_tx_result = terra.tx.broadcast(store_code_tx)
+    store_code_tx_result = paloma.tx.broadcast(store_code_tx)
     print(store_code_tx_result)
 
     code_id = get_code_id(store_code_tx_result)
@@ -51,13 +51,13 @@ def main():
         )
     )
     print(instantiate_tx)
-    instantiate_tx_result = terra.tx.broadcast(instantiate_tx)
+    instantiate_tx_result = paloma.tx.broadcast(instantiate_tx)
     print(instantiate_tx_result)
     contract_address = get_contract_address(instantiate_tx_result)
     # """
-    # contract_address = "terra1e8d3cw4j0k5fm9gw03jzh9xzhzyz99pa8tphd8"
+    # contract_address = "paloma1e8d3cw4j0k5fm9gw03jzh9xzhzyz99pa8tphd8"
     print("contract_address = ", contract_address)
-    result = terra.wasm.contract_query(contract_address, {"get_count": {}})
+    result = paloma.wasm.contract_query(contract_address, {"get_count": {}})
     print("get_count1: ", result)
     execute_tx = test1.create_and_sign_tx(
         CreateTxOptions(
@@ -72,10 +72,10 @@ def main():
         )
     )
 
-    execute_tx_result = terra.tx.broadcast(execute_tx)
+    execute_tx_result = paloma.tx.broadcast(execute_tx)
     print(execute_tx_result)
 
-    result = terra.wasm.contract_query(contract_address, {"get_count": {}})
+    result = paloma.wasm.contract_query(contract_address, {"get_count": {}})
     print("get_count2: ", result)
 
 

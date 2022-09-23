@@ -1,7 +1,7 @@
 [{
     "@type": "/cosmos.authz.v1beta1.MsgGrant",
-    "granter": "terra1nty4ku4a79zj45jl0fy5rrjun07ny0nrve7j99",
-    "grantee": "terra1qfqa2eu9wp272ha93lj4yhcenrc6ymng079nu8",
+    "granter": "paloma1nty4ku4a79zj45jl0fy5rrjun07ny0nrve7j99",
+    "grantee": "paloma1qfqa2eu9wp272ha93lj4yhcenrc6ymng079nu8",
     "grant": {
         "authorization": {
             "@type": "/cosmos.bank.v1beta1.SendAuthorization",

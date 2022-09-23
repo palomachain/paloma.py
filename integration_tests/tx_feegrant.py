@@ -14,27 +14,27 @@ import lcd_ibc_transfer
 """
 
 
-from terra_sdk.client.lcd import LCDClient
-from terra_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
+from paloma_sdk.client.lcd import LCDClient
+from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
 
 # import lcd_tx
-from terra_sdk.client.localterra import LocalTerra
-from terra_sdk.core import Coin, Coins
-from terra_sdk.core.bank import MsgSend
-from terra_sdk.core.feegrant.data import Allowance, BasicAllowance
-from terra_sdk.core.feegrant.msgs import MsgGrantAllowance, MsgRevokeAllowance
-from terra_sdk.core.tx import SignMode
-from terra_sdk.key.key import SignOptions
-from terra_sdk.key.mnemonic import MnemonicKey
+from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.core import Coin, Coins
+from paloma_sdk.core.bank import MsgSend
+from paloma_sdk.core.feegrant.data import Allowance, BasicAllowance
+from paloma_sdk.core.feegrant.msgs import MsgGrantAllowance, MsgRevokeAllowance
+from paloma_sdk.core.tx import SignMode
+from paloma_sdk.key.key import SignOptions
+from paloma_sdk.key.mnemonic import MnemonicKey
 
 
 def main():
-    terra = LocalTerra()
+    paloma = LocalTerra()
 
     seed = "quality vacuum heart guard buzz spike sight swarm shove special gym robust assume sudden deposit grid alcohol choice devote leader tilt noodle tide penalty"
     key = MnemonicKey(mnemonic=seed)
-    test1 = terra.wallets["test1"]
-    test2 = terra.wallets["test2"]
+    test1 = paloma.wallets["test1"]
+    test2 = paloma.wallets["test2"]
     test1_address = test1.key.acc_address
     test2_address = test2.key.acc_address
 
@@ -51,7 +51,7 @@ def main():
     tx = test1.create_and_sign_tx(opt)
     print("SIGNED TX", tx)
 
-    result = terra.tx.broadcast(tx)
+    result = paloma.tx.broadcast(tx)
     print(f"GRANT RESULT:{result}")
 
     msg = MsgRevokeAllowance(
@@ -66,7 +66,7 @@ def main():
     tx = test1.create_and_sign_tx(opt)
     print("SIGNED TX", tx)
 
-    result = terra.tx.broadcast(tx)
+    result = paloma.tx.broadcast(tx)
     print(f"REVOKE RESULT:{result}")
 
 

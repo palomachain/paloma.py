@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "terra-sdk"
-authors = ["Terraform Labs, PTE. <engineering@terra.money>"]
+name = "paloma-sdk"
+authors = ["Terraform Labs, PTE. <engineering@paloma.money>"]
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
@@ -12,13 +12,13 @@ classifiers = [
     "Programming Language :: Python :: 3.10"
 ]
 description = "The Python SDK for Terra"
-documentation = "https://terra-money.github.io/terra.py/index.html"
-homepage = "https://github.com/terra-money/terra.py"
-keywords = ["jigu", "blockchain", "terra", "defi", "crypto"]
+documentation = "https://paloma-money.github.io/paloma.py/index.html"
+homepage = "https://github.com/paloma-money/paloma.py"
+keywords = ["jigu", "blockchain", "paloma", "defi", "crypto"]
 license = "MIT"
-packages = [{ include = "terra_sdk" }]
+packages = [{ include = "paloma_sdk" }]
 readme = "README.md"
-repository = "https://github.com/terra-money/terra.py"
+repository = "https://github.com/paloma-money/paloma.py"
 version = "3.0.1"
 
 [tool.poetry.dependencies]

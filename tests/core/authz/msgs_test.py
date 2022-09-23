@@ -1,6 +1,6 @@
 from math import expm1
 
-from terra_sdk.core.authz import (
+from paloma_sdk.core.authz import (
     MsgExecAuthorized,
     MsgGrantAuthorization,
     MsgRevokeAuthorization,

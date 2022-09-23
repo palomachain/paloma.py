@@ -13,15 +13,15 @@ import lcd_ibc_transfer
 
 """
 
-from terra_sdk.client.lcd import LCDClient
+from paloma_sdk.client.lcd import LCDClient
 
 # import lcd_tx
-from terra_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
-from terra_sdk.client.localterra import LocalTerra
-from terra_sdk.core.bank import MsgMultiSend, MsgSend, MultiSendInput, MultiSendOutput
-from terra_sdk.core.tx import SignMode
-from terra_sdk.key.key import SignOptions
-from terra_sdk.util.json import JSONSerializable
+from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
+from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.core.bank import MsgMultiSend, MsgSend, MultiSendInput, MultiSendOutput
+from paloma_sdk.core.tx import SignMode
+from paloma_sdk.key.key import SignOptions
+from paloma_sdk.util.json import JSONSerializable
 
 """ untested
 import lcd_gov
@@ -29,16 +29,16 @@ import lcd_gov
 
 ########
 
-from terra_sdk.core import Coin, Coins, SignDoc
-from terra_sdk.core.public_key import SimplePublicKey
+from paloma_sdk.core import Coin, Coins, SignDoc
+from paloma_sdk.core.public_key import SimplePublicKey
 
 
 def main():
-    terra = LocalTerra()
-    wallet1 = terra.wallets["test1"]
-    wallet2 = terra.wallets["test2"]
-    info1 = terra.auth.account_info(wallet1.key.acc_address)
-    info2 = terra.auth.account_info(wallet2.key.acc_address)
+    paloma = LocalTerra()
+    wallet1 = paloma.wallets["test1"]
+    wallet2 = paloma.wallets["test2"]
+    info1 = paloma.auth.account_info(wallet1.key.acc_address)
+    info2 = paloma.auth.account_info(wallet2.key.acc_address)
 
     inputs = [
         MultiSendInput(
@@ -65,7 +65,7 @@ def main():
 
     opt = CreateTxOptions(msgs=[msg], memo="memo", gas_prices="0.38uluna")
 
-    tx = terra.tx.create(
+    tx = paloma.tx.create(
         [
             SignerOptions(
                 address=wallet1.key.acc_address, public_key=info1.get_public_key()
@@ -78,7 +78,7 @@ def main():
     )
 
     signdoc1 = SignDoc(
-        chain_id=terra.chain_id,
+        chain_id=paloma.chain_id,
         account_number=info1.get_account_number(),
         sequence=info1.get_sequence(),
         auth_info=tx.auth_info,
@@ -86,7 +86,7 @@ def main():
     )
 
     signdoc2 = SignDoc(
-        chain_id=terra.chain_id,
+        chain_id=paloma.chain_id,
         account_number=info2.get_account_number(),
         sequence=info2.get_sequence(),
         auth_info=tx.auth_info,
@@ -99,7 +99,7 @@ def main():
     print("=======================")
     print(tx.to_data())
 
-    result = terra.tx.broadcast(tx)
+    result = paloma.tx.broadcast(tx)
     print(f"RESULT:{result}")
 
 

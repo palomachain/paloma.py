@@ -1,15 +1,15 @@
 import asyncio
 from pathlib import Path
 
-from terra_sdk.client.localterra import AsyncLocalTerra
-from terra_sdk.core import Coins, Fee
-from terra_sdk.core.wasm import MsgExecuteContract, MsgInstantiateContract, MsgStoreCode
-from terra_sdk.util.contract import get_code_id, get_contract_address, read_file_as_b64
+from paloma_sdk.client.localpaloma import AsyncLocalTerra
+from paloma_sdk.core import Coins, Fee
+from paloma_sdk.core.wasm import MsgExecuteContract, MsgInstantiateContract, MsgStoreCode
+from paloma_sdk.util.contract import get_code_id, get_contract_address, read_file_as_b64
 
 
 async def async_main():
-    async with AsyncLocalTerra() as terra:
-        test1 = terra.wallets["test1"]
+    async with AsyncLocalTerra() as paloma:
+        test1 = paloma.wallets["test1"]
         store_code_tx = await test1.create_and_sign_tx(
             msgs=[
                 MsgStoreCode(
@@ -18,7 +18,7 @@ async def async_main():
                 )
             ]
         )
-        store_code_tx_result = await terra.tx.broadcast(store_code_tx)
+        store_code_tx_result = await paloma.tx.broadcast(store_code_tx)
         print(store_code_tx_result)
         code_id = get_code_id(store_code_tx_result)
         instantiate_tx = await test1.create_and_sign_tx(
@@ -32,7 +32,7 @@ async def async_main():
                 )
             ]
         )
-        instantiate_tx_result = await terra.tx.broadcast(instantiate_tx)
+        instantiate_tx_result = await paloma.tx.broadcast(instantiate_tx)
         print(instantiate_tx_result)
         contract_address = get_contract_address(instantiate_tx_result)
 
@@ -48,10 +48,10 @@ async def async_main():
             fee=Fee(1000000, Coins(uluna=1000000)),
         )
 
-        execute_tx_result = await terra.tx.broadcast(execute_tx)
+        execute_tx_result = await paloma.tx.broadcast(execute_tx)
         print(execute_tx_result)
 
-        result = await terra.wasm.contract_query(contract_address, {"get_count": {}})
+        result = await paloma.wasm.contract_query(contract_address, {"get_count": {}})
         print(result)
 
 

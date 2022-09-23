@@ -12,7 +12,7 @@ Introduction
 
 Welcome to the official documentation for the Terra Python SDK, a simple library toolkit for building software that interacts with the Terra blockchain. 
 
-Unfamiliar with Terra? → `Check out Terra Docs <https://docs.terra.money>`_
+Unfamiliar with Terra? → `Check out Terra Docs <https://docs.paloma.money>`_
 
 .. toctree::
     :maxdepth: 1

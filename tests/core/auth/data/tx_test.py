@@ -1,4 +1,4 @@
-from terra_sdk.core import Tx
+from paloma_sdk.core import Tx
 
 # def test_deserializes_tx(load_json_examples):
 #     data = load_json_examples("./Tx.data.json")

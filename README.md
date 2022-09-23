@@ -1,22 +1,22 @@
 <br/>
 <br/>
 
-<div  align="center"> <p > <img src="https://raw.githubusercontent.com/terra-money/terra-sdk-python/main/docs/img/logo.png" width=500 alt="py-sdk-logo"></p>
+<div  align="center"> <p > <img src="https://raw.githubusercontent.com/paloma-money/paloma-sdk-python/main/docs/img/logo.png" width=500 alt="py-sdk-logo"></p>
 
 The Python SDK for Terra
 <br/>
 
-<p><sub>(Unfamiliar with Terra?  <a href="https://docs.terra.money/">Check out the Terra Docs</a>)</sub></p>
+<p><sub>(Unfamiliar with Terra?  <a href="https://docs.paloma.money/">Check out the Terra Docs</a>)</sub></p>
 
-  <p > <img alt="GitHub" src="https://img.shields.io/github/license/terra-money/terra-sdk-python">
-<img alt="Python" src="https://img.shields.io/pypi/pyversions/terra-sdk">
-  <img alt="pip" src="https://img.shields.io/pypi/v/terra-sdk"></p>
+  <p > <img alt="GitHub" src="https://img.shields.io/github/license/paloma-money/paloma-sdk-python">
+<img alt="Python" src="https://img.shields.io/pypi/pyversions/paloma-sdk">
+  <img alt="pip" src="https://img.shields.io/pypi/v/paloma-sdk"></p>
 <p>
-  <a href="https://terra-money.github.io/terra.py/index.html"><strong>Explore the Docs »</strong></a>
+  <a href="https://paloma-money.github.io/paloma.py/index.html"><strong>Explore the Docs »</strong></a>
 <br/>
-  <a href="https://pypi.org/project/terra-sdk/">PyPI Package</a>
+  <a href="https://pypi.org/project/paloma-sdk/">PyPI Package</a>
   ·
-  <a href="https://github.com/terra-money/terra.py">GitHub Repository</a>
+  <a href="https://github.com/paloma-money/paloma.py">GitHub Repository</a>
 </p></div>
 
 The Terra Software Development Kit (SDK) in Python is a simple library toolkit for building software that can interact with the Terra blockchain and provides simple abstractions over core data structures, serialization, key management, and API request generation.
@@ -54,7 +54,7 @@ The Terra Software Development Kit (SDK) in Python is a simple library toolkit f
 
 # API Reference
 
-An intricate reference to the APIs on the Terra SDK can be found <a href="https://terra-money.github.io/terra.py/index.html">here</a>.
+An intricate reference to the APIs on the Terra SDK can be found <a href="https://paloma-money.github.io/paloma.py/index.html">here</a>.
 
 <br/>
 
@@ -73,12 +73,12 @@ Terra SDK requires <a href="https://www.python.org/downloads/">Python v3.7+</a>.
 Terra SDK can be installed (preferably in a `virtual environment` from PyPI using `pip`) as follows:
   
 ```
-$ pip install -U terra_sdk
+$ pip install -U paloma_sdk
 ```
 
 <sub>_You might have `pip3` installed instead of `pip`; proceed according to your own setup._<sub>
   
-❗ If you want to communicate with Terra Classic, use terra-sdk==2.x
+❗ If you want to communicate with Terra Classic, use paloma-sdk==2.x
   
 ## Dependencies
 
@@ -110,13 +110,13 @@ $ make qa && make format
 # Usage Examples
 
 Terra SDK can help you read block data, sign and send transactions, deploy and interact with contracts, and many more.
-The following examples are provided to help you get started. Use cases and functionalities of the Terra SDK are not limited to the following examples and can be found in full <a href="https://terra-money.github.io/terra.py/index.html">here</a>.
+The following examples are provided to help you get started. Use cases and functionalities of the Terra SDK are not limited to the following examples and can be found in full <a href="https://paloma-money.github.io/paloma.py/index.html">here</a>.
 
 In order to interact with the Terra blockchain, you'll need a connection to a Terra node. This can be done through setting up an LCDClient (The LCDClient is an object representing an HTTP connection to a Terra LCD node.):
 
 ```
->>> from terra_sdk.client.lcd import LCDClient
->>> terra = LCDClient(chain_id="phoenix-1", url="https://phoenix-lcd.terra.dev")
+>>> from paloma_sdk.client.lcd import LCDClient
+>>> paloma = LCDClient(chain_id="phoenix-1", url="https://phoenix-lcd.paloma.dev")
 ```
 
 ## Getting Blockchain Information
@@ -124,7 +124,7 @@ In order to interact with the Terra blockchain, you'll need a connection to a Te
 Once properly configured, the `LCDClient` instance will allow you to interact with the Terra blockchain. Try getting the latest block height:
 
 ```
->>> terra.tendermint.block_info()['block']['header']['height']
+>>> paloma.tendermint.block_info()['block']['header']['height']
 ```
 
 `'1687543'`
@@ -135,13 +135,13 @@ If you want to make asynchronous, non-blocking LCD requests, you can use AsyncLC
 
 <pre><code>
 >>> import asyncio 
->>> from terra_sdk.client.lcd import AsyncLCDClient
+>>> from paloma_sdk.client.lcd import AsyncLCDClient
 
 >>> async def main():
-      <strong>terra = AsyncLCDClient("https://phoenix-lcd.terra.dev", "phoenix-1")</strong>
-      total_supply = await terra.bank.total()
+      <strong>paloma = AsyncLCDClient("https://phoenix-lcd.paloma.dev", "phoenix-1")</strong>
+      total_supply = await paloma.bank.total()
       print(total_supply)
-      <strong>await terra.session.close # you must close the session</strong>
+      <strong>await paloma.session.close # you must close the session</strong>
 
 >>> asyncio.get_event_loop().run_until_complete(main())
 </code></pre>
@@ -160,20 +160,20 @@ Use `LCDClient.wallet()` to create a Wallet from any Key instance. The Key provi
 <sub>**NOTE:** *If you are using MacOS and got an exception 'bad key length' from MnemonicKey, please check your python implementation. if `python3 -c "import ssl; print(ssl.OPENSSL_VERSION)"` returns LibreSSL 2.8.3, you need to reinstall python via pyenv or homebrew.*</sub>
 
 ```
->>> from terra_sdk.client.lcd import LCDClient
->>> from terra_sdk.key.mnemonic import MnemonicKey
+>>> from paloma_sdk.client.lcd import LCDClient
+>>> from paloma_sdk.key.mnemonic import MnemonicKey
 
 >>> mk = MnemonicKey(mnemonic=MNEMONIC)
->>> terra = LCDClient("https://phoenix-lcd.terra.dev", "phoenix-1")
->>> wallet = terra.wallet(mk)
+>>> paloma = LCDClient("https://phoenix-lcd.paloma.dev", "phoenix-1")
+>>> wallet = paloma.wallet(mk)
 ```
 
 Once you have your Wallet, you can simply create a StdTx using `Wallet.create_and_sign_tx`.
 
 ```
->>> from terra_sdk.core.fee import Fee
->>> from terra_sdk.core.bank import MsgSend
->>> from terra_sdk.client.lcd.api.tx import CreateTxOptions
+>>> from paloma_sdk.core.fee import Fee
+>>> from paloma_sdk.core.bank import MsgSend
+>>> from paloma_sdk.client.lcd.api.tx import CreateTxOptions
 
 >>> tx = wallet.create_and_sign_tx(CreateTxOptions(
         msgs=[MsgSend(
@@ -189,7 +189,7 @@ Once you have your Wallet, you can simply create a StdTx using `Wallet.create_an
 You should now be able to broadcast your transaction to the network.
 
 ```
->>> result = terra.tx.broadcast(tx)
+>>> result = paloma.tx.broadcast(tx)
 >>> print(result)
 ```
 
@@ -203,8 +203,8 @@ Community contribution, whether it's a new feature, correction, bug report, addi
 
 ## Reporting an Issue
 
-First things first: **Do NOT report security vulnerabilities in public issues!** Please disclose responsibly by submitting your findings to the [Terra Bugcrowd submission form](https://www.terra.money/bugcrowd). The issue will be assessed as soon as possible.
-If you encounter a different issue with the Python SDK, check first to see if there is an existing issue on the <a href="https://github.com/terra-money/terra-sdk-python/issues">Issues</a> page, or if there is a pull request on the <a href="https://github.com/terra-money/terra-sdk-python/pulls">Pull requests</a> page. Be sure to check both the Open and Closed tabs addressing the issue.
+First things first: **Do NOT report security vulnerabilities in public issues!** Please disclose responsibly by submitting your findings to the [Terra Bugcrowd submission form](https://www.paloma.money/bugcrowd). The issue will be assessed as soon as possible.
+If you encounter a different issue with the Python SDK, check first to see if there is an existing issue on the <a href="https://github.com/paloma-money/paloma-sdk-python/issues">Issues</a> page, or if there is a pull request on the <a href="https://github.com/paloma-money/paloma-sdk-python/pulls">Pull requests</a> page. Be sure to check both the Open and Closed tabs addressing the issue.
 
 If there isn't a discussion on the topic there, you can file an issue. The ideal report includes:
 
@@ -219,7 +219,7 @@ If there isn't a discussion on the topic there, you can file an issue. The ideal
 
 ## Requesting a Feature
 
-If you wish to request the addition of a feature, please first check out the <a href="https://github.com/terra-money/terra-sdk-python/issues">Issues</a> page and the <a href="https://github.com/terra-money/terra-sdk-python/pulls">Pull requests</a> page (both Open and Closed tabs). If you decide to continue with the request, think of the merits of the feature to convince the project's developers, and provide as much detail and context as possible in the form of filing an issue on the <a href="https://github.com/terra-money/terra-sdk-python/issues">Issues</a> page.
+If you wish to request the addition of a feature, please first check out the <a href="https://github.com/paloma-money/paloma-sdk-python/issues">Issues</a> page and the <a href="https://github.com/paloma-money/paloma-sdk-python/pulls">Pull requests</a> page (both Open and Closed tabs). If you decide to continue with the request, think of the merits of the feature to convince the project's developers, and provide as much detail and context as possible in the form of filing an issue on the <a href="https://github.com/paloma-money/paloma-sdk-python/issues">Issues</a> page.
 
 <br/>
 
@@ -270,7 +270,7 @@ This software is licensed under the MIT license. See [LICENSE](./LICENSE) for fu
 
 <p>&nbsp;</p>
 <p align="center">
-    <a href="https://terra.money/"><img src="https://assets.website-files.com/611153e7af981472d8da199c/61794f2b6b1c7a1cb9444489_symbol-terra-blue.svg" alt="Terra-logo" width=200/></a>
+    <a href="https://paloma.money/"><img src="https://assets.website-files.com/611153e7af981472d8da199c/61794f2b6b1c7a1cb9444489_symbol-paloma-blue.svg" alt="Terra-logo" width=200/></a>
 <div align="center">
   <sub><em>Powering the innovation of money.</em></sub>
 </div>

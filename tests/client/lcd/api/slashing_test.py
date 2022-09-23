@@ -1,7 +1,7 @@
-from terra_sdk.client.lcd import LCDClient, PaginationOptions
+from paloma_sdk.client.lcd import LCDClient, PaginationOptions
 
-terra = LCDClient(
-    url="https://pisco-lcd.terra.dev/",
+paloma = LCDClient(
+    url="https://pisco-lcd.paloma.dev/",
     chain_id="pisco-1",
 )
 
@@ -10,24 +10,24 @@ pagopt = PaginationOptions(limit=3, count_total=True, reverse=True)
 
 
 def test_signing_infos():
-    result, _ = terra.slashing.signing_infos()
+    result, _ = paloma.slashing.signing_infos()
     assert result is not None
 
 
 def test_signing_infos_with_pagination():
-    result, _ = terra.slashing.signing_infos(pagopt)
+    result, _ = paloma.slashing.signing_infos(pagopt)
     assert result is not None
 
 
 def test_signing_info():
-    result = terra.slashing.signing_info(
-        "terravalcons1qp67nk6gwqvnh95rwytpfwatcjtuxx4rhdnz6k"
+    result = paloma.slashing.signing_info(
+        "palomavalcons1qp67nk6gwqvnh95rwytpfwatcjtuxx4rhdnz6k"
     )
     assert result is not None
 
 
 def test_parameters():
-    result = terra.slashing.parameters()
+    result = paloma.slashing.parameters()
     assert result.get("signed_blocks_window")
     assert result.get("min_signed_per_window")
     assert result.get("downtime_jail_duration")

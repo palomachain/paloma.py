@@ -2,7 +2,7 @@ import asyncio
 
 import uvloop
 
-from terra_sdk.client.lcd import AsyncLCDClient
+from paloma_sdk.client.lcd import AsyncLCDClient
 
 
 async def with_sem(aw, sem):
@@ -12,19 +12,19 @@ async def with_sem(aw, sem):
 
 
 async def main():
-    terra = AsyncLCDClient(url="https://pisco-lcd.terra.dev", chain_id="pisco-1")
-    validators, _ = await terra.staking.validators()
+    paloma = AsyncLCDClient(url="https://pisco-lcd.paloma.dev", chain_id="pisco-1")
+    validators, _ = await paloma.staking.validators()
     validator_addresses = [v.operator_address for v in validators]
 
     sem = asyncio.Semaphore(2)  # 2 continuous connections
     result = await asyncio.gather(
         *[
-            with_sem(terra.oracle.misses(address), sem)
+            with_sem(paloma.oracle.misses(address), sem)
             for address in validator_addresses
         ]
     )
 
-    await terra.session.close()
+    await paloma.session.close()
     print(result)
 
 

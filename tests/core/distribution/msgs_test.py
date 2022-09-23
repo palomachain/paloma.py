@@ -1,4 +1,4 @@
-from terra_sdk.core.distribution import (
+from paloma_sdk.core.distribution import (
     MsgSetWithdrawAddress,
     MsgWithdrawDelegatorReward,
     MsgWithdrawValidatorCommission,

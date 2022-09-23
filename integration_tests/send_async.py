@@ -2,27 +2,27 @@ import asyncio
 import base64
 from pathlib import Path
 
-from terra_sdk.client.lcd import LCDClient
-from terra_sdk.client.lcd.api.tx import CreateTxOptions
-from terra_sdk.core import Coins
-from terra_sdk.core.bank import MsgSend
-from terra_sdk.core.tx import SignMode
-from terra_sdk.key.mnemonic import MnemonicKey
+from paloma_sdk.client.lcd import LCDClient
+from paloma_sdk.client.lcd.api.tx import CreateTxOptions
+from paloma_sdk.core import Coins
+from paloma_sdk.core.bank import MsgSend
+from paloma_sdk.core.tx import SignMode
+from paloma_sdk.key.mnemonic import MnemonicKey
 
 
 def main():
-    terra = LCDClient(
+    paloma = LCDClient(
         url="http://localhost:1317/",
-        chain_id="localterra",
+        chain_id="localpaloma",
     )
     key = MnemonicKey(
         mnemonic="notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
     )
-    test1 = terra.wallet(key=key)
+    test1 = paloma.wallet(key=key)
 
     msg = MsgSend(
-        "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-        "terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
         Coins(uluna=20000),
     )
     print(msg)
@@ -35,7 +35,7 @@ def main():
     )
     print(tx)
 
-    result = terra.tx.broadcast_async(tx)
+    result = paloma.tx.broadcast_async(tx)
     print(result)
 
 

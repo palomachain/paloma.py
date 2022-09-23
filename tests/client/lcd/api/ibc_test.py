@@ -1,11 +1,11 @@
-from terra_sdk.client.lcd import LCDClient
+from paloma_sdk.client.lcd import LCDClient
 
-terra = LCDClient(
-    url="https://pisco-lcd.terra.dev/",
+paloma = LCDClient(
+    url="https://pisco-lcd.paloma.dev/",
     chain_id="pisco-1",
 )
 
 
 def test_parameters():
-    result = terra.ibc.parameters()
+    result = paloma.ibc.parameters()
     assert result.get("allowed_clients")

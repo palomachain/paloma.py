@@ -16,7 +16,7 @@ using ``pip`` as follows:
 
 .. code-block:: shell
 
-   $ pip install terra-sdk 
+   $ pip install paloma-sdk
 
 
 .. note:: If you run into problems during installation, you might have a
@@ -33,10 +33,10 @@ This can be done through setting up an LCDClient:
 
 .. code-block:: python
 
-    from terra_sdk.client.lcd import LCDClient
+    from paloma_sdk.client.lcd import LCDClient
 
-    terra = LCDClient(chain_id="columbus-5", url="https://lcd.terra.dev")
-    print(terra.tendermint.node_info())
+    paloma = LCDClient(chain_id="columbus-5", url="https://lcd.paloma.dev")
+    print(paloma.tendermint.node_info())
 
 
 Getting Blockchain Info
@@ -47,7 +47,7 @@ to interact with the Terra blockchain. Try getting the latest block height:
 
 .. code-block:: python
 
-    >>> terra.tendermint.block_info()['block']['header']['height']
+    >>> paloma.tendermint.block_info()['block']['header']['height']
     '1687543'
 
 Terra SDK can help you read block data, sign and send transactions, deploy and interact with contracts,

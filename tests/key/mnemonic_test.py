@@ -1,26 +1,26 @@
 import base64
 
-from terra_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
-from terra_sdk.client.lcd.lcdclient import LCDClient
-from terra_sdk.core import Coins, SignDoc
-from terra_sdk.core.bank import MsgSend
-from terra_sdk.core.fee import Fee
-from terra_sdk.key.mnemonic import MnemonicKey
+from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
+from paloma_sdk.client.lcd.lcdclient import LCDClient
+from paloma_sdk.core import Coins, SignDoc
+from paloma_sdk.core.bank import MsgSend
+from paloma_sdk.core.fee import Fee
+from paloma_sdk.key.mnemonic import MnemonicKey
 
 
 def test_derivation():
     mk = MnemonicKey(
         "wonder caution square unveil april art add hover spend smile proud admit modify old copper throw crew happy nature luggage reopen exhibit ordinary napkin"
     )
-    assert mk.acc_address == "terra1jnzv225hwl3uxc5wtnlgr8mwy6nlt0vztv3qqm"
+    assert mk.acc_address == "paloma1jnzv225hwl3uxc5wtnlgr8mwy6nlt0vztv3qqm"
     assert (
         mk.acc_pubkey
-        == "terrapub1addwnpepqt8ha594svjn3nvfk4ggfn5n8xd3sm3cz6ztxyugwcuqzsuuhhfq5nwzrf9"
+        == "palomapub1addwnpepqt8ha594svjn3nvfk4ggfn5n8xd3sm3cz6ztxyugwcuqzsuuhhfq5nwzrf9"
     )
-    assert mk.val_address == "terravaloper1jnzv225hwl3uxc5wtnlgr8mwy6nlt0vztraasg"
+    assert mk.val_address == "palomavaloper1jnzv225hwl3uxc5wtnlgr8mwy6nlt0vztraasg"
     assert (
         mk.val_pubkey
-        == "terravaloperpub1addwnpepqt8ha594svjn3nvfk4ggfn5n8xd3sm3cz6ztxyugwcuqzsuuhhfq5y7accr"
+        == "palomavaloperpub1addwnpepqt8ha594svjn3nvfk4ggfn5n8xd3sm3cz6ztxyugwcuqzsuuhhfq5y7accr"
     )
 
 
@@ -32,21 +32,21 @@ def test_random():
 
 def test_signature():
 
-    terra = LCDClient(url="https://pisco-lcd.terra.dev", chain_id="pisco-1")
+    paloma = LCDClient(url="https://pisco-lcd.paloma.dev", chain_id="pisco-1")
 
     mk = MnemonicKey(
         "island relax shop such yellow opinion find know caught erode blue dolphin behind coach tattoo light focus snake common size analyst imitate employ walnut"
     )
 
-    account = terra.wallet(mk)
+    account = paloma.wallet(mk)
 
     send = MsgSend(
         mk.acc_address,
-        "terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv",
+        "paloma1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv",
         dict(uluna="100000000"),
     )
 
-    tx = terra.tx.create(
+    tx = paloma.tx.create(
         signers=[
             SignerOptions(
                 address=mk.acc_address, sequence=0, public_key=account.key.public_key
@@ -58,7 +58,7 @@ def test_signature():
     )
 
     signDoc = SignDoc(
-        chain_id=terra.chain_id,
+        chain_id=paloma.chain_id,
         account_number=1234,
         sequence=0,
         auth_info=tx.auth_info,

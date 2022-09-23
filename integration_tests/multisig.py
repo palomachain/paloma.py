@@ -2,24 +2,24 @@ import asyncio
 import base64
 from pathlib import Path
 
-from terra_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
-from terra_sdk.client.localterra import LocalTerra
-from terra_sdk.core import (
+from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
+from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.core import (
     Coins,
     LegacyAminoMultisigPublicKey,
     MultiSignature,
     SignatureV2,
     SignDoc,
 )
-from terra_sdk.core.bank import MsgSend
-from terra_sdk.util.contract import get_code_id
+from paloma_sdk.core.bank import MsgSend
+from paloma_sdk.util.contract import get_code_id
 
 
 def main():
-    terra = LocalTerra()
-    test1 = terra.wallets["test1"]
-    test2 = terra.wallets["test2"]
-    test3 = terra.wallets["test3"]
+    paloma = LocalTerra()
+    test1 = paloma.wallets["test1"]
+    test2 = paloma.wallets["test2"]
+    test3 = paloma.wallets["test3"]
 
     multisigPubKey = LegacyAminoMultisigPublicKey(
         2, [test1.key.public_key, test2.key.public_key, test3.key.public_key]
@@ -30,13 +30,13 @@ def main():
 
     msg = MsgSend(
         address,
-        "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
         Coins(uluna=100000),
     )
     print(f"msgAmino:{msg.to_amino()}")
 
-    accInfo = terra.auth.account_info(address)
-    tx = terra.tx.create(
+    accInfo = paloma.auth.account_info(address)
+    tx = paloma.tx.create(
         signers=[
             SignerOptions(
                 address=address,
@@ -53,7 +53,7 @@ def main():
         ),
     )
     signDoc = SignDoc(
-        chain_id=terra.chain_id,
+        chain_id=paloma.chain_id,
         account_number=accInfo.get_account_number(),
         sequence=accInfo.get_sequence(),
         auth_info=tx.auth_info,
@@ -79,7 +79,7 @@ def main():
     print("-" * 32)
     print(tx.to_proto().SerializeToString())
     print("-" * 32)
-    result = terra.tx.broadcast(tx)
+    result = paloma.tx.broadcast(tx)
     print(result)
 
 

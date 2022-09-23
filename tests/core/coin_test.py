@@ -1,6 +1,6 @@
 import pytest
 
-from terra_sdk.core import Coin, Dec
+from paloma_sdk.core import Coin, Dec
 
 
 def test_multiple_amount_types():

@@ -4,5 +4,5 @@ Crisis
 Messages
 --------
 
-.. automodule:: terra_sdk.core.crisis.msgs
+.. automodule:: paloma_sdk.core.crisis.msgs
     :members:

@@ -2,11 +2,11 @@ import asyncio
 
 import uvloop
 
-from terra_sdk.client.lcd import AsyncLCDClient
-from terra_sdk.client.lcd.api.tx import CreateTxOptions
-from terra_sdk.core import Coins
-from terra_sdk.core.bank import MsgSend
-from terra_sdk.key.mnemonic import MnemonicKey
+from paloma_sdk.client.lcd import AsyncLCDClient
+from paloma_sdk.client.lcd.api.tx import CreateTxOptions
+from paloma_sdk.core import Coins
+from paloma_sdk.core.bank import MsgSend
+from paloma_sdk.key.mnemonic import MnemonicKey
 
 
 async def with_sem(aw, sem):
@@ -16,15 +16,15 @@ async def with_sem(aw, sem):
 
 
 async def main():
-    terra = AsyncLCDClient(chain_id="pisco-1", url="https://pisco-lcd.terra.dev/")
+    paloma = AsyncLCDClient(chain_id="pisco-1", url="https://pisco-lcd.paloma.dev/")
     mk = MnemonicKey(
         mnemonic="index light average senior silent limit usual local involve delay update rack cause inmate wall render magnet common feature laundry exact casual resource hundred"
     )
-    awallet = terra.wallet(mk)
+    awallet = paloma.wallet(mk)
 
     msg = MsgSend(
-        "terra1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f",
-        "terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+        "paloma1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f",
+        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
         Coins(uluna=20),
     )
     tx = await awallet.create_and_sign_tx(
@@ -36,15 +36,15 @@ async def main():
         )
     )
 
-    encoded = await terra.tx.encode(tx)
+    encoded = await paloma.tx.encode(tx)
     print(f"encoded...{encoded}")
 
     print("=" * 64)
 
-    decoded = await terra.tx.decode(encoded)
+    decoded = await paloma.tx.decode(encoded)
     print(f"decoded...{decoded}")
 
-    await terra.session.close()
+    await paloma.session.close()
 
 
 uvloop.install()

@@ -1,5 +1,5 @@
 Exceptions
 ==========
 
-.. automodule:: terra_sdk.exceptions
+.. automodule:: paloma_sdk.exceptions
     :members:

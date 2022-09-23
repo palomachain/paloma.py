@@ -1,10 +1,10 @@
-from terra_sdk.core.staking import Validator
+from paloma_sdk.core.staking import Validator
 
 
 def test_deserializes():
     validator_data = {
-        "operator_address": "terravaloper1ptyzewnns2kn37ewtmv6ppsvhdnmeapvgk6d65",
-        "consensus_pubkey": "terravalconspub1zcjduepqtcng29gnnhs8sv6dvv7cc0szyg3mu3tzzzjsw5x3x6pwgd2uqkkqes8fs5",
+        "operator_address": "palomavaloper1ptyzewnns2kn37ewtmv6ppsvhdnmeapvgk6d65",
+        "consensus_pubkey": "palomavalconspub1zcjduepqtcng29gnnhs8sv6dvv7cc0szyg3mu3tzzzjsw5x3x6pwgd2uqkkqes8fs5",
         "jailed": False,
         "status": "BOND_STATUS_UNBONDING",
         "tokens": "111401100001",

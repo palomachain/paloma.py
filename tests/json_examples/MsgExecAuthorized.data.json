@@ -1,10 +1,10 @@
 [{
     "@type": "/cosmos.authz.v1beta1.MsgExec",
-    "grantee": "terra...",
+    "grantee": "paloma...",
     "msgs": [{
         "@type": "/cosmos.bank.v1beta1.MsgSend",
-        "from_address": "terra...",
-        "to_address": "terra...",
+        "from_address": "paloma...",
+        "to_address": "paloma...",
         "amount": [{
             "denom": "ukrw",
             "amount": "999"

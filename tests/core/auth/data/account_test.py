@@ -1,4 +1,4 @@
-from terra_sdk.core.auth import (
+from paloma_sdk.core.auth import (
     BaseAccount,
     ContinuousVestingAccount,
     DelayedVestingAccount,
