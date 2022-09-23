@@ -1,22 +1,17 @@
 <br/>
 <br/>
 
-<div  align="center"> <p > <img src="https://raw.githubusercontent.com/paloma-money/paloma-sdk-python/main/docs/img/logo.png" width=500 alt="py-sdk-logo"></p>
-
-The Python SDK for Paloma
+<h1>The Python SDK for Paloma</h1>
 <br/>
 
-<p><sub>(Unfamiliar with Paloma?  <a href="https://docs.paloma.money/">Check out the Paloma Docs</a>)</sub></p>
+<p><sub>(Unfamiliar with Paloma?  <a href="https://docs.palomachain.com">Check out the Paloma Docs</a>)</sub></p>
 
-  <p > <img alt="GitHub" src="https://img.shields.io/github/license/paloma-money/paloma-sdk-python">
-<img alt="Python" src="https://img.shields.io/pypi/pyversions/paloma-sdk">
-  <img alt="pip" src="https://img.shields.io/pypi/v/paloma-sdk"></p>
+  
+
 <p>
-  <a href="https://paloma-money.github.io/paloma.py/index.html"><strong>Explore the Docs »</strong></a>
-<br/>
-  <a href="https://pypi.org/project/paloma-sdk/">PyPI Package</a>
+  <a href="https://docs.palomachain.com"><strong>Explore the Docs »</strong></a>
   ·
-  <a href="https://github.com/paloma-money/paloma.py">GitHub Repository</a>
+  <a href="https://github.com/palomachain/paloma.py">GitHub Repository</a>
 </p></div>
 
 The Paloma Software Development Kit (SDK) in Python is a simple library toolkit for building software that can interact with the Paloma blockchain and provides simple abstractions over core data structures, serialization, key management, and API request generation.
@@ -54,13 +49,13 @@ The Paloma Software Development Kit (SDK) in Python is a simple library toolkit 
 
 # API Reference
 
-An intricate reference to the APIs on the Paloma SDK can be found <a href="https://paloma-money.github.io/paloma.py/index.html">here</a>.
+An intricate reference to the APIs on the Paloma SDK can be found <a href="https://docs.palomachain.com">here</a>.
 
 <br/>
 
 # Getting Started
 
-A walk-through of the steps to get started with the Paloma SDK alongside a few use case examples are provided below. Alternatively, a tutorial video is also available <a href="https://www.youtube.com/watch?v=GfasBlJHKIg">here</a> as reference.
+A walk-through of the steps to get started with the Paloma SDK alongside a few use case examples are provided below. git ad
 
 ## Requirements
 
@@ -264,13 +259,6 @@ You can give this <a href="https://opensource.guide/how-to-contribute/#how-to-su
 
 This software is licensed under the MIT license. See [LICENSE](./LICENSE) for full disclosure.
 
-© 2021 Palomaform Labs, PTE.
+© 2021 Paloma
 
 <hr/>
-
-<p>&nbsp;</p>
-<p align="center">
-    <a href="https://paloma.money/"><img src="https://assets.website-files.com/611153e7af981472d8da199c/61794f2b6b1c7a1cb9444489_symbol-paloma-blue.svg" alt="Paloma-logo" width=200/></a>
-<div align="center">
-  <sub><em>Powering the innovation of money.</em></sub>
-</div>
