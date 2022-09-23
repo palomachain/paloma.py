@@ -22,7 +22,7 @@ from paloma_proto.cosmos.staking.v1beta1 import (
 )
 
 from paloma_sdk.core import AccAddress, Coin, Coins
-from paloma_sdk.util.base import BaseTerraData
+from paloma_sdk.util.base import BasePalomaData
 from paloma_sdk.util.converter import to_isoformat
 from paloma_sdk.util.json import JSONSerializable
 
@@ -36,7 +36,7 @@ __all__ = [
 ]
 
 
-class Authorization(BaseTerraData):
+class Authorization(BasePalomaData):
     """Base class for authorization types."""
 
     @staticmethod

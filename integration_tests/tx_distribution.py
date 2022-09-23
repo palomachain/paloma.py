@@ -1,5 +1,5 @@
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
-from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core import Coin, Coins
 from paloma_sdk.core.distribution import (
     MsgFundCommunityPool,
@@ -10,7 +10,7 @@ from paloma_sdk.core.distribution import (
 
 
 def main():
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
     test1 = paloma.wallets["test1"]
     validator = paloma.wallets["validator"]
 

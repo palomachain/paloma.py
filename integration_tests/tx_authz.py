@@ -1,5 +1,5 @@
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
-from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core.authz import (
     MsgExecAuthorized,
     MsgGrantAuthorization,
@@ -8,7 +8,7 @@ from paloma_sdk.core.authz import (
 
 
 def main():
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
     test1 = paloma.wallets["test1"]
 
     msgG = MsgGrantAuthorization(

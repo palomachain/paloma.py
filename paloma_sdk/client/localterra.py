@@ -4,7 +4,7 @@ from paloma_sdk.key.mnemonic import MnemonicKey
 
 from .lcd import AsyncLCDClient, AsyncWallet, LCDClient, Wallet
 
-__all__ = ["LOCALTERRA_MNEMONICS", "LocalTerra", "AsyncLocalTerra"]
+__all__ = ["LOCALTERRA_MNEMONICS", "LocalPaloma", "AsyncLocalPaloma"]
 
 LOCALTERRA_MNEMONICS = {
     "validator": "satisfy adjust timber high purchase tuition stool faith fine install that you unaware feed domain license impose boss human eager hat rent enjoy dawn",
@@ -28,13 +28,13 @@ LOCALTERRA_DEFAULTS = {
 }
 
 
-class AsyncLocalTerra(AsyncLCDClient):
+class AsyncLocalPaloma(AsyncLCDClient):
     """An :class:`AsyncLCDClient` that comes preconfigured with the default settings for
-    connecting to a LocalTerra node.
+    connecting to a LocalPaloma node.
     """
 
     wallets: Dict[str, AsyncWallet]
-    """Ready-to use :class:`Wallet` objects with LocalTerra default accounts."""
+    """Ready-to use :class:`Wallet` objects with LocalPaloma default accounts."""
 
     def __init__(self, *args, **kwargs):
         options = {**LOCALTERRA_DEFAULTS, **kwargs}
@@ -47,15 +47,15 @@ class AsyncLocalTerra(AsyncLCDClient):
         }
 
 
-class LocalTerra(LCDClient):
+class LocalPaloma(LCDClient):
     """A :class:`LCDClient` that comes preconfigured with the default settings for
-    connecting to a LocalTerra node.
+    connecting to a LocalPaloma node.
     """
 
     wallets: Dict[str, Wallet]
-    """Ready-to use :class:`Wallet` objects with LocalTerra default accounts.
+    """Ready-to use :class:`Wallet` objects with LocalPaloma default accounts.
 
-    >>> paloma = LocalTerra()
+    >>> paloma = LocalPaloma()
     >>> paloma.wallets['test1'].key.acc_address
     'paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v'
     """

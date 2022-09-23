@@ -178,7 +178,7 @@ class AsyncLCDClient:
 
 
 class LCDClient(AsyncLCDClient):
-    """An object representing a connection to a node running the Terra LCD server."""
+    """An object representing a connection to a node running the Paloma LCD server."""
 
     url: str
     """URL endpoint of LCD server."""

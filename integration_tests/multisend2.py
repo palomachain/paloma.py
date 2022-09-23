@@ -17,7 +17,7 @@ from paloma_sdk.client.lcd import LCDClient
 
 # import lcd_tx
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
-from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core.bank import MsgMultiSend, MsgSend, MultiSendInput, MultiSendOutput
 from paloma_sdk.core.tx import SignMode
 from paloma_sdk.key.key import SignOptions
@@ -34,7 +34,7 @@ from paloma_sdk.core.public_key import SimplePublicKey
 
 
 def main():
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
     wallet1 = paloma.wallets["test1"]
     wallet2 = paloma.wallets["test2"]
     info1 = paloma.auth.account_info(wallet1.key.acc_address)

@@ -9,7 +9,7 @@ from betterproto.lib.google.protobuf import Any as Any_pb
 from .json import JSONSerializable, dict_to_data
 
 
-class BaseTerraData(JSONSerializable, Message):
+class BasePalomaData(JSONSerializable, Message):
 
     type: str
     type_url: str

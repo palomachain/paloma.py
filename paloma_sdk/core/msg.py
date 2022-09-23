@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from betterproto.lib.google.protobuf import Any as Any_pb
 
-from paloma_sdk.util.base import BaseTerraData
+from paloma_sdk.util.base import BasePalomaData
 
 
-class Msg(BaseTerraData):
+class Msg(BasePalomaData):
     def to_proto(self):
         raise NotImplementedError
 

@@ -21,7 +21,7 @@ import attr
 
 @attr.s
 class MsgSend(Msg):
-    """Sends native Terra assets (Luna or Terra stablecoins) from ``from_address`` to ``to_address``.
+    """Sends native Paloma assets (Luna or Paloma stablecoins) from ``from_address`` to ``to_address``.
 
     Args:
         from_address (AccAddress): sender

@@ -78,7 +78,7 @@ class Key:
 
     @property
     def acc_address(self) -> AccAddress:
-        """Terra Bech32 account address. Default derivation via :data:`public_key` is provided.
+        """Paloma Bech32 account address. Default derivation via :data:`public_key` is provided.
 
         Raises:
             ValueError: if Key was not initialized with proper public key
@@ -92,7 +92,7 @@ class Key:
 
     @property
     def val_address(self) -> ValAddress:
-        """Terra Bech32 validator operator address. Default derivation via :data:`public_key` is provided.
+        """Paloma Bech32 validator operator address. Default derivation via :data:`public_key` is provided.
 
         Raises:
             ValueError: if Key was not initialized with proper public key
@@ -106,7 +106,7 @@ class Key:
 
     @property
     def acc_pubkey(self) -> AccPubKey:
-        """Terra Bech32 account pubkey. Default derivation via :data:`public_key` is provided.
+        """Paloma Bech32 account pubkey. Default derivation via :data:`public_key` is provided.
 
         Raises:
             ValueError: if Key was not initialized with proper public key
@@ -120,7 +120,7 @@ class Key:
 
     @property
     def val_pubkey(self) -> ValPubKey:
-        """Terra Bech32 validator pubkey. Default derivation via ``public_key`` is provided.
+        """Paloma Bech32 validator pubkey. Default derivation via ``public_key`` is provided.
 
         Raises:
             ValueError: if Key was not initialized with proper public key

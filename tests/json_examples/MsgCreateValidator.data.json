@@ -313,7 +313,7 @@
                     "moniker": "DELIGHT-testnet",
                     "identity": "3F5BD795E6AB49AC",
                     "website": "https://delightlabs.io",
-                    "details": "Support Terra and earn rewards by delegating to the DELIGHT validator."
+                    "details": "Support Paloma and earn rewards by delegating to the DELIGHT validator."
                   },
                   "commission": {
                     "rate": "0.100000000000000000",
@@ -541,7 +541,7 @@
                 "type": "cosmos-sdk/MsgCreateValidator",
                 "value": {
                   "description": {
-                    "moniker": "Terran Stakers"
+                    "moniker": "Paloman Stakers"
                   },
                   "commission": {
                     "rate": "0.100000000000000000",

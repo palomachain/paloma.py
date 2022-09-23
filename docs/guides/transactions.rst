@@ -1,7 +1,7 @@
 Building and Signing Transactions
 =================================
 
-If you want to perform a state-changing operation on the Terra blockchain such as
+If you want to perform a state-changing operation on the Paloma blockchain such as
 sending tokens, swapping assets, withdrawing rewards, or even invoking functions on
 smart contracts, you must create a **transaction** and broadcast it to the network.
 
@@ -13,7 +13,7 @@ a transaction. It contains:
 - **signatures**: a list of signatures from required signers (depends on messages)
 - **memo**: a short string describing transaction (can be empty string)
 
-Terra SDK provides functions that help create StdTx objects.
+Paloma SDK provides functions that help create StdTx objects.
 
 Using a Wallet (recommended)
 ----------------------------

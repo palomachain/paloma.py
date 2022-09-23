@@ -18,7 +18,7 @@ from paloma_sdk.client.lcd import LCDClient
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
 
 # import lcd_tx
-from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core import Coin, Coins
 from paloma_sdk.core.bank import MsgSend
 from paloma_sdk.core.tx import SignMode
@@ -31,7 +31,7 @@ from paloma_sdk.core.auth import (
     Period
 )
 def main():
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
 
     seed = "notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
     seed_pv = "father submit repeat detail wild blast wool cat machine sphere cute tool speak slogan double common camp lab example subject winter better grit property"

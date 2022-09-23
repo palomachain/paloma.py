@@ -18,7 +18,7 @@ from paloma_sdk.client.lcd import LCDClient
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
 
 # import lcd_tx
-from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core import Coin, Coins
 from paloma_sdk.core.bank import MsgSend
 from paloma_sdk.core.feegrant.data import Allowance, BasicAllowance
@@ -29,7 +29,7 @@ from paloma_sdk.key.mnemonic import MnemonicKey
 
 
 def main():
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
 
     seed = "quality vacuum heart guard buzz spike sight swarm shove special gym robust assume sudden deposit grid alcohol choice devote leader tilt noodle tide penalty"
     key = MnemonicKey(mnemonic=seed)

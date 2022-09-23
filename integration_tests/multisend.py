@@ -17,7 +17,7 @@ from paloma_sdk.client.lcd import LCDClient
 
 # import lcd_tx
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
-from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core.bank import MsgMultiSend, MsgSend, MultiSendInput, MultiSendOutput
 from paloma_sdk.core.tx import SignMode
 from paloma_sdk.key.mnemonic import MnemonicKey
@@ -38,7 +38,7 @@ def main():
         url="https://pisco-lcd.paloma.dev/",
         chain_id="pisco-1",
     )
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
 
     # key = MnemonicKey(
     #     mnemonic="notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"

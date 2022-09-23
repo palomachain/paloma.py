@@ -1,4 +1,4 @@
-"""Terra SDK-specific errors and exceptions."""
+"""Paloma SDK-specific errors and exceptions."""
 
 
 class LCDResponseError(IOError):

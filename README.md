@@ -3,10 +3,10 @@
 
 <div  align="center"> <p > <img src="https://raw.githubusercontent.com/paloma-money/paloma-sdk-python/main/docs/img/logo.png" width=500 alt="py-sdk-logo"></p>
 
-The Python SDK for Terra
+The Python SDK for Paloma
 <br/>
 
-<p><sub>(Unfamiliar with Terra?  <a href="https://docs.paloma.money/">Check out the Terra Docs</a>)</sub></p>
+<p><sub>(Unfamiliar with Paloma?  <a href="https://docs.paloma.money/">Check out the Paloma Docs</a>)</sub></p>
 
   <p > <img alt="GitHub" src="https://img.shields.io/github/license/paloma-money/paloma-sdk-python">
 <img alt="Python" src="https://img.shields.io/pypi/pyversions/paloma-sdk">
@@ -19,13 +19,13 @@ The Python SDK for Terra
   <a href="https://github.com/paloma-money/paloma.py">GitHub Repository</a>
 </p></div>
 
-The Terra Software Development Kit (SDK) in Python is a simple library toolkit for building software that can interact with the Terra blockchain and provides simple abstractions over core data structures, serialization, key management, and API request generation.
+The Paloma Software Development Kit (SDK) in Python is a simple library toolkit for building software that can interact with the Paloma blockchain and provides simple abstractions over core data structures, serialization, key management, and API request generation.
 
 ## Features
 
 - Written in Python with extensive support libraries
 - Versatile support for key management solutions
-- Exposes the Terra API through LCDClient
+- Exposes the Paloma API through LCDClient
 
 <br/>
 
@@ -54,23 +54,23 @@ The Terra Software Development Kit (SDK) in Python is a simple library toolkit f
 
 # API Reference
 
-An intricate reference to the APIs on the Terra SDK can be found <a href="https://paloma-money.github.io/paloma.py/index.html">here</a>.
+An intricate reference to the APIs on the Paloma SDK can be found <a href="https://paloma-money.github.io/paloma.py/index.html">here</a>.
 
 <br/>
 
 # Getting Started
 
-A walk-through of the steps to get started with the Terra SDK alongside a few use case examples are provided below. Alternatively, a tutorial video is also available <a href="https://www.youtube.com/watch?v=GfasBlJHKIg">here</a> as reference.
+A walk-through of the steps to get started with the Paloma SDK alongside a few use case examples are provided below. Alternatively, a tutorial video is also available <a href="https://www.youtube.com/watch?v=GfasBlJHKIg">here</a> as reference.
 
 ## Requirements
 
-Terra SDK requires <a href="https://www.python.org/downloads/">Python v3.7+</a>.
+Paloma SDK requires <a href="https://www.python.org/downloads/">Python v3.7+</a>.
 
 ## Installation
 
 <sub>**NOTE:** _All code starting with a `$` is meant to run on your terminal (a bash prompt). All code starting with a `>>>` is meant to run in a python interpreter, like <a href="https://pypi.org/project/ipython/">ipython</a>._</sub>
 
-Terra SDK can be installed (preferably in a `virtual environment` from PyPI using `pip`) as follows:
+Paloma SDK can be installed (preferably in a `virtual environment` from PyPI using `pip`) as follows:
   
 ```
 $ pip install -U paloma_sdk
@@ -78,11 +78,11 @@ $ pip install -U paloma_sdk
 
 <sub>_You might have `pip3` installed instead of `pip`; proceed according to your own setup._<sub>
   
-❗ If you want to communicate with Terra Classic, use paloma-sdk==2.x
+❗ If you want to communicate with Paloma Classic, use paloma-sdk==2.x
   
 ## Dependencies
 
-Terra SDK uses <a href="https://python-poetry.org/">Poetry</a> to manage dependencies. To get set up with all the required dependencies, run:
+Paloma SDK uses <a href="https://python-poetry.org/">Poetry</a> to manage dependencies. To get set up with all the required dependencies, run:
 
 ```
 $ pip install poetry
@@ -91,7 +91,7 @@ $ poetry install
 
 ## Tests
 
-Terra SDK provides extensive tests for data classes and functions. To run them, after the steps in [Dependencies](#dependencies):
+Paloma SDK provides extensive tests for data classes and functions. To run them, after the steps in [Dependencies](#dependencies):
 
 ```
 $ make test
@@ -99,7 +99,7 @@ $ make test
 
 ## Code Quality
 
-Terra SDK uses <a href="https://black.readthedocs.io/en/stable/">Black</a>, <a href="https://isort.readthedocs.io/en/latest/">isort</a>, and <a href="https://mypy.readthedocs.io/en/stable/index.html">Mypy</a> for checking code quality and maintaining style. To reformat, after the steps in [Dependencies](#dependencies):
+Paloma SDK uses <a href="https://black.readthedocs.io/en/stable/">Black</a>, <a href="https://isort.readthedocs.io/en/latest/">isort</a>, and <a href="https://mypy.readthedocs.io/en/stable/index.html">Mypy</a> for checking code quality and maintaining style. To reformat, after the steps in [Dependencies](#dependencies):
 
 ```
 $ make qa && make format
@@ -109,10 +109,10 @@ $ make qa && make format
 
 # Usage Examples
 
-Terra SDK can help you read block data, sign and send transactions, deploy and interact with contracts, and many more.
-The following examples are provided to help you get started. Use cases and functionalities of the Terra SDK are not limited to the following examples and can be found in full <a href="https://paloma-money.github.io/paloma.py/index.html">here</a>.
+Paloma SDK can help you read block data, sign and send transactions, deploy and interact with contracts, and many more.
+The following examples are provided to help you get started. Use cases and functionalities of the Paloma SDK are not limited to the following examples and can be found in full <a href="https://paloma-money.github.io/paloma.py/index.html">here</a>.
 
-In order to interact with the Terra blockchain, you'll need a connection to a Terra node. This can be done through setting up an LCDClient (The LCDClient is an object representing an HTTP connection to a Terra LCD node.):
+In order to interact with the Paloma blockchain, you'll need a connection to a Paloma node. This can be done through setting up an LCDClient (The LCDClient is an object representing an HTTP connection to a Paloma LCD node.):
 
 ```
 >>> from paloma_sdk.client.lcd import LCDClient
@@ -121,7 +121,7 @@ In order to interact with the Terra blockchain, you'll need a connection to a Te
 
 ## Getting Blockchain Information
 
-Once properly configured, the `LCDClient` instance will allow you to interact with the Terra blockchain. Try getting the latest block height:
+Once properly configured, the `LCDClient` instance will allow you to interact with the Paloma blockchain. Try getting the latest block height:
 
 ```
 >>> paloma.tendermint.block_info()['block']['header']['height']
@@ -148,8 +148,8 @@ If you want to make asynchronous, non-blocking LCD requests, you can use AsyncLC
 
 ## Building and Signing Transactions
 
-If you wish to perform a state-changing operation on the Terra blockchain such as sending tokens, swapping assets, withdrawing rewards, or even invoking functions on smart contracts, you must create a **transaction** and broadcast it to the network.
-Terra SDK provides functions that help create StdTx objects.
+If you wish to perform a state-changing operation on the Paloma blockchain such as sending tokens, swapping assets, withdrawing rewards, or even invoking functions on smart contracts, you must create a **transaction** and broadcast it to the network.
+Paloma SDK provides functions that help create StdTx objects.
 
 ### Example Using a Wallet (_recommended_)
 
@@ -203,7 +203,7 @@ Community contribution, whether it's a new feature, correction, bug report, addi
 
 ## Reporting an Issue
 
-First things first: **Do NOT report security vulnerabilities in public issues!** Please disclose responsibly by submitting your findings to the [Terra Bugcrowd submission form](https://www.paloma.money/bugcrowd). The issue will be assessed as soon as possible.
+First things first: **Do NOT report security vulnerabilities in public issues!** Please disclose responsibly by submitting your findings to the [Paloma Bugcrowd submission form](https://www.paloma.money/bugcrowd). The issue will be assessed as soon as possible.
 If you encounter a different issue with the Python SDK, check first to see if there is an existing issue on the <a href="https://github.com/paloma-money/paloma-sdk-python/issues">Issues</a> page, or if there is a pull request on the <a href="https://github.com/paloma-money/paloma-sdk-python/pulls">Pull requests</a> page. Be sure to check both the Open and Closed tabs addressing the issue.
 
 If there isn't a discussion on the topic there, you can file an issue. The ideal report includes:
@@ -212,7 +212,7 @@ If there isn't a discussion on the topic there, you can file an issue. The ideal
 - How to recreate the bug.
 - If relevant, including the versions of your:
   - Python interpreter
-  - Terra SDK
+  - Paloma SDK
   - Optionally of the other dependencies involved
 - If possible, create a pull request with a (failing) test case demonstrating what's wrong. This makes the process for fixing bugs quicker & gets issues resolved sooner.
   </br>
@@ -264,13 +264,13 @@ You can give this <a href="https://opensource.guide/how-to-contribute/#how-to-su
 
 This software is licensed under the MIT license. See [LICENSE](./LICENSE) for full disclosure.
 
-© 2021 Terraform Labs, PTE.
+© 2021 Palomaform Labs, PTE.
 
 <hr/>
 
 <p>&nbsp;</p>
 <p align="center">
-    <a href="https://paloma.money/"><img src="https://assets.website-files.com/611153e7af981472d8da199c/61794f2b6b1c7a1cb9444489_symbol-paloma-blue.svg" alt="Terra-logo" width=200/></a>
+    <a href="https://paloma.money/"><img src="https://assets.website-files.com/611153e7af981472d8da199c/61794f2b6b1c7a1cb9444489_symbol-paloma-blue.svg" alt="Paloma-logo" width=200/></a>
 <div align="center">
   <sub><em>Powering the innovation of money.</em></sub>
 </div>

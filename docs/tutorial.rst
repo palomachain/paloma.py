@@ -11,7 +11,7 @@ Quickstart
 Installation
 ------------
 
-Terra SDK can be installed (preferably in a :ref:`virtualenv <setup_environment>`)
+Paloma SDK can be installed (preferably in a :ref:`virtualenv <setup_environment>`)
 using ``pip`` as follows:
 
 .. code-block:: shell
@@ -24,10 +24,10 @@ using ``pip`` as follows:
     clean environment <setup_environment>`.
 
 
-Using Terra SDK
+Using Paloma SDK
 ---------------
 
-In order to interact with the Terra blockchain, you'll need a connection to a Terra node.
+In order to interact with the Paloma blockchain, you'll need a connection to a Paloma node.
 This can be done through setting up an LCDClient:
 
 
@@ -42,13 +42,13 @@ This can be done through setting up an LCDClient:
 Getting Blockchain Info
 -----------------------
 
-It's time to start using Terra SDK! Once properly configured, the ``LCDClient`` instance will allow you
-to interact with the Terra blockchain. Try getting the latest block height:
+It's time to start using Paloma SDK! Once properly configured, the ``LCDClient`` instance will allow you
+to interact with the Paloma blockchain. Try getting the latest block height:
 
 .. code-block:: python
 
     >>> paloma.tendermint.block_info()['block']['header']['height']
     '1687543'
 
-Terra SDK can help you read block data, sign and send transactions, deploy and interact with contracts,
+Paloma SDK can help you read block data, sign and send transactions, deploy and interact with contracts,
 and a number of other features.

@@ -1,14 +1,14 @@
 import asyncio
 from pathlib import Path
 
-from paloma_sdk.client.localpaloma import AsyncLocalTerra
+from paloma_sdk.client.localpaloma import AsyncLocalPaloma
 from paloma_sdk.core import Coins, Fee
 from paloma_sdk.core.wasm import MsgExecuteContract, MsgInstantiateContract, MsgStoreCode
 from paloma_sdk.util.contract import get_code_id, get_contract_address, read_file_as_b64
 
 
 async def async_main():
-    async with AsyncLocalTerra() as paloma:
+    async with AsyncLocalPaloma() as paloma:
         test1 = paloma.wallets["test1"]
         store_code_tx = await test1.create_and_sign_tx(
             msgs=[

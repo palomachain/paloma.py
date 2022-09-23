@@ -37,25 +37,25 @@ def check_prefix_and_length(prefix: str, data: str, length: int):
 
 
 AccAddress = NewType("AccAddress", str)
-AccAddress.__doc__ = """Terra Bech32 Account Address -- type alias of str."""
+AccAddress.__doc__ = """Paloma Bech32 Account Address -- type alias of str."""
 
 ValAddress = NewType("ValAddress", str)
-ValAddress.__doc__ = """Terra Bech32 Validator Operator Address -- type alias of str."""
+ValAddress.__doc__ = """Paloma Bech32 Validator Operator Address -- type alias of str."""
 
 AccPubKey = NewType("AccPubKey", str)
-AccPubKey.__doc__ = """Terra Bech32 Account Address -- type alias of str."""
+AccPubKey.__doc__ = """Paloma Bech32 Account Address -- type alias of str."""
 
 ValPubKey = NewType("ValPubKey", str)
-ValPubKey.__doc__ = """Terra Bech32 Validator PubKey -- type alias of str."""
+ValPubKey.__doc__ = """Paloma Bech32 Validator PubKey -- type alias of str."""
 
 # ValConsPubKey = NewType("ValConsPubKey", str)
 # ValConsPubKey.__doc__ = (
-#  """Terra Bech32 Validator Conensus PubKey -- type alias of str."""
+#  """Paloma Bech32 Validator Conensus PubKey -- type alias of str."""
 # )
 
 
 def is_acc_address(data: str) -> bool:
-    """Checks whether the given string is a properly formatted Terra account address.
+    """Checks whether the given string is a properly formatted Paloma account address.
 
     Args:
         data (str): string to check
@@ -85,7 +85,7 @@ def to_acc_address(data: ValAddress) -> AccAddress:
 
 
 def is_val_address(data: str) -> bool:
-    """Checks whether the given string is a properly formatted Terra validator operator
+    """Checks whether the given string is a properly formatted Paloma validator operator
     address.
 
     Args:
@@ -116,7 +116,7 @@ def to_val_address(data: AccAddress) -> ValAddress:
 
 
 def is_acc_pubkey(data: str) -> bool:
-    """Checks whether the provided string is a properly formatted Terra account pubkey.
+    """Checks whether the provided string is a properly formatted Paloma account pubkey.
 
     Args:
         data (str): string to check
@@ -146,7 +146,7 @@ def to_acc_pubkey(data: ValPubKey) -> AccPubKey:
 
 
 def is_val_pubkey(data: str) -> bool:
-    """Checks whether provided string is a properly formatted Terra validator pubkey.
+    """Checks whether provided string is a properly formatted Paloma validator pubkey.
 
     Args:
         data (str): string to check
@@ -176,7 +176,7 @@ def to_val_pubkey(data: AccPubKey) -> ValPubKey:
 
 
 def is_valcons_pubkey(data: str) -> bool:  # -> ValConsPubKey:
-    """Checks whether provided string is a properly formatted Terra validator consensus
+    """Checks whether provided string is a properly formatted Paloma validator consensus
     pubkey.
 
     Args:

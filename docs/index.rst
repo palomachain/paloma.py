@@ -1,4 +1,4 @@
-.. Terra SDK documentation master file, created by
+.. Paloma SDK documentation master file, created by
    sphinx-quickstart on Sat Feb  6 06:21:18 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -10,9 +10,9 @@ Introduction
     :align: center
     
 
-Welcome to the official documentation for the Terra Python SDK, a simple library toolkit for building software that interacts with the Terra blockchain. 
+Welcome to the official documentation for the Paloma Python SDK, a simple library toolkit for building software that interacts with the Paloma blockchain.
 
-Unfamiliar with Terra? → `Check out Terra Docs <https://docs.paloma.money>`_
+Unfamiliar with Paloma? → `Check out Paloma Docs <https://docs.paloma.money>`_
 
 .. toctree::
     :maxdepth: 1

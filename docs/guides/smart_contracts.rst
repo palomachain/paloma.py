@@ -10,11 +10,11 @@ Contract Deployment Example
 
     import base64
     from paloma_sdk.client.lcd.api.tx import CreateTxOptions
-    from paloma_sdk.client.localpaloma import LocalTerra
+    from paloma_sdk.client.localpaloma import LocalPaloma
     from paloma_sdk.core.wasm import MsgStoreCode, MsgInstantiateContract, MsgExecuteContract
     from paloma_sdk.core.fee import Fee
     
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
     test1 = paloma.wallets["test1"]
     contract_file = open("./contract.wasm", "rb")
     file_bytes = base64.b64encode(contract_file.read()).decode()

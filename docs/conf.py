@@ -19,9 +19,9 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = "Terra SDK"
-copyright = "2021, Terraform Labs, PTE."
-author = "Terraform Labs, PTE."
+project = "Paloma SDK"
+copyright = "2021, Palomaform Labs, PTE."
+author = "Palomaform Labs, PTE."
 
 # The full version, including alpha/beta/rc tags
 release = "2.0.3"

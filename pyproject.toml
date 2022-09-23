@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "paloma-sdk"
-authors = ["Terraform Labs, PTE. <engineering@paloma.money>"]
+authors = ["Palomaform Labs, PTE. <engineering@paloma.money>"]
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
@@ -11,7 +11,7 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10"
 ]
-description = "The Python SDK for Terra"
+description = "The Python SDK for Paloma"
 documentation = "https://paloma-money.github.io/paloma.py/index.html"
 homepage = "https://github.com/paloma-money/paloma.py"
 keywords = ["jigu", "blockchain", "paloma", "defi", "crypto"]

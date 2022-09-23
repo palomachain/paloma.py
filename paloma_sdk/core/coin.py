@@ -15,7 +15,7 @@ from .numeric import Dec, Numeric
 @attr.s(frozen=True)
 class Coin(JSONSerializable):
     """Represents a (denom, amount) pairing, analagous to ``sdk.Coin`` and ``sdk.DecCoin``
-    in Cosmos SDK. Used for representing Terra native assets.
+    in Cosmos SDK. Used for representing Paloma native assets.
     """
 
     denom: str = attr.ib()

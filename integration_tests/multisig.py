@@ -3,7 +3,7 @@ import base64
 from pathlib import Path
 
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
-from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core import (
     Coins,
     LegacyAminoMultisigPublicKey,
@@ -16,7 +16,7 @@ from paloma_sdk.util.contract import get_code_id
 
 
 def main():
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
     test1 = paloma.wallets["test1"]
     test2 = paloma.wallets["test2"]
     test3 = paloma.wallets["test3"]

@@ -3,14 +3,14 @@ import base64
 from pathlib import Path
 
 from paloma_sdk.client.lcd.api.tx import BroadcastOptions
-from paloma_sdk.client.localpaloma import LocalTerra
+from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core import Coins
 from paloma_sdk.core.bank import MsgSend
 from paloma_sdk.util.contract import get_code_id
 
 
 def main():
-    paloma = LocalTerra()
+    paloma = LocalPaloma()
     test1 = paloma.wallets["test1"]
 
     print(test1)
