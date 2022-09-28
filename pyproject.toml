@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "paloma-sdk"
-authors = ["Palomaform Labs, PTE. <engineering@paloma.money>"]
+authors = ["Paloma"]
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
@@ -12,13 +12,13 @@ classifiers = [
     "Programming Language :: Python :: 3.10"
 ]
 description = "The Python SDK for Paloma"
-documentation = "https://paloma-money.github.io/paloma.py/index.html"
-homepage = "https://github.com/paloma-money/paloma.py"
+documentation = "http://docs.palomachain.coml"
+homepage = "https://github.com/palomachain/paloma.py"
 keywords = ["jigu", "blockchain", "paloma", "defi", "crypto"]
 license = "MIT"
 packages = [{ include = "paloma_sdk" }]
 readme = "README.md"
-repository = "https://github.com/paloma-money/paloma.py"
+repository = "https://github.com/palomachain/paloma.py"
 version = "3.0.1"
 
 [tool.poetry.dependencies]
