@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
-from paloma_proto.ibc.core.client.v1 import (
+from terra_proto.ibc.core.client.v1 import (
     ClientUpdateProposal as ClientUpdateProposal_pb,
 )
 

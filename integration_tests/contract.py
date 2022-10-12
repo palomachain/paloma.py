@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from paloma_proto.cosmwasm.wasm.v1 import AccessType
+from terra_proto.cosmwasm.wasm.v1 import AccessType
 
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
 from paloma_sdk.client.localpaloma import LocalPaloma

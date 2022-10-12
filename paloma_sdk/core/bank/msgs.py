@@ -5,10 +5,10 @@ from __future__ import annotations
 from typing import List
 
 from betterproto.lib.google.protobuf import Any as Any_pb
-from paloma_proto.cosmos.bank.v1beta1 import Input as Input_pb
-from paloma_proto.cosmos.bank.v1beta1 import MsgMultiSend as MsgMultiSend_pb
-from paloma_proto.cosmos.bank.v1beta1 import MsgSend as MsgSend_pb
-from paloma_proto.cosmos.bank.v1beta1 import Output as Output_pb
+from terra_proto.cosmos.bank.v1beta1 import Input as Input_pb
+from terra_proto.cosmos.bank.v1beta1 import MsgMultiSend as MsgMultiSend_pb
+from terra_proto.cosmos.bank.v1beta1 import MsgSend as MsgSend_pb
+from terra_proto.cosmos.bank.v1beta1 import Output as Output_pb
 
 from paloma_sdk.core import AccAddress, Coins
 from paloma_sdk.core.msg import Msg

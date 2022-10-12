@@ -4,11 +4,11 @@ from __future__ import annotations
 from typing import List
 
 import attr
-from paloma_proto.ibc.core.channel.v1 import Channel as Channel_pb
-from paloma_proto.ibc.core.channel.v1 import Counterparty as Counterparty_pb
-from paloma_proto.ibc.core.channel.v1 import Order
-from paloma_proto.ibc.core.channel.v1 import Packet as Packet_pb
-from paloma_proto.ibc.core.channel.v1 import State
+from terra_proto.ibc.core.channel.v1 import Channel as Channel_pb
+from terra_proto.ibc.core.channel.v1 import Counterparty as Counterparty_pb
+from terra_proto.ibc.core.channel.v1 import Order
+from terra_proto.ibc.core.channel.v1 import Packet as Packet_pb
+from terra_proto.ibc.core.channel.v1 import State
 
 from paloma_sdk.core.ibc.data.client import Height
 from paloma_sdk.util.json import JSONSerializable

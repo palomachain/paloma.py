@@ -1,19 +1,19 @@
 from typing import Union
 
-from paloma_proto.cosmos.distribution.v1beta1 import (
+from terra_proto.cosmos.distribution.v1beta1 import (
     CommunityPoolSpendProposal as CommunityPoolSpendProposal_pb,
 )
-from paloma_proto.cosmos.gov.v1beta1 import TextProposal as TextProposal_pb
-from paloma_proto.cosmos.params.v1beta1 import (
+from terra_proto.cosmos.gov.v1beta1 import TextProposal as TextProposal_pb
+from terra_proto.cosmos.params.v1beta1 import (
     ParameterChangeProposal as ParameterChangeProposal_pb,
 )
-from paloma_proto.cosmos.upgrade.v1beta1 import (
+from terra_proto.cosmos.upgrade.v1beta1 import (
     CancelSoftwareUpgradeProposal as CancelSoftwareUpgradeProposal_pb,
 )
-from paloma_proto.cosmos.upgrade.v1beta1 import (
+from terra_proto.cosmos.upgrade.v1beta1 import (
     SoftwareUpgradeProposal as SoftwareUpgradeProposal_pb,
 )
-from paloma_proto.ibc.core.client.v1 import (
+from terra_proto.ibc.core.client.v1 import (
     ClientUpdateProposal as ClientUpdateProposal_pb,
 )
 

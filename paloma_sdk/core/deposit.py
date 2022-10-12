@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import attr
-from paloma_proto.cosmos.gov.v1beta1 import Deposit as Deposit_pb
+from terra_proto.cosmos.gov.v1beta1 import Deposit as Deposit_pb
 
 from paloma_sdk.core import AccAddress
 from paloma_sdk.util.json import JSONSerializable

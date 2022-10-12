@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
-from paloma_proto.cosmos.feegrant.v1beta1 import (
+from terra_proto.cosmos.feegrant.v1beta1 import (
     MsgGrantAllowance as MsgGrantAllowance_pb,
 )
-from paloma_proto.cosmos.feegrant.v1beta1 import (
+from terra_proto.cosmos.feegrant.v1beta1 import (
     MsgRevokeAllowance as MsgRevokeAllowance_pb,
 )
 

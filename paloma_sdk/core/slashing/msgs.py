@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import attr
-from paloma_proto.cosmos.slashing.v1beta1 import MsgUnjail as MsgUnjail_pb
+from terra_proto.cosmos.slashing.v1beta1 import MsgUnjail as MsgUnjail_pb
 
 from paloma_sdk.core import ValAddress
 from paloma_sdk.core.msg import Msg

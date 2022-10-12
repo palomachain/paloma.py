@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from paloma_proto.cosmos.vesting.v1beta1 import (
+from terra_proto.cosmos.vesting.v1beta1 import (
     MsgCreatePeriodicVestingAccount as MsgCreatePeriodicVestingAccount_pb,
 )
 from paloma_sdk.core.auth.data.periodic_vesting_account import Period

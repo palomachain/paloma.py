@@ -5,7 +5,7 @@ import re
 from typing import Union
 
 import attr
-from paloma_proto.cosmos.base.v1beta1 import Coin as Coin_pb
+from terra_proto.cosmos.base.v1beta1 import Coin as Coin_pb
 
 from paloma_sdk.util.json import JSONSerializable
 

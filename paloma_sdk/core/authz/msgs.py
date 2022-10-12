@@ -6,9 +6,9 @@ from typing import List
 
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
-from paloma_proto.cosmos.authz.v1beta1 import MsgExec as MsgExec_pb
-from paloma_proto.cosmos.authz.v1beta1 import MsgGrant as MsgGrant_pb
-from paloma_proto.cosmos.authz.v1beta1 import MsgRevoke as MsgRevoke_pb
+from terra_proto.cosmos.authz.v1beta1 import MsgExec as MsgExec_pb
+from terra_proto.cosmos.authz.v1beta1 import MsgGrant as MsgGrant_pb
+from terra_proto.cosmos.authz.v1beta1 import MsgRevoke as MsgRevoke_pb
 
 from paloma_sdk.core import AccAddress
 from paloma_sdk.core.msg import Msg

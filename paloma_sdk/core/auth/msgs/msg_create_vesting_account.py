@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from paloma_proto.cosmos.vesting.v1beta1 import (
+from terra_proto.cosmos.vesting.v1beta1 import (
     MsgCreateVestingAccount as MsgCreateVestingAccount_pb,
 )
 

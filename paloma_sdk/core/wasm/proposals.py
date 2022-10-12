@@ -10,22 +10,22 @@ from typing import List, Union
 
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
-from paloma_proto.cosmwasm.wasm.v1 import ClearAdminProposal as ClearAdminProposal_pb
-from paloma_proto.cosmwasm.wasm.v1 import (
+from terra_proto.cosmwasm.wasm.v1 import ClearAdminProposal as ClearAdminProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import (
     ExecuteContractProposal as ExecuteContractProposal_pb,
 )
-from paloma_proto.cosmwasm.wasm.v1 import (
+from terra_proto.cosmwasm.wasm.v1 import (
     InstantiateContractProposal as InstantiateContractProposal_pb,
 )
-from paloma_proto.cosmwasm.wasm.v1 import (
+from terra_proto.cosmwasm.wasm.v1 import (
     MigrateContractProposal as MigrateContractProposal_pb,
 )
-from paloma_proto.cosmwasm.wasm.v1 import PinCodesProposal as PinCodesProposal_pb
-from paloma_proto.cosmwasm.wasm.v1 import StoreCodeProposal as StoreCodeProposal_pb
-from paloma_proto.cosmwasm.wasm.v1 import SudoContractProposal as SudoContractProposal_pb
-from paloma_proto.cosmwasm.wasm.v1 import UnpinCodesProposal as UnpinCodesProposal_pb
-from paloma_proto.cosmwasm.wasm.v1 import UpdateAdminProposal as UpdateAdminProposal_pb
-from paloma_proto.cosmwasm.wasm.v1 import (
+from terra_proto.cosmwasm.wasm.v1 import PinCodesProposal as PinCodesProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import StoreCodeProposal as StoreCodeProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import SudoContractProposal as SudoContractProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import UnpinCodesProposal as UnpinCodesProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import UpdateAdminProposal as UpdateAdminProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import (
     UpdateInstantiateConfigProposal as UpdateInstantiateConfigProposal_pb,
 )
 

@@ -8,16 +8,16 @@ from typing import List, Optional
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
 from dateutil import parser
-from paloma_proto.cosmos.authz.v1beta1 import (
+from terra_proto.cosmos.authz.v1beta1 import (
     GenericAuthorization as GenericAuthorization_pb,
 )
-from paloma_proto.cosmos.authz.v1beta1 import Grant as Grant_pb
-from paloma_proto.cosmos.bank.v1beta1 import SendAuthorization as SendAuthorization_pb
-from paloma_proto.cosmos.staking.v1beta1 import AuthorizationType
-from paloma_proto.cosmos.staking.v1beta1 import (
+from terra_proto.cosmos.authz.v1beta1 import Grant as Grant_pb
+from terra_proto.cosmos.bank.v1beta1 import SendAuthorization as SendAuthorization_pb
+from terra_proto.cosmos.staking.v1beta1 import AuthorizationType
+from terra_proto.cosmos.staking.v1beta1 import (
     StakeAuthorization as StakeAuthorization_pb,
 )
-from paloma_proto.cosmos.staking.v1beta1 import (
+from terra_proto.cosmos.staking.v1beta1 import (
     StakeAuthorizationValidators as StakeAuthorizationValidators_pb,
 )
 

@@ -1,8 +1,8 @@
-from paloma_proto.cosmos.authz.v1beta1 import (
+from terra_proto.cosmos.authz.v1beta1 import (
     GenericAuthorization as GenericAuthorization_pb,
 )
-from paloma_proto.cosmos.bank.v1beta1 import SendAuthorization as SendAuthorization_pb
-from paloma_proto.cosmos.staking.v1beta1 import (
+from terra_proto.cosmos.bank.v1beta1 import SendAuthorization as SendAuthorization_pb
+from terra_proto.cosmos.staking.v1beta1 import (
     StakeAuthorization as StakeAuthorization_pb,
 )
 

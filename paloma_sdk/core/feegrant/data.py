@@ -9,11 +9,11 @@ import attr
 from attr import converters
 from betterproto.lib.google.protobuf import Any as Any_pb
 from dateutil import parser
-from paloma_proto.cosmos.feegrant.v1beta1 import (
+from terra_proto.cosmos.feegrant.v1beta1 import (
     AllowedMsgAllowance as AllowedMsgAllowance_pb,
 )
-from paloma_proto.cosmos.feegrant.v1beta1 import BasicAllowance as BasicAllowance_pb
-from paloma_proto.cosmos.feegrant.v1beta1 import (
+from terra_proto.cosmos.feegrant.v1beta1 import BasicAllowance as BasicAllowance_pb
+from terra_proto.cosmos.feegrant.v1beta1 import (
     PeriodicAllowance as PeriodicAllowance_pb,
 )
 

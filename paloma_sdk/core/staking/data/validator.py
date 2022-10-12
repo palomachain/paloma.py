@@ -6,11 +6,11 @@ from typing import Union
 
 import attr
 from dateutil import parser
-from paloma_proto.cosmos.staking.v1beta1 import BondStatus
-from paloma_proto.cosmos.staking.v1beta1 import Commission as Commission_pb
-from paloma_proto.cosmos.staking.v1beta1 import CommissionRates as CommissionRates_pb
-from paloma_proto.cosmos.staking.v1beta1 import Description as Description_pb
-from paloma_proto.cosmos.staking.v1beta1 import Validator as Validator_pb
+from terra_proto.cosmos.staking.v1beta1 import BondStatus
+from terra_proto.cosmos.staking.v1beta1 import Commission as Commission_pb
+from terra_proto.cosmos.staking.v1beta1 import CommissionRates as CommissionRates_pb
+from terra_proto.cosmos.staking.v1beta1 import Description as Description_pb
+from terra_proto.cosmos.staking.v1beta1 import Validator as Validator_pb
 
 from paloma_sdk.core import Dec, ValAddress, ValConsPubKey
 from paloma_sdk.util.converter import to_isoformat

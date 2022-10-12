@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 
 import attr
-from paloma_proto.cosmos.tx.v1beta1 import SignDoc as SignDoc_pb
+from terra_proto.cosmos.tx.v1beta1 import SignDoc as SignDoc_pb
 
 from paloma_sdk.core.tx import AuthInfo, TxBody
 from paloma_sdk.util.json import JSONSerializable

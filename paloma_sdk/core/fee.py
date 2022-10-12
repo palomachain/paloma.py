@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Optional
 
 import attr
-from paloma_proto.cosmos.tx.v1beta1 import Fee as Fee_pb
+from terra_proto.cosmos.tx.v1beta1 import Fee as Fee_pb
 
 from paloma_sdk.core.bech32 import AccAddress
 from paloma_sdk.core.coins import Coins

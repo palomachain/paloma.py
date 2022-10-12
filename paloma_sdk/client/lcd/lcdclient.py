@@ -34,15 +34,7 @@ from .wallet import AsyncWallet, Wallet
 
 
 def get_default(chain_id: str) -> [Coins, Numeric]:
-    if chain_id == "paloma-testnet-10":
-        return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
-    if chain_id == "pisco-1":
-        return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
-    if chain_id == "localpaloma":
-        return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
-
-    raise ValueError("chain_id is invalid")
-
+    return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
 
 class AsyncLCDClient:
     def __init__(
@@ -106,6 +98,8 @@ class AsyncLCDClient:
             and callable(getattr(params, "to_dict"))
         ):
             params = params.to_dict()
+
+        print(urljoin(self.url, endpoint))
 
         async with self.session.get(
             urljoin(self.url, endpoint), params=params

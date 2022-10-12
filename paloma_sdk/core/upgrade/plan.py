@@ -11,7 +11,7 @@ import attr
 from attr import converters
 from betterproto.lib.google.protobuf import Any as Any_pb
 from dateutil import parser
-from paloma_proto.cosmos.upgrade.v1beta1 import Plan as Plan_pb
+from terra_proto.cosmos.upgrade.v1beta1 import Plan as Plan_pb
 
 from paloma_sdk.util.converter import to_isoformat
 from paloma_sdk.util.json import JSONSerializable

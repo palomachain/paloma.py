@@ -6,7 +6,7 @@ from itertools import starmap
 from typing import List
 
 import attr
-from paloma_proto.cosmos.vesting.v1beta1 import (
+from terra_proto.cosmos.vesting.v1beta1 import (
     DelayedVestingAccount as DelayedVestingAccount_pb,
 )
 

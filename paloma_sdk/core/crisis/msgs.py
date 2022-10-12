@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from betterproto.lib.google.protobuf import Any as Any_pb
-from paloma_proto.cosmos.crisis.v1beta1 import (
+from terra_proto.cosmos.crisis.v1beta1 import (
     MsgVerifyInvariant as MsgVerifyInvariant_pb,
 )
 
