@@ -2,7 +2,7 @@ from paloma_sdk.client.lcd import LCDClient, PaginationOptions
 from paloma_sdk.core import Coins
 
 paloma = LCDClient(
-    url="https://pisco-lcd.paloma.dev/",
+    url="https://lcd.testnet.palomaswap.com/",
     chain_id="pisco-1",
 )
 
@@ -40,4 +40,4 @@ def test_account_info():
     )
     assert result.start_time == "1660000000"
     assert result.vesting_periods[0].length == 604800
-    assert result.vesting_periods[0].amount == Coins("1000000000uluna")
+    assert result.vesting_periods[0].amount == Coins("1000000000ugrain")

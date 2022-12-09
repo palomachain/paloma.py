@@ -111,7 +111,7 @@ In order to interact with the Paloma blockchain, you'll need a connection to a P
 
 ```
 >>> from paloma_sdk.client.lcd import LCDClient
->>> paloma = LCDClient(chain_id="<CHECK DOCS FOR LATEST TESTNET>", url="https://testnet.palomaswap.com")
+>>> paloma = LCDClient(chain_id="<CHECK DOCS FOR LATEST TESTNET>", url="https://lcd.testnet.palomaswap.com")
 ```
 
 ## Getting Blockchain Information
@@ -133,7 +133,7 @@ If you want to make asynchronous, non-blocking LCD requests, you can use AsyncLC
 >>> from paloma_sdk.client.lcd import AsyncLCDClient
 
 >>> async def main():
-      <strong>paloma = AsyncLCDClient("https://testnet.palomaswap.com", "<CHECK DOCS FOR LATEST TESTNET>")</strong>
+      <strong>paloma = AsyncLCDClient("https://lcd.testnet.palomaswap.com", "<CHECK DOCS FOR LATEST TESTNET>")</strong>
       total_supply = await paloma.bank.total()
       print(total_supply)
       <strong>await paloma.session.close # you must close the session</strong>
@@ -159,7 +159,7 @@ Use `LCDClient.wallet()` to create a Wallet from any Key instance. The Key provi
 >>> from paloma_sdk.key.mnemonic import MnemonicKey
 
 >>> mk = MnemonicKey(mnemonic=MNEMONIC)
->>> paloma = LCDClient("https://testnet.palomaswap.com", "<CHECK DOCS FOR LATEST TESTNET>")
+>>> paloma = LCDClient("https://lcd.testnet.palomaswap.com", "<CHECK DOCS FOR LATEST TESTNET>")
 >>> wallet = paloma.wallet(mk)
 ```
 
@@ -174,10 +174,10 @@ Once you have your Wallet, you can simply create a StdTx using `Wallet.create_an
         msgs=[MsgSend(
             wallet.key.acc_address,
             RECIPIENT,
-            "1000000uluna"    # send 1 luna
+            "1000000ugrain"    # send 1 luna
         )],
         memo="test transaction!",
-        fee=Fee(200000, "120000uluna")
+        fee=Fee(200000, "120000ugrain")
     ))
 ```
 

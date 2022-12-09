@@ -10,7 +10,7 @@ from paloma_sdk.util.contract import get_code_id
 
 def main():
     paloma = LCDClient(
-        url="https://pisco-lcd.paloma.dev/",
+        url="https://lcd.testnet.palomaswap.com/",
         chain_id="pisco-1",
     )
 
@@ -26,7 +26,7 @@ def main():
                 MsgTransfer(
                     source_port="transfer",
                     source_channel="channel-9",
-                    token="10000uluna",
+                    token="10000ugrain",
                     sender="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
                     receiver="paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
                     timeout_height=Height(revision_number=0, revision_height=10000),

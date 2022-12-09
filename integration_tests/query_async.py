@@ -12,7 +12,7 @@ from paloma_sdk.util.contract import get_code_id
 
 async def main():
     paloma = AsyncLCDClient(
-        url="https://pisco-lcd.paloma.dev/",
+        url="https://lcd.testnet.palomaswap.com/",
         chain_id="pisco-1",
     )
 

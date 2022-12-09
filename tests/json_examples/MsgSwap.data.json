@@ -376,11 +376,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "3056uluna"
+                              "value": "3056ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "62.989447419036158528uluna"
+                              "value": "62.989447419036158528ugrain"
                           }
                       ]
                   },
@@ -400,7 +400,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "3056uluna"
+                              "value": "3056ugrain"
                           }
                       ]
                   }
@@ -419,7 +419,7 @@
                               "denom": "ukrw",
                               "amount": "1000000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -472,11 +472,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "3056uluna"
+                          "value": "3056ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "62.989447419036158528uluna"
+                          "value": "62.989447419036158528ugrain"
                       }
                   ]
               },
@@ -496,7 +496,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "3056uluna"
+                          "value": "3056ugrain"
                       }
                   ]
               }
@@ -542,11 +542,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "1432131uluna"
+                              "value": "1432131ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "29227.313817330210772834uluna"
+                              "value": "29227.313817330210772834ugrain"
                           }
                       ]
                   },
@@ -566,7 +566,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "1432131uluna"
+                              "value": "1432131ugrain"
                           }
                       ]
                   }
@@ -585,7 +585,7 @@
                               "denom": "ukrw",
                               "amount": "468000000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -638,11 +638,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "1432131uluna"
+                          "value": "1432131ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "29227.313817330210772834uluna"
+                          "value": "29227.313817330210772834ugrain"
                       }
                   ]
               },
@@ -662,7 +662,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "1432131uluna"
+                          "value": "1432131ugrain"
                       }
                   ]
               }
@@ -708,11 +708,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "6710226uluna"
+                              "value": "6710226ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "136944.004784803505397649uluna"
+                              "value": "136944.004784803505397649ugrain"
                           }
                       ]
                   },
@@ -732,7 +732,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "6710226uluna"
+                              "value": "6710226ugrain"
                           }
                       ]
                   }
@@ -751,7 +751,7 @@
                               "denom": "usdr",
                               "amount": "1350147"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -804,11 +804,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "6710226uluna"
+                          "value": "6710226ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "136944.004784803505397649uluna"
+                          "value": "136944.004784803505397649ugrain"
                       }
                   ]
               },
@@ -828,7 +828,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "6710226uluna"
+                          "value": "6710226ugrain"
                       }
                   ]
               }
@@ -874,11 +874,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "3787823uluna"
+                              "value": "3787823ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "77303.037383177570093458uluna"
+                              "value": "77303.037383177570093458ugrain"
                           }
                       ]
                   },
@@ -898,7 +898,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "3787823uluna"
+                              "value": "3787823ugrain"
                           }
                       ]
                   }
@@ -917,12 +917,12 @@
                               "denom": "ukrw",
                               "amount": "1240705458"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
                       "amount": [{
-                          "denom": "uluna",
+                          "denom": "ugrain",
                           "amount": "2257"
                       }],
                       "gas": "150466"
@@ -970,11 +970,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "3787823uluna"
+                          "value": "3787823ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "77303.037383177570093458uluna"
+                          "value": "77303.037383177570093458ugrain"
                       }
                   ]
               },
@@ -994,7 +994,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "3787823uluna"
+                          "value": "3787823ugrain"
                       }
                   ]
               }
@@ -1040,11 +1040,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "609608uluna"
+                              "value": "609608ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "12441.844236760124610589uluna"
+                              "value": "12441.844236760124610589ugrain"
                           }
                       ]
                   },
@@ -1064,7 +1064,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "609608uluna"
+                              "value": "609608ugrain"
                           }
                       ]
                   }
@@ -1083,7 +1083,7 @@
                               "denom": "ukrw",
                               "amount": "199678000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -1136,11 +1136,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "609608uluna"
+                          "value": "609608ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "12441.844236760124610589uluna"
+                          "value": "12441.844236760124610589ugrain"
                       }
                   ]
               },
@@ -1160,7 +1160,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "609608uluna"
+                          "value": "609608ugrain"
                       }
                   ]
               }
@@ -1206,11 +1206,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "609608uluna"
+                              "value": "609608ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "12441.844236760124610589uluna"
+                              "value": "12441.844236760124610589ugrain"
                           }
                       ]
                   },
@@ -1230,7 +1230,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "609608uluna"
+                              "value": "609608ugrain"
                           }
                       ]
                   }
@@ -1249,7 +1249,7 @@
                               "denom": "ukrw",
                               "amount": "199678000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -1302,11 +1302,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "609608uluna"
+                          "value": "609608ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "12441.844236760124610589uluna"
+                          "value": "12441.844236760124610589ugrain"
                       }
                   ]
               },
@@ -1326,7 +1326,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "609608uluna"
+                          "value": "609608ugrain"
                       }
                   ]
               }
@@ -1372,11 +1372,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "43390323uluna"
+                              "value": "43390323ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "885517.565400409004283521uluna"
+                              "value": "885517.565400409004283521ugrain"
                           }
                       ]
                   },
@@ -1396,7 +1396,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "43390323uluna"
+                              "value": "43390323ugrain"
                           }
                       ]
                   }
@@ -1415,7 +1415,7 @@
                               "denom": "ukrw",
                               "amount": "14200000000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -1465,11 +1465,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "43390323uluna"
+                          "value": "43390323ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "885517.565400409004283521uluna"
+                          "value": "885517.565400409004283521ugrain"
                       }
                   ]
               },
@@ -1489,7 +1489,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "43390323uluna"
+                          "value": "43390323ugrain"
                       }
                   ]
               }
@@ -1859,7 +1859,7 @@
                       "type": "swap",
                       "attributes": [{
                               "key": "offer",
-                              "value": "10000000uluna"
+                              "value": "10000000ugrain"
                           },
                           {
                               "key": "trader",
@@ -1883,7 +1883,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "10000000uluna"
+                              "value": "10000000ugrain"
                           },
                           {
                               "key": "recipient",
@@ -1907,7 +1907,7 @@
                       "value": {
                           "trader": "paloma1vqnhgc6d0jyggtytzqrnsc40r4zez6tx92a66a",
                           "offer_coin": {
-                              "denom": "uluna",
+                              "denom": "ugrain",
                               "amount": "10000000"
                           },
                           "ask_denom": "ukrw"
@@ -1915,7 +1915,7 @@
                   }],
                   "fee": {
                       "amount": [{
-                          "denom": "uluna",
+                          "denom": "ugrain",
                           "amount": "2304"
                       }],
                       "gas": "153600"
@@ -1955,7 +1955,7 @@
                   "type": "swap",
                   "attributes": [{
                           "key": "offer",
-                          "value": "10000000uluna"
+                          "value": "10000000ugrain"
                       },
                       {
                           "key": "trader",
@@ -1979,7 +1979,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "10000000uluna"
+                          "value": "10000000ugrain"
                       },
                       {
                           "key": "recipient",
@@ -2025,7 +2025,7 @@
                       "type": "swap",
                       "attributes": [{
                               "key": "offer",
-                              "value": "1000000uluna"
+                              "value": "1000000ugrain"
                           },
                           {
                               "key": "trader",
@@ -2049,7 +2049,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "1000000uluna"
+                              "value": "1000000ugrain"
                           },
                           {
                               "key": "recipient",
@@ -2073,7 +2073,7 @@
                       "value": {
                           "trader": "paloma15vh8gka6p2pgjv4kc7uu060heythp2feqyfkkm",
                           "offer_coin": {
-                              "denom": "uluna",
+                              "denom": "ugrain",
                               "amount": "1000000"
                           },
                           "ask_denom": "ukrw"
@@ -2121,7 +2121,7 @@
                   "type": "swap",
                   "attributes": [{
                           "key": "offer",
-                          "value": "1000000uluna"
+                          "value": "1000000ugrain"
                       },
                       {
                           "key": "trader",
@@ -2145,7 +2145,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "1000000uluna"
+                          "value": "1000000ugrain"
                       },
                       {
                           "key": "recipient",
@@ -2199,11 +2199,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "3082084uluna"
+                              "value": "3082084ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "62899.750917287189724090uluna"
+                              "value": "62899.750917287189724090ugrain"
                           }
                       ]
                   },
@@ -2223,7 +2223,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "3082084uluna"
+                              "value": "3082084ugrain"
                           }
                       ]
                   }
@@ -2242,7 +2242,7 @@
                               "denom": "ukrw",
                               "amount": "1000000000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -2295,11 +2295,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "3082084uluna"
+                          "value": "3082084ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "62899.750917287189724090uluna"
+                          "value": "62899.750917287189724090ugrain"
                       }
                   ]
               },
@@ -2319,7 +2319,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "3082084uluna"
+                          "value": "3082084ugrain"
                       }
                   ]
               }
@@ -2365,11 +2365,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "9374359uluna"
+                              "value": "9374359ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "191313.971132183981239305uluna"
+                              "value": "191313.971132183981239305ugrain"
                           }
                       ]
                   },
@@ -2389,7 +2389,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "9374359uluna"
+                              "value": "9374359ugrain"
                           }
                       ]
                   }
@@ -2408,7 +2408,7 @@
                               "denom": "ukrw",
                               "amount": "3043000000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -2461,11 +2461,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "9374359uluna"
+                          "value": "9374359ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "191313.971132183981239305uluna"
+                          "value": "191313.971132183981239305ugrain"
                       }
                   ]
               },
@@ -2485,7 +2485,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "9374359uluna"
+                          "value": "9374359ugrain"
                       }
                   ]
               }
@@ -2532,11 +2532,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "11293736uluna"
+                              "value": "11293736ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "230484.656146179538017925uluna"
+                              "value": "230484.656146179538017925ugrain"
                           }
                       ]
                   },
@@ -2556,7 +2556,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "11293736uluna"
+                              "value": "11293736ugrain"
                           }
                       ]
                   }
@@ -2575,7 +2575,7 @@
                               "denom": "ukrw",
                               "amount": "3700043112"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -2628,11 +2628,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "11293736uluna"
+                          "value": "11293736ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "230484.656146179538017925uluna"
+                          "value": "230484.656146179538017925ugrain"
                       }
                   ]
               },
@@ -2652,7 +2652,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "11293736uluna"
+                          "value": "11293736ugrain"
                       }
                   ]
               }
@@ -2698,11 +2698,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "924998uluna"
+                              "value": "924998ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "18878.226571829129249484uluna"
+                              "value": "18878.226571829129249484ugrain"
                           }
                       ]
                   },
@@ -2722,7 +2722,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "924998uluna"
+                              "value": "924998ugrain"
                           }
                       ]
                   }
@@ -2741,7 +2741,7 @@
                               "denom": "ukrw",
                               "amount": "303000000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -2794,11 +2794,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "924998uluna"
+                          "value": "924998ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "18878.226571829129249484uluna"
+                          "value": "18878.226571829129249484ugrain"
                       }
                   ]
               },
@@ -2818,7 +2818,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "924998uluna"
+                          "value": "924998ugrain"
                       }
                   ]
               }
@@ -2864,11 +2864,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "319020uluna"
+                              "value": "319020ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "6511.498055483517237373uluna"
+                              "value": "6511.498055483517237373ugrain"
                           }
                       ]
                   },
@@ -2888,7 +2888,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "319020uluna"
+                              "value": "319020ugrain"
                           }
                       ]
                   }
@@ -2907,12 +2907,12 @@
                               "denom": "ukrw",
                               "amount": "104631249"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
                       "amount": [{
-                          "denom": "uluna",
+                          "denom": "ugrain",
                           "amount": "2243"
                       }],
                       "gas": "149533"
@@ -2960,11 +2960,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "319020uluna"
+                          "value": "319020ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "6511.498055483517237373uluna"
+                          "value": "6511.498055483517237373ugrain"
                       }
                   ]
               },
@@ -2984,7 +2984,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "319020uluna"
+                          "value": "319020ugrain"
                       }
                   ]
               }
@@ -3022,7 +3022,7 @@
                       "type": "swap",
                       "attributes": [{
                               "key": "offer",
-                              "value": "1586733047uluna"
+                              "value": "1586733047ugrain"
                           },
                           {
                               "key": "trader",
@@ -3030,11 +3030,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "5679662316uluna"
+                              "value": "5679662316ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "115911476.237465710376852488uluna"
+                              "value": "115911476.237465710376852488ugrain"
                           }
                       ]
                   },
@@ -3046,7 +3046,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "1586733047uluna"
+                              "value": "1586733047ugrain"
                           },
                           {
                               "key": "recipient",
@@ -3054,7 +3054,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "5679662316uluna"
+                              "value": "5679662316ugrain"
                           }
                       ]
                   }
@@ -3070,10 +3070,10 @@
                       "value": {
                           "trader": "paloma1t2a44r52qgtfhpwe8f9q7jvlk9u32vd54geny3",
                           "offer_coin": {
-                              "denom": "uluna",
+                              "denom": "ugrain",
                               "amount": "1586733047"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -3118,7 +3118,7 @@
                   "type": "swap",
                   "attributes": [{
                           "key": "offer",
-                          "value": "1586733047uluna"
+                          "value": "1586733047ugrain"
                       },
                       {
                           "key": "trader",
@@ -3126,11 +3126,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "5679662316uluna"
+                          "value": "5679662316ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "115911476.237465710376852488uluna"
+                          "value": "115911476.237465710376852488ugrain"
                       }
                   ]
               },
@@ -3142,7 +3142,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "1586733047uluna"
+                          "value": "1586733047ugrain"
                       },
                       {
                           "key": "recipient",
@@ -3150,7 +3150,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "5679662316uluna"
+                          "value": "5679662316ugrain"
                       }
                   ]
               }
@@ -3196,11 +3196,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "7832891uluna"
+                              "value": "7832891ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "159855.113989636834897746uluna"
+                              "value": "159855.113989636834897746ugrain"
                           }
                       ]
                   },
@@ -3220,7 +3220,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "7832891uluna"
+                              "value": "7832891ugrain"
                           }
                       ]
                   }
@@ -3239,7 +3239,7 @@
                               "denom": "ukrw",
                               "amount": "2571000000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -3292,11 +3292,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "7832891uluna"
+                          "value": "7832891ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "159855.113989636834897746uluna"
+                          "value": "159855.113989636834897746ugrain"
                       }
                   ]
               },
@@ -3316,7 +3316,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "7832891uluna"
+                          "value": "7832891ugrain"
                       }
                   ]
               }
@@ -3363,11 +3363,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "3278258uluna"
+                              "value": "3278258ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "66904.199544135772767719uluna"
+                              "value": "66904.199544135772767719ugrain"
                           }
                       ]
                   },
@@ -3387,7 +3387,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "3278258uluna"
+                              "value": "3278258ugrain"
                           }
                       ]
                   }
@@ -3406,7 +3406,7 @@
                               "denom": "ukrw",
                               "amount": "1076250185"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -3459,11 +3459,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "3278258uluna"
+                          "value": "3278258ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "66904.199544135772767719uluna"
+                          "value": "66904.199544135772767719ugrain"
                       }
                   ]
               },
@@ -3483,7 +3483,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "3278258uluna"
+                          "value": "3278258ugrain"
                       }
                   ]
               }
@@ -3695,11 +3695,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "32003178uluna"
+                              "value": "32003178ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "653126.471544714286211613uluna"
+                              "value": "653126.471544714286211613ugrain"
                           }
                       ]
                   },
@@ -3719,7 +3719,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "32003178uluna"
+                              "value": "32003178ugrain"
                           }
                       ]
                   }
@@ -3738,7 +3738,7 @@
                               "denom": "ukrw",
                               "amount": "10443486170"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -3791,11 +3791,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "32003178uluna"
+                          "value": "32003178ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "653126.471544714286211613uluna"
+                          "value": "653126.471544714286211613ugrain"
                       }
                   ]
               },
@@ -3815,7 +3815,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "32003178uluna"
+                          "value": "32003178ugrain"
                       }
                   ]
               }
@@ -3861,11 +3861,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "15318081uluna"
+                              "value": "15318081ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "312614.566091804674006934uluna"
+                              "value": "312614.566091804674006934ugrain"
                           }
                       ]
                   },
@@ -3885,7 +3885,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "15318081uluna"
+                              "value": "15318081ugrain"
                           }
                       ]
                   }
@@ -3904,7 +3904,7 @@
                               "denom": "ukrw",
                               "amount": "4999999000"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -3957,11 +3957,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "15318081uluna"
+                          "value": "15318081ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "312614.566091804674006934uluna"
+                          "value": "312614.566091804674006934ugrain"
                       }
                   ]
               },
@@ -3981,7 +3981,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "15318081uluna"
+                          "value": "15318081ugrain"
                       }
                   ]
               }
@@ -4027,11 +4027,11 @@
                           },
                           {
                               "key": "swap_coin",
-                              "value": "44246uluna"
+                              "value": "44246ugrain"
                           },
                           {
                               "key": "swap_fee",
-                              "value": "903.125747892567670983uluna"
+                              "value": "903.125747892567670983ugrain"
                           }
                       ]
                   },
@@ -4051,7 +4051,7 @@
                           },
                           {
                               "key": "amount",
-                              "value": "44246uluna"
+                              "value": "44246ugrain"
                           }
                       ]
                   }
@@ -4070,7 +4070,7 @@
                               "denom": "umnt",
                               "amount": "33545673"
                           },
-                          "ask_denom": "uluna"
+                          "ask_denom": "ugrain"
                       }
                   }],
                   "fee": {
@@ -4123,11 +4123,11 @@
                       },
                       {
                           "key": "swap_coin",
-                          "value": "44246uluna"
+                          "value": "44246ugrain"
                       },
                       {
                           "key": "swap_fee",
-                          "value": "903.125747892567670983uluna"
+                          "value": "903.125747892567670983ugrain"
                       }
                   ]
               },
@@ -4147,7 +4147,7 @@
                       },
                       {
                           "key": "amount",
-                          "value": "44246uluna"
+                          "value": "44246ugrain"
                       }
                   ]
               }

@@ -8,11 +8,11 @@ class TestDoSessionGet(asynctest.TestCase):
     @aioresponses()
     def test_makes_request_to_expected_url(self, mocked):
         mocked.get(
-            "https://pisco-lcd.paloma.dev/cosmos/base/tendermint/v1beta1/node_info",
+            "https://lcd.testnet.palomaswap.com/cosmos/base/tendermint/v1beta1/node_info",
             status=200,
             body='{"response": "test"}',
         )
-        paloma = LCDClient(chain_id="pisco-1", url="https://pisco-lcd.paloma.dev/")
+        paloma = LCDClient(chain_id="pisco-1", url="https://lcd.testnet.palomaswap.com/")
 
         resp = paloma.tendermint.node_info()
         assert resp == {"response": "test"}
@@ -21,11 +21,11 @@ class TestDoSessionGet(asynctest.TestCase):
     @aioresponses()
     async def test_makes_request_to_expected_url_async(self, mocked):
         mocked.get(
-            "https://pisco-lcd.paloma.dev/cosmos/base/tendermint/v1beta1/node_info",
+            "https://lcd.testnet.palomaswap.com/cosmos/base/tendermint/v1beta1/node_info",
             status=200,
             body='{"response": "test"}',
         )
-        paloma = AsyncLCDClient(chain_id="pisco-1", url="https://pisco-lcd.paloma.dev/")
+        paloma = AsyncLCDClient(chain_id="pisco-1", url="https://lcd.testnet.palomaswap.com/")
 
         resp = await paloma.tendermint.node_info()
         print(resp)

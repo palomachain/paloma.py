@@ -34,7 +34,7 @@ from .wallet import AsyncWallet, Wallet
 
 
 def get_default(chain_id: str) -> [Coins, Numeric]:
-    return [Coins.from_str("0.15uluna"), Numeric.parse(1.75)]
+    return [Coins.from_str("0.15ugrain"), Numeric.parse(1.75)]
 
 class AsyncLCDClient:
     def __init__(

@@ -32,7 +32,7 @@ def test_random():
 
 def test_signature():
 
-    paloma = LCDClient(url="https://pisco-lcd.paloma.dev", chain_id="pisco-1")
+    paloma = LCDClient(url="https://lcd.testnet.palomaswap.com", chain_id="pisco-1")
 
     mk = MnemonicKey(
         "island relax shop such yellow opinion find know caught erode blue dolphin behind coach tattoo light focus snake common size analyst imitate employ walnut"
@@ -43,7 +43,7 @@ def test_signature():
     send = MsgSend(
         mk.acc_address,
         "paloma1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv",
-        dict(uluna="100000000"),
+        dict(ugrain="100000000"),
     )
 
     tx = paloma.tx.create(
@@ -53,7 +53,7 @@ def test_signature():
             )
         ],
         options=CreateTxOptions(
-            msgs=[send], memo="memo", fee=Fee(200000, Coins.from_str("100000uluna"))
+            msgs=[send], memo="memo", fee=Fee(200000, Coins.from_str("100000ugrain"))
         ),
     )
 

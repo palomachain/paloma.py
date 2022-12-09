@@ -17,7 +17,7 @@ def main():
     msg = MsgSend(
         "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
         "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
-        Coins(uluna=1000000),
+        Coins(ugrain=1000000),
     )
     print(msg)
     tx = test1.create_and_sign_tx(msgs=[msg])

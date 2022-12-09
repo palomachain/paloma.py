@@ -43,27 +43,27 @@ def main():
     inputs = [
         MultiSendInput(
             address=wallet1.key.acc_address,
-            coins=Coins(uluna=10000),
+            coins=Coins(ugrain=10000),
         ),
         MultiSendInput(
             address=wallet2.key.acc_address,
-            coins=Coins(uluna=20000),
+            coins=Coins(ugrain=20000),
         ),
     ]
     outputs = [
         MultiSendOutput(
             address=wallet2.key.acc_address,
-            coins=Coins(uluna=10000),
+            coins=Coins(ugrain=10000),
         ),
         MultiSendOutput(
             address=wallet1.key.acc_address,
-            coins=Coins(uluna=20000),
+            coins=Coins(ugrain=20000),
         ),
     ]
 
     msg = MsgMultiSend(inputs, outputs)
 
-    opt = CreateTxOptions(msgs=[msg], memo="memo", gas_prices="0.38uluna")
+    opt = CreateTxOptions(msgs=[msg], memo="memo", gas_prices="0.38ugrain")
 
     tx = paloma.tx.create(
         [

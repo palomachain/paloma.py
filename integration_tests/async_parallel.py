@@ -12,7 +12,7 @@ async def with_sem(aw, sem):
 
 
 async def main():
-    paloma = AsyncLCDClient(url="https://pisco-lcd.paloma.dev", chain_id="pisco-1")
+    paloma = AsyncLCDClient(url="https://lcd.testnet.palomaswap.com", chain_id="pisco-1")
     validators, _ = await paloma.staking.validators()
     validator_addresses = [v.operator_address for v in validators]
 

@@ -23,13 +23,13 @@ def main():
     msg = MsgSend(
         "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
         "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
-        Coins(uluna=20000),
+        Coins(ugrain=20000),
     )
     print(msg)
     tx = test1.create_and_sign_tx(
         CreateTxOptions(
             msgs=[msg],
-            gas_prices="0.15uluna",
+            gas_prices="0.15ugrain",
             gas="63199",  # gas="auto", gas_adjustment=1.1
         )
     )
