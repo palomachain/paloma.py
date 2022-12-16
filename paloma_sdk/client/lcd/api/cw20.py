@@ -1,25 +1,195 @@
 from ._base import BaseAsyncAPI, sync_bind
 from ..wallet import Wallet
 from .tx import Tx, CreateTxOptions, SignerOptions
-from paloma_sdk.core.wasm import MsgInstantiateContract
+from paloma_sdk.core.wasm import MsgInstantiateContract, MsgExecuteContract
 from paloma_sdk.core.coins import Coins
+from paloma_sdk.core import AccAddress
 
 __all__ = ["AsyncCw20API", "Cw20API"]
 
-
 class AsyncCw20API(BaseAsyncAPI):
-    async def deploy(self, wallet: Wallet, code_id: int, name: str, symbol: str, decimals: int, total_supply: int) -> Tx:
+    async def deploy(
+        self,
+        wallet: Wallet,
+        code_id: int,
+        name: str,
+        symbol: str,
+        decimals: int,
+        total_supply: int
+    ) -> Tx:
         """Deploy the Cw20 smart contract using code id.
+            total supply amount is minted to deployer wallet.
+        Args:
+            wallet (Wallet): CW20 deployer wallet
+            code_id (int): Code_id of CW20 code
+            name (str): CW20 token name
+            symbol (str): CW20 token symbol
+            decimals (int): CW20 token decimals
+            total_supply (int): CW20 token total supply
+        Returns:
+            Tx: Transaction
         """
-        instantiate_msg = {"name": name, "symbol": symbol, "decimals": decimals, "initial_balances": [{"address": wallet.key.acc_address, "amount": total_supply}]}
+        instantiate_msg = {
+            "name": name,
+            "symbol": symbol,
+            "decimals": decimals,
+            "initial_balances": [
+                {
+                    "address": wallet.key.acc_address,
+                    "amount": total_supply
+                }
+            ]
+        }
         funds = Coins.from_str("0ugrain")
-        tx = wallet.create_and_sign_tx(CreateTxOptions(msgs=[MsgInstantiateContract(wallet.key.acc_address, None, code_id, "CW20", instantiate_msg, funds)]))
+        tx = wallet.create_and_sign_tx(CreateTxOptions(
+            msgs=[MsgInstantiateContract(
+                wallet.key.acc_address,
+                None,
+                code_id,
+                "CW20",
+                instantiate_msg,
+                funds
+            )]
+        ))
         return tx
 
+    async def send(
+        self,
+        wallet: Wallet,
+        token: str,
+        recipient: str,
+        amount: int,
+        msg: str
+    ) -> Tx:
+        """Send CW20 token to the other address and run msg
+        Args:
+            wallet (Wallet): CW20 deployer wallet
+            token (str): token address
+            recipient (str): token receiver address
+            amount (str): send amount
+            msg
+        Returns:
+            Tx: Transaction
+        """
+        execute_msg = {"send": {
+            "contract": recipient,
+            "amount": amount,
+            "msg": msg
+        }}
+        funds = Coins.from_str("0ugrain")
+        tx = wallet.create_and_sign_tx(CreateTxOptions(
+            msgs=[MsgExecuteContract(
+                wallet.key.acc_address,
+                token,
+                execute_msg,
+                funds
+            )]
+        ))
+        return tx
+
+    async def transfer(
+        self,
+        wallet: Wallet,
+        token: str,
+        recipient: str,
+        amount: int
+    ) -> Tx:
+        """Transfer CW20 token to the other address.
+        Args:
+            wallet (Wallet): CW20 deployer wallet
+            token (str): token address
+            recipient (str): token receiver address
+            amount (str): send amount
+        Returns:
+            Tx: Transaction
+        """
+        execute_msg = {"transfer": {
+            "contract": recipient,
+            "amount": amount,
+        }}
+        funds = Coins.from_str("0ugrain")
+        tx = wallet.create_and_sign_tx(CreateTxOptions(
+            msgs=[MsgExecuteContract(
+                wallet.key.acc_address,
+                token,
+                execute_msg,
+                funds
+            )]
+        ))
+        return tx
+
+    async def burn(
+        self,
+        wallet: Wallet,
+        token: str,
+        amount: int
+    ) -> Tx:
+        """Burn CW20 token from the wallet address.
+        Args:
+            wallet (Wallet): CW20 deployer wallet
+            token (str): token address
+            amount (str): send amount
+        Returns:
+            Tx: Transaction
+        """
+        execute_msg = {"burn": {
+            "amount": amount,
+        }}
+        funds = Coins.from_str("0ugrain")
+        tx = wallet.create_and_sign_tx(CreateTxOptions(
+            msgs=[MsgExecuteContract(
+                wallet.key.acc_address,
+                token,
+                execute_msg,
+                funds
+            )]
+        ))
+        return tx
 
 class Cw20API(AsyncCw20API):
     @sync_bind(AsyncCw20API.deploy)
-    def deploy(self, code_id, name, symbol, decimals, total_supply) -> Tx:
+    def deploy(
+        self,
+        wallet: Wallet,
+        code_id: int,
+        name: str,
+        symbol: str,
+        decimals: int,
+        total_supply: int
+    ) -> Tx:
+        pass
+
+    @sync_bind(AsyncCw20API.send)
+    def send(
+        self,
+        wallet: Wallet,
+        token: str,
+        recipient: str,
+        amount: int,
+        msg: str
+    ) -> Tx:
+        pass
+
+    @sync_bind(AsyncCw20API.transfer)
+    def transfer(
+        self,
+        wallet: Wallet,
+        token: str,
+        recipient: str,
+        amount: int
+    ) -> Tx:
+        pass
+
+    @sync_bind(AsyncCw20API.burn)
+    def burn(
+        self,
+        wallet: Wallet,
+        token: str,
+        amount: int
+    ) -> Tx:
         pass
 
     deploy.__doc__ = AsyncCw20API.deploy.__doc__
+    send.__doc__ = AsyncCw20API.send.__doc__
+    transfer.__doc__ = AsyncCw20API.transfer.__doc__
+    burn.__doc__ = AsyncCw20API.burn.__doc__
