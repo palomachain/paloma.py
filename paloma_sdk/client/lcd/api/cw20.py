@@ -64,7 +64,7 @@ class AsyncCw20API(BaseAsyncAPI):
     ) -> BlockTxBroadcastResult:
         """Send CW20 token to the other address and run msg
         Args:
-            wallet (Wallet): CW20 deployer wallet
+            wallet (Wallet): CW20 sender wallet
             token (str): token address
             recipient (str): token receiver address
             amount (str): send amount
@@ -98,7 +98,7 @@ class AsyncCw20API(BaseAsyncAPI):
     ) -> BlockTxBroadcastResult:
         """Transfer CW20 token to the other address.
         Args:
-            wallet (Wallet): CW20 deployer wallet
+            wallet (Wallet): CW20 sender wallet
             token (str): token address
             recipient (str): token receiver address
             amount (str): send amount
@@ -129,7 +129,7 @@ class AsyncCw20API(BaseAsyncAPI):
     ) -> BlockTxBroadcastResult:
         """Burn CW20 token from the wallet address.
         Args:
-            wallet (Wallet): CW20 deployer wallet
+            wallet (Wallet): CW20 wallet to burn token
             token (str): token address
             amount (str): send amount
         Returns:
@@ -151,8 +151,8 @@ class AsyncCw20API(BaseAsyncAPI):
         return result
 
 class Cw20API(AsyncCw20API):
-    @sync_bind(AsyncCw20API.deploy)
-    def deploy(
+    @sync_bind(AsyncCw20API.instantiate)
+    def instantiate(
         self,
         wallet: Wallet,
         code_id: int,
@@ -193,7 +193,7 @@ class Cw20API(AsyncCw20API):
     ) -> BlockTxBroadcastResult:
         pass
 
-    deploy.__doc__ = AsyncCw20API.deploy.__doc__
+    instantiate.__doc__ = AsyncCw20API.instantiate.__doc__
     send.__doc__ = AsyncCw20API.send.__doc__
     transfer.__doc__ = AsyncCw20API.transfer.__doc__
     burn.__doc__ = AsyncCw20API.burn.__doc__
