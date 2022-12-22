@@ -23,7 +23,7 @@ LOCALPALOMA_MNEMONICS = {
 LOCALPALOMA_DEFAULTS = {
     "url": "http://localhost:1317",
     "chain_id": "localpaloma",
-    "gas_prices": {"uluna": "0.15"},
+    "gas_prices": {"ugrain": "0.15"},
     "gas_adjustment": 1.75,
 }
 

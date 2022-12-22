@@ -4,11 +4,11 @@ from .tx import Tx, CreateTxOptions, SignerOptions
 from paloma_sdk.core.wasm import MsgInstantiateContract, MsgExecuteContract
 from paloma_sdk.core.coins import Coins
 from paloma_sdk.core import AccAddress
-
+from paloma_sdk.core.broadcast import BlockTxBroadcastResult
 __all__ = ["AsyncCw20API", "Cw20API"]
 
 class AsyncCw20API(BaseAsyncAPI):
-    async def deploy(
+    async def instantiate(
         self,
         wallet: Wallet,
         code_id: int,
@@ -16,8 +16,8 @@ class AsyncCw20API(BaseAsyncAPI):
         symbol: str,
         decimals: int,
         total_supply: int
-    ) -> Tx:
-        """Deploy the Cw20 smart contract using code id.
+    ) -> BlockTxBroadcastResult:
+        """instantiate the Cw20 smart contract using code id.
             total supply amount is minted to deployer wallet.
         Args:
             wallet (Wallet): CW20 deployer wallet
@@ -27,7 +27,7 @@ class AsyncCw20API(BaseAsyncAPI):
             decimals (int): CW20 token decimals
             total_supply (int): CW20 token total supply
         Returns:
-            Tx: Transaction
+            BlockTxBroadcastResult: Transaction Broadcast Result
         """
         instantiate_msg = {
             "name": name,
@@ -51,7 +51,8 @@ class AsyncCw20API(BaseAsyncAPI):
                 funds
             )]
         ))
-        return tx
+        result = await self._c.tx.broadcast(tx)
+        return result
 
     async def send(
         self,
@@ -60,7 +61,7 @@ class AsyncCw20API(BaseAsyncAPI):
         recipient: str,
         amount: int,
         msg: str
-    ) -> Tx:
+    ) -> BlockTxBroadcastResult:
         """Send CW20 token to the other address and run msg
         Args:
             wallet (Wallet): CW20 deployer wallet
@@ -69,7 +70,7 @@ class AsyncCw20API(BaseAsyncAPI):
             amount (str): send amount
             msg
         Returns:
-            Tx: Transaction
+            BlockTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"send": {
             "contract": recipient,
@@ -85,7 +86,8 @@ class AsyncCw20API(BaseAsyncAPI):
                 funds
             )]
         ))
-        return tx
+        result = await self._c.tx.broadcast(tx)
+        return result
 
     async def transfer(
         self,
@@ -93,7 +95,7 @@ class AsyncCw20API(BaseAsyncAPI):
         token: str,
         recipient: str,
         amount: int
-    ) -> Tx:
+    ) -> BlockTxBroadcastResult:
         """Transfer CW20 token to the other address.
         Args:
             wallet (Wallet): CW20 deployer wallet
@@ -101,7 +103,7 @@ class AsyncCw20API(BaseAsyncAPI):
             recipient (str): token receiver address
             amount (str): send amount
         Returns:
-            Tx: Transaction
+            BlockTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"transfer": {
             "contract": recipient,
@@ -116,21 +118,22 @@ class AsyncCw20API(BaseAsyncAPI):
                 funds
             )]
         ))
-        return tx
+        result = await self._c.tx.broadcast(tx)
+        return result
 
     async def burn(
         self,
         wallet: Wallet,
         token: str,
         amount: int
-    ) -> Tx:
+    ) -> BlockTxBroadcastResult:
         """Burn CW20 token from the wallet address.
         Args:
             wallet (Wallet): CW20 deployer wallet
             token (str): token address
             amount (str): send amount
         Returns:
-            Tx: Transaction
+            BlockTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"burn": {
             "amount": amount,
@@ -144,7 +147,8 @@ class AsyncCw20API(BaseAsyncAPI):
                 funds
             )]
         ))
-        return tx
+        result = await self._c.tx.broadcast(tx)
+        return result
 
 class Cw20API(AsyncCw20API):
     @sync_bind(AsyncCw20API.deploy)
@@ -156,7 +160,7 @@ class Cw20API(AsyncCw20API):
         symbol: str,
         decimals: int,
         total_supply: int
-    ) -> Tx:
+    ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw20API.send)
@@ -167,7 +171,7 @@ class Cw20API(AsyncCw20API):
         recipient: str,
         amount: int,
         msg: str
-    ) -> Tx:
+    ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw20API.transfer)
@@ -177,7 +181,7 @@ class Cw20API(AsyncCw20API):
         token: str,
         recipient: str,
         amount: int
-    ) -> Tx:
+    ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw20API.burn)
@@ -186,7 +190,7 @@ class Cw20API(AsyncCw20API):
         wallet: Wallet,
         token: str,
         amount: int
-    ) -> Tx:
+    ) -> BlockTxBroadcastResult:
         pass
 
     deploy.__doc__ = AsyncCw20API.deploy.__doc__
