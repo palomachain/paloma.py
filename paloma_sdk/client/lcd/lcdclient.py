@@ -17,6 +17,7 @@ from paloma_sdk.util.url import urljoin
 from .api.auth import AsyncAuthAPI, AuthAPI
 from .api.authz import AsyncAuthzAPI, AuthzAPI
 from .api.bank import AsyncBankAPI, BankAPI
+from .api.cw20 import AsyncCw20API, Cw20API
 from .api.distribution import AsyncDistributionAPI, DistributionAPI
 from .api.feegrant import AsyncFeeGrantAPI, FeeGrantAPI
 from .api.gov import AsyncGovAPI, GovAPI
@@ -195,6 +196,9 @@ class LCDClient(AsyncLCDClient):
     bank: BankAPI
     """:class:`BankAPI<paloma_sdk.client.lcd.api.bank.BankAPI>`."""
 
+    cw20: Cw20API
+    """:class:`Cw20API<paloma_sdk.client.lcd.api.bank.Cw20API>`."""
+
     distribution: DistributionAPI
     """:class:`DistributionAPI<paloma_sdk.client.lcd.api.distribution.DistributionAPI>`."""
 
@@ -249,6 +253,7 @@ class LCDClient(AsyncLCDClient):
 
         self.auth = AuthAPI(self)
         self.bank = BankAPI(self)
+        self.cw20 = Cw20API(self)
         self.distribution = DistributionAPI(self)
         self.gov = GovAPI(self)
         self.feegrant = FeeGrantAPI(self)
