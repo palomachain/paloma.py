@@ -1,6 +1,8 @@
+from typing import Optional
 from ._base import BaseAsyncAPI, sync_bind
 from ..wallet import Wallet
 from .tx import Tx, CreateTxOptions, SignerOptions
+from paloma_sdk.core.fee import Fee
 from paloma_sdk.core.wasm import MsgInstantiateContract, MsgExecuteContract
 from paloma_sdk.core.coins import Coins
 from paloma_sdk.core import AccAddress
@@ -15,7 +17,9 @@ class AsyncCw20API(BaseAsyncAPI):
         name: str,
         symbol: str,
         decimals: int,
-        total_supply: int
+        total_supply: int,
+        gas_limit: Optional[int],
+        amount: Optional[str]
     ) -> BlockTxBroadcastResult:
         """instantiate the Cw20 smart contract using code id.
             total supply amount is minted to deployer wallet.
@@ -49,7 +53,8 @@ class AsyncCw20API(BaseAsyncAPI):
                 "CW20",
                 instantiate_msg,
                 funds
-            )]
+            )],
+            fee=Fee(gas_limit, amount),
         ))
         result = await self._c.tx.broadcast(tx)
         return result
