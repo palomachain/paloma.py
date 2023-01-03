@@ -39,7 +39,7 @@ def main():
         delegator_address="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
         validator_address="palomavalcons1mgp3028ry5wf464r3s6gyptgmngrpnelhkuyvm",
         pubkey=ValConsPubKey(),
-        value="10000000uluna"
+        value="10000000ugrain"
     )
 
     tx = test1.create_and_sign_tx(CreateTxOptions(msgs=[msgCV]))
@@ -58,19 +58,19 @@ def main():
     msgDel = MsgDelegate(
         validator_address=validator1_address,
         delegator_address=test1.key.acc_address,
-        amount="100uluna",
+        amount="100ugrain",
     )
     msgRedel = MsgBeginRedelegate(
         validator_dst_address=validator2_address,
         validator_src_address=validator1_address,
         delegator_address=test1.key.acc_address,
-        amount=Coin.parse("10uluna"),
+        amount=Coin.parse("10ugrain"),
     )
 
     msgUndel = MsgUndelegate(
         validator_address=validator1_address,
         delegator_address=test1.key.acc_address,
-        amount=Coin.parse("20uluna"),
+        amount=Coin.parse("20ugrain"),
     )
 
     """

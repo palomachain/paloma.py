@@ -64,7 +64,7 @@ are also asychronous and therefore must be awaited.
             account_number = await wallet.account_number()
             tx = await wallet.create_and_sign_tx(
                 CreateTxOptions(
-                    msgs=[MsgSend(wallet.key.acc_address, recipient, Coins(uluna=10202))]
+                    msgs=[MsgSend(wallet.key.acc_address, recipient, Coins(ugrain=10202))]
                 )
             )
     

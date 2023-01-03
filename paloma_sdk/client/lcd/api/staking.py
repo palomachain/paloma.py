@@ -270,8 +270,8 @@ class AsyncStakingAPI(BaseAsyncAPI):
         res = await self._c._get("/cosmos/staking/v1beta1/pool")
         res = res.get("pool")
         return StakingPool(
-            bonded_tokens=Coin("uluna", res["bonded_tokens"]),
-            not_bonded_tokens=Coin("uluna", res["not_bonded_tokens"]),
+            bonded_tokens=Coin("ugrain", res["bonded_tokens"]),
+            not_bonded_tokens=Coin("ugrain", res["not_bonded_tokens"]),
         )
 
     async def parameters(self) -> dict:

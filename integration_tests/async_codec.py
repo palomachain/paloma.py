@@ -25,14 +25,14 @@ async def main():
     msg = MsgSend(
         "paloma1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f",
         "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
-        Coins(uluna=20),
+        Coins(ugrain=20),
     )
     tx = await awallet.create_and_sign_tx(
         CreateTxOptions(
             msgs=[msg],
-            gas_prices="0.15uluna",
+            gas_prices="0.15ugrain",
             gas="63199",  # gas="auto", gas_adjustment=1.1
-            fee_denoms=["uluna"],
+            fee_denoms=["ugrain"],
         )
     )
 

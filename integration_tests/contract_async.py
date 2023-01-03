@@ -27,7 +27,7 @@ async def async_main():
                     test1.key.acc_address,
                     code_id,
                     {"count": 0},
-                    {"uluna": 10000000, "ukrw": 1000000},
+                    {"ugrain": 10000000, "ukrw": 1000000},
                     False,
                 )
             ]
@@ -42,10 +42,10 @@ async def async_main():
                     test1.key.acc_address,
                     contract_address,
                     {"increment": {}},
-                    {"uluna": 100000},
+                    {"ugrain": 100000},
                 )
             ],
-            fee=Fee(1000000, Coins(uluna=1000000)),
+            fee=Fee(1000000, Coins(ugrain=1000000)),
         )
 
         execute_tx_result = await paloma.tx.broadcast(execute_tx)

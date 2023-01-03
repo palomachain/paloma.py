@@ -40,4 +40,4 @@ def test_account_info():
     )
     assert result.start_time == "1660000000"
     assert result.vesting_periods[0].length == 604800
-    assert result.vesting_periods[0].amount == Coins("1000000000uluna")
+    assert result.vesting_periods[0].amount == Coins("1000000000ugrain")

@@ -6,7 +6,7 @@
       "shares": "0.362811214041104489"
     },
     "balance": {
-      "denom": "uluna",
+      "denom": "ugrain",
       "amount": "0"
     }
   },
@@ -17,7 +17,7 @@
       "shares": "1041435300584.646580892301867080"
     },
     "balance": {
-      "denom": "uluna",
+      "denom": "ugrain",
       "amount": "970201986983"
     }
   },
@@ -28,7 +28,7 @@
       "shares": "0.317889676069212335"
     },
     "balance": {
-      "denom": "uluna",
+      "denom": "ugrain",
       "amount": "0"
     }
   },
@@ -39,7 +39,7 @@
       "shares": "937199434798.716278082038875955"
     },
     "balance": {
-      "denom": "uluna",
+      "denom": "ugrain",
       "amount": "891000004719"
     }
   }

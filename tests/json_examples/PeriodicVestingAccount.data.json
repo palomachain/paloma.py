@@ -11,14 +11,14 @@
         },
         "original_vesting": [
           {
-            "denom": "uluna",
+            "denom": "ugrain",
             "amount": "5000000000000"
           }
         ],
         "delegated_free": [],
         "delegated_vesting": [
           {
-            "denom": "uluna",
+            "denom": "ugrain",
             "amount": "1338029091449"
           }
         ],
@@ -30,7 +30,7 @@
           "length": "500000",
           "amount": [
             {
-              "denom": "uluna",
+              "denom": "ugrain",
               "amount": "5000000000"
             }
           ]
@@ -39,7 +39,7 @@
           "length": "500000",
           "amount": [
             {
-              "denom": "uluna",
+              "denom": "ugrain",
               "amount": "5000000000"
             }
           ]

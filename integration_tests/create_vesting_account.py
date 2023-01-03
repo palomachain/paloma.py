@@ -48,7 +48,7 @@ def main():
     cva = MsgCreateVestingAccount(
         "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
         key_v.acc_address,
-        Coins("2000uluna"),
+        Coins("2000ugrain"),
         1659130372,
         False
     )
@@ -57,7 +57,7 @@ def main():
         "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
         key_pv.acc_address,
         1659130372,
-        [Period(100, Coins("1000uluna"))]
+        [Period(100, Coins("1000ugrain"))]
     )
 
     tx = wallet.create_and_sign_tx(CreateTxOptions(
@@ -65,8 +65,8 @@ def main():
     ))
     result = paloma.tx.broadcast(tx)
 
-    send1 = MsgSend("paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v", key_v.acc_address, Coins("100000uluna"))
-    send2 = MsgSend("paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v", key_pv.acc_address, Coins("100000uluna"))
+    send1 = MsgSend("paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v", key_v.acc_address, Coins("100000ugrain"))
+    send2 = MsgSend("paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v", key_pv.acc_address, Coins("100000ugrain"))
 
     tx = wallet.create_and_sign_tx(CreateTxOptions(
         msgs =[send1, send2],

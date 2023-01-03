@@ -49,28 +49,28 @@ def main():
     msg = MsgSend(
         "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
         "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
-        Coins(uluna=30000),
+        Coins(ugrain=30000),
     )
     inputs = [
         MultiSendInput(
             address="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-            coins=Coins(uluna=30000),
+            coins=Coins(ugrain=30000),
         )
     ]
     outputs = [
         MultiSendOutput(
             address="paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
-            coins=Coins(uluna=10000),
+            coins=Coins(ugrain=10000),
         ),
         MultiSendOutput(
             address="paloma1av6ssz7k4xpc5nsjj2884nugakpp874ae0krx7",
-            coins=Coins(uluna=20000),
+            coins=Coins(ugrain=20000),
         ),
     ]
     msgMulti = MsgMultiSend(inputs, outputs)
 
     opt = CreateTxOptions(
-        msgs=[msg, msgMulti], memo="send test", gas_adjustment=1.5, gas_prices="1uluna"
+        msgs=[msg, msgMulti], memo="send test", gas_adjustment=1.5, gas_prices="1ugrain"
     )
     # tx = test1.create_tx(opt)
     tx = test1.create_and_sign_tx(opt)

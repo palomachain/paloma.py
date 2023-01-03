@@ -45,7 +45,7 @@ def main():
     )
 
     opt = CreateTxOptions(
-        msgs=[msg], memo="send test", gas_adjustment=1.5, gas_prices="1uluna"
+        msgs=[msg], memo="send test", gas_adjustment=1.5, gas_prices="1ugrain"
     )
     # tx = test1.create_tx(opt)
     tx = test1.create_and_sign_tx(opt)
@@ -60,7 +60,7 @@ def main():
     )
 
     opt = CreateTxOptions(
-        msgs=[msg], memo="send test", gas_adjustment=1.5, gas_prices="1uluna"
+        msgs=[msg], memo="send test", gas_adjustment=1.5, gas_prices="1ugrain"
     )
     # tx = test1.create_tx(opt)
     tx = test1.create_and_sign_tx(opt)

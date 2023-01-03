@@ -16,7 +16,7 @@ def main():
 
     msgFund = MsgFundCommunityPool(
         depositor="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-        amount=Coins("1000000uluna"),
+        amount=Coins("1000000ugrain"),
     )
     msgSet = MsgSetWithdrawAddress(
         delegator_address="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
