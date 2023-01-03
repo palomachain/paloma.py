@@ -59,7 +59,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],
@@ -126,7 +126,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],
@@ -193,7 +193,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "1020000"
               }
             ],
@@ -260,7 +260,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "1020000"
               }
             ],
@@ -327,7 +327,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],
@@ -394,7 +394,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],
@@ -461,7 +461,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "3000"
               }
             ],
@@ -528,7 +528,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],
@@ -595,7 +595,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "100000"
               }
             ],
@@ -662,7 +662,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],
@@ -729,7 +729,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],
@@ -796,7 +796,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "45000"
               }
             ],
@@ -863,7 +863,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "45000"
               }
             ],
@@ -930,7 +930,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "45000"
               }
             ],
@@ -1064,7 +1064,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],
@@ -1131,7 +1131,7 @@
           "fee": {
             "amount": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "30000"
               }
             ],

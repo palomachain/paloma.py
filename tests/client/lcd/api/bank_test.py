@@ -14,7 +14,7 @@ def test_balance():
         address="paloma1rk6tvacasnnyssfnn00zl7wz43pjnpn7vayqv6"
     )
     assert result.to_data()
-    assert result.get("uluna").amount > 0
+    assert result.get("ugrain").amount > 0
 
 
 def test_balance_with_pagination():
@@ -23,7 +23,7 @@ def test_balance_with_pagination():
     )
 
     assert result.to_data()
-    assert result.get("uluna").amount > 0
+    assert result.get("ugrain").amount > 0
 
 
 def test_total():

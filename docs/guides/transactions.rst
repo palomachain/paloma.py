@@ -51,11 +51,11 @@ Once you have your Wallet, you can simply create a StdTx using :meth:`Wallet.cre
             msgs=[MsgSend(
                 wallet.key.acc_address,
                 RECIPIENT,
-                "1000000uluna" # send 1 luna
+                "1000000ugrain" # send 1 luna
             )]
             ,
             memo="test transaction!",
-            fee=Fee(200000, "120000uluna")
+            fee=Fee(200000, "120000ugrain")
         )
     )
 
@@ -80,8 +80,8 @@ this behavior **per transaction**:
 
 .. note::
     By default, the estimated fee returned consists of a fee paid in every denom for which the
-    signing account hold a balance. For instance, if the signer has a balance of ``uluna``,
-    the fee reported will be both ``uluna``. 
+    signing account hold a balance. For instance, if the signer has a balance of ``ugrain``,
+    the fee reported will be both ``ugrain``.
     
     Use the ``denoms`` argument to restrict the estimated fee to specific denoms.
 
@@ -93,12 +93,12 @@ this behavior **per transaction**:
         msgs=[MsgSend(
             wallet.key.acc_address,
             RECIPIENT,
-            "1000000uluna" # send 1 luna
+            "1000000ugrain" # send 1 luna
         )],
         memo="test transaction!",
-        gas_prices="0.015uluna", # optional
+        gas_prices="0.015ugrain", # optional
         gas_adjustment="1.2", # optional
-        denoms=["uluna"] # optional
+        denoms=["ugrain"] # optional
     ))
 
 Signing transactions manually
@@ -132,7 +132,7 @@ A SignDoc contains the information required to build a StdTx:
     msg = MsgSend(
         key.acc_address,
         "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-        Coins(uluna=30000),
+        Coins(ugrain=30000),
     )
 
     tx_opt = CreateTxOptions(
@@ -189,21 +189,21 @@ Each ``SignDoc`` should only differ by ``account`` and ``sequence``, which vary 
     inputs = [
         MultiSendInput(
             address=wallet1.key.acc_address,
-            coins=Coins(uluna=10000),
+            coins=Coins(ugrain=10000),
         ),
         MultiSendInput(
             address=wallet2.key.acc_address,
-            coins=Coins(uluna=20000),
+            coins=Coins(ugrain=20000),
         )
     ]
     outputs = [
         MultiSendOutput(
             address=wallet1.key.acc_address,
-            coins=Coins(uluna=20000),
+            coins=Coins(ugrain=20000),
         ),
         MultiSendOutput(
             address=wallet2.key.acc_address,
-            coins=Coins(uluna=10000),
+            coins=Coins(ugrain=10000),
         ),
     ]
 

@@ -10,7 +10,7 @@
             "@type": "/cosmos.feegrant.v1beta1.BasicAllowance",
             "spend_limit": [
               {
-                "denom": "uluna",
+                "denom": "ugrain",
                 "amount": "1000"
               }
             ],
@@ -43,7 +43,7 @@
       "fee": {
         "amount": [
           {
-            "denom": "uluna",
+            "denom": "ugrain",
             "amount": "16162"
           }
         ],
@@ -137,7 +137,7 @@
         "fee": {
           "amount": [
             {
-              "denom": "uluna",
+              "denom": "ugrain",
               "amount": "16162"
             }
           ],

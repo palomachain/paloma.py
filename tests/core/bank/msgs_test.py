@@ -6,7 +6,7 @@ def test_deserializes_msg_send(load_msg_examples):
         "@type": "/cosmos.bank.v1beta1.MsgSend",
         "from_address": "paloma1y4umfuqfg76t8mfcff6zzx7elvy93jtp4xcdvw",
         "to_address": "paloma1v9ku44wycfnsucez6fp085f5fsksp47u9x8jr4",
-        "amount": [{"denom": "uluna", "amount": "8102024952"}],
+        "amount": [{"denom": "ugrain", "amount": "8102024952"}],
     }
 
     assert MsgSend.from_data(data).to_data() == data

@@ -15,7 +15,7 @@ gas_prices = requests.get("https://pisco-fcd.paloma.dev/v1/txs/gas_prices").json
 paloma = AsyncLCDClient(
     chain_id=chain_id,
     url=light_clinet_address,
-    gas_prices=Coins(uluna=gas_prices["uluna"]),
+    gas_prices=Coins(ugrain=gas_prices["ugrain"]),
     gas_adjustment=1.2,
 )
 

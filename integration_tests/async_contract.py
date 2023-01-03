@@ -12,7 +12,7 @@ from paloma_sdk.util.contract import get_code_id, get_contract_address, read_fil
 
 async def main():
     paloma = AsyncLCDClient(url="http://localhost:1317", chain_id="localpaloma")
-    paloma.gas_prices = "1uluna"
+    paloma.gas_prices = "1ugrain"
     # test1 = paloma.wallets["test1"]
     acc = MnemonicKey(
         mnemonic="rotice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
@@ -43,7 +43,7 @@ async def main():
                     test1.key.acc_address, test1.key.acc_address, code_id, {"count": 10}
                 )
             ],
-            gas_prices="10uluna",
+            gas_prices="10ugrain",
             gas_adjustment=2,
         )
     )
@@ -67,7 +67,7 @@ async def main():
             gas_adjustment=1.75,
         )
     )
-    #                {"uluna": 1000},
+    #                {"ugrain": 1000},
 
     execute_tx_result = await paloma.tx.broadcast(execute_tx)
     print(execute_tx_result)

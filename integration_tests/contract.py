@@ -13,7 +13,7 @@ from paloma_sdk.util.contract import get_code_id, get_contract_address, read_fil
 
 def main():
     paloma = LocalPaloma()
-    paloma.gas_prices = "1uluna"
+    paloma.gas_prices = "1ugrain"
     test1 = paloma.wallets["test1"]
 
     store_code_tx = test1.create_and_sign_tx(
@@ -43,10 +43,10 @@ def main():
                     code_id,
                     "testlabel",
                     {"count": 10},
-                    "10uluna",
+                    "10ugrain",
                 )
             ],
-            gas_prices="10uluna",
+            gas_prices="10ugrain",
             gas_adjustment=2,
         )
     )

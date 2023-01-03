@@ -8,7 +8,7 @@ def test_deserializes_msg_grant_allowance_examples():
         "grantee": "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
         "allowance": {
             "@type": "/cosmos.feegrant.v1beta1.BasicAllowance",
-            "spend_limit": [{"denom": "uluna", "amount": "1000"}],
+            "spend_limit": [{"denom": "ugrain", "amount": "1000"}],
             "expiration": "2050-01-01T00:00:00Z",
         },
     }
