@@ -42,8 +42,8 @@ class Coins(JSONSerializable, List[Coin_pb]):
     def from_str(cls, s: str) -> Coins:
         """Converts a comma-separated list of Coin-format strings to :class:`Coins`.
 
-        >>> Coins.from_str('1000uluna,1234ukrw')
-        Coins("1000uluna,1234ukrw")
+        >>> Coins.from_str('1000ugrain,1234ukrw')
+        Coins("1000ugrain,1234ukrw")
 
         Args:
             s (str): string to convert

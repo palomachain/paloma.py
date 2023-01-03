@@ -201,7 +201,7 @@ class AsyncTxAPI(BaseAsyncAPI):
         if gas_prices:
             gas_prices_coins = Coins(gas_prices)
             if options.fee_denoms:
-                _fee_denoms = options.fee_denoms if options.fee_denoms else ["uluna"]
+                _fee_denoms = options.fee_denoms if options.fee_denoms else ["ugrain"]
                 gas_prices_coins = gas_prices_coins.filter(
                     lambda c: c.denom in _fee_denoms
                 )
@@ -222,7 +222,7 @@ class AsyncTxAPI(BaseAsyncAPI):
         fee_amount = (
             gas_prices_coins.mul(gas).to_int_ceil_coins()
             if gas_prices_coins
-            else Coins.from_str("0uluna")
+            else Coins.from_str("0ugrain")
         )
 
         return Fee(Numeric.parse(gas), fee_amount, "", "")
