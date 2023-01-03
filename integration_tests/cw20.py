@@ -56,13 +56,13 @@ async def main():
     #     )
     # )
 
-    result = paloma.cw20.instantiate(
+    result = await paloma.cw20.instantiate(
         test1, code_id, "CW20 Token", "CW20", 9, 1_000_000_000_000_000
     )
     print(result)
     contract_address = get_contract_address(result)
 
-    paloma.cw20.transfer(
+    await paloma.cw20.transfer(
         test1, contract_address, test2.key.acc_address, 1_000_000_000
     )
     

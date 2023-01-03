@@ -41,7 +41,7 @@ class AsyncCw20API(BaseAsyncAPI):
             ]
         }
         funds = Coins.from_str("0ugrain")
-        tx = wallet.create_and_sign_tx(CreateTxOptions(
+        tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgInstantiateContract(
                 wallet.key.acc_address,
                 None,
@@ -78,7 +78,7 @@ class AsyncCw20API(BaseAsyncAPI):
             "msg": msg
         }}
         funds = Coins.from_str("0ugrain")
-        tx = wallet.create_and_sign_tx(CreateTxOptions(
+        tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgExecuteContract(
                 wallet.key.acc_address,
                 token,
@@ -110,7 +110,7 @@ class AsyncCw20API(BaseAsyncAPI):
             "amount": amount,
         }}
         funds = Coins.from_str("0ugrain")
-        tx = wallet.create_and_sign_tx(CreateTxOptions(
+        tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgExecuteContract(
                 wallet.key.acc_address,
                 token,
@@ -139,7 +139,7 @@ class AsyncCw20API(BaseAsyncAPI):
             "amount": amount,
         }}
         funds = Coins.from_str("0ugrain")
-        tx = wallet.create_and_sign_tx(CreateTxOptions(
+        tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgExecuteContract(
                 wallet.key.acc_address,
                 token,
