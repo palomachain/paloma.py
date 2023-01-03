@@ -57,7 +57,11 @@ async def main():
     # )
 
     result = await paloma.cw20.instantiate(
+<<<<<<< HEAD
         test1, code_id, "CW20 Token", "CW20", 9, 1_000_000_000_000_000, gas_limit=100000, amount="100000ugrain"
+=======
+        test1, code_id, "CW20 Token", "CW20", 9, 1_000_000_000_000_000
+>>>>>>> ac402744b646dffb36c53a3e6c2f301be2802784
     )
     print(result)
     contract_address = get_contract_address(result)
