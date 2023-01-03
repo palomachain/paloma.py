@@ -13,7 +13,7 @@ from paloma_sdk.util.contract import get_code_id, get_contract_address, read_fil
 
 async def main():
     paloma = AsyncLCDClient(url="https://lcd.testnet.palomaswap.com/", chain_id="paloma-testnet-13")
-    paloma.gas_prices = "1ugrain"
+    paloma.gas_prices = "10ugrain"
     # test1 = paloma.wallets["test1"]
     acc = MnemonicKey(
         mnemonic="rotice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
