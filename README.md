@@ -174,7 +174,7 @@ Once you have your Wallet, you can simply create a StdTx using `Wallet.create_an
         msgs=[MsgSend(
             wallet.key.acc_address,
             RECIPIENT,
-            "1000000ugrain"    # send 1 luna
+            "1000000ugrain"    # send 1 grain
         )],
         memo="test transaction!",
         fee=Fee(200000, "120000ugrain")
