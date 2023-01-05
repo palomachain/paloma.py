@@ -44,7 +44,7 @@ class AsyncCw20API(BaseAsyncAPI):
                 }
             ]
         }
-        funds = Coins.from_str("0ugrain")
+        funds = Coins.from_str("1ugrain")
         tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgInstantiateContract(
                 wallet.key.acc_address,
