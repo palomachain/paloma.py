@@ -40,7 +40,7 @@ class AsyncCw20API(BaseAsyncAPI):
             "initial_balances": [
                 {
                     "address": wallet.key.acc_address,
-                    "amount": total_supply
+                    "amount": str(total_supply)
                 }
             ]
         }
@@ -79,7 +79,7 @@ class AsyncCw20API(BaseAsyncAPI):
         """
         execute_msg = {"send": {
             "contract": recipient,
-            "amount": amount,
+            "amount": str(amount),
             "msg": msg
         }}
         funds = Coins.from_str("0ugrain")
@@ -112,7 +112,7 @@ class AsyncCw20API(BaseAsyncAPI):
         """
         execute_msg = {"transfer": {
             "contract": recipient,
-            "amount": amount,
+            "amount": str(amount),
         }}
         funds = Coins.from_str("0ugrain")
         tx = await wallet.create_and_sign_tx(CreateTxOptions(
@@ -141,7 +141,7 @@ class AsyncCw20API(BaseAsyncAPI):
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"burn": {
-            "amount": amount,
+            "amount": str(amount),
         }}
         funds = Coins.from_str("0ugrain")
         tx = await wallet.create_and_sign_tx(CreateTxOptions(
