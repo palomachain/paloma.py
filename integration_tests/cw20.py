@@ -41,31 +41,31 @@ async def main():
     # print(store_code_tx_result)
 
     # code_id = get_code_id(store_code_tx_result)
+
     code_id = 49
     print(f"code_id:{code_id}")
 
-    # instantiate_tx = await test1.create_and_sign_tx(
-    #     CreateTxOptions(
-    #         msgs=[
-    #             MsgInstantiateContract(
-    #                 test1.key.acc_address, test1.key.acc_address, code_id, "CW20", {"count": 10}, "0ugrain",
-    #             )
-    #         ],
-    #         gas_prices="1ugrain",
-    #         gas_adjustment=2,
-    #     )
-    # )
-
     result = await paloma.cw20.instantiate(
-        test1, code_id, "CW20 Token", "CWFT", 9, 1_000_000_000_000_000, gas_limit=200000, amount="200000ugrain"
+        test1, code_id, "CW20 Token", "CWFT", 9, 1_000_000_000_000_000, gas_limit=200000, fee_amount="200000ugrain"
     )
     print(result)
-    contract_address = get_contract_address(result)
-
-    await paloma.cw20.transfer(
-        test1, contract_address, test2.key.acc_address, 1_000_000_000
-    )
     
+    contract_address = result.logs[0].events_by_type["instantiate"][
+            "_contract_address"
+        ][0]
+    print(contract_address)
+
+    contract_address = "paloma1hrpllgv0qasm54cxmu8wgak7n2zuwjapvntyneawr9atm6c47mksqmgxsw"
+    result = await paloma.cw20.transfer(
+        test1, contract_address, test2.key.acc_address, 1_000_000_000, gas_limit=200000, fee_amount="200000ugrain"
+    )
+    print(result)
+
+    result = await paloma.cw20.burn(
+        test1, contract_address, 500_000_000, gas_limit=200000, fee_amount="200000ugrain"
+    )
+    print(result)
+
     await paloma.session.close()
 
 
