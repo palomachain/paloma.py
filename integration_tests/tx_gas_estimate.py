@@ -45,7 +45,7 @@ async def main():
             instantiate_msg,
             funds
         )],
-        fee=Fee(10000000, "10000000ugrain")
+        # fee=Fee(10000000, "10000000ugrain")
     ))
     result = await paloma.tx.broadcast(tx)
     print(result)
