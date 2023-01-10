@@ -65,6 +65,7 @@ class AsyncLCDClient:
 
         self.auth = AsyncAuthAPI(self)
         self.bank = AsyncBankAPI(self)
+        self.cw20 = AsyncCw20API(self)
         self.distribution = AsyncDistributionAPI(self)
         self.feegrant = AsyncFeeGrantAPI(self)
         self.gov = AsyncGovAPI(self)
