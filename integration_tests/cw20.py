@@ -13,10 +13,10 @@ from paloma_sdk.util.contract import get_code_id, get_contract_address, read_fil
 
 async def main():
     paloma = AsyncLCDClient(url="https://lcd.testnet.palomaswap.com/", chain_id="paloma-testnet-13")
-    paloma.gas_prices = "1ugrain"
+    paloma.gas_prices = "0.01ugrain"
     # test1 = paloma.wallets["test1"]
     acc = MnemonicKey(
-        mnemonic="rotice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
+        mnemonic="notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
     )
 
     acc2 = MnemonicKey(
@@ -46,7 +46,7 @@ async def main():
     print(f"code_id:{code_id}")
 
     result = await paloma.cw20.instantiate(
-        test1, code_id, "CW20 Token", "CWFT", 9, 1_000_000_000_000_000, gas_limit=200000, fee_amount="200000ugrain"
+        test1, code_id, "CW20 Token", "CWFT", 9, 1_000_000_000_000_000
     )
     print(result)
     
@@ -55,14 +55,13 @@ async def main():
         ][0]
     print(contract_address)
 
-    contract_address = "paloma1hrpllgv0qasm54cxmu8wgak7n2zuwjapvntyneawr9atm6c47mksqmgxsw"
     result = await paloma.cw20.transfer(
-        test1, contract_address, test2.key.acc_address, 1_000_000_000, gas_limit=200000, fee_amount="200000ugrain"
+        test1, contract_address, test2.key.acc_address, 1_000_000_000
     )
     print(result)
 
     result = await paloma.cw20.burn(
-        test1, contract_address, 500_000_000, gas_limit=200000, fee_amount="200000ugrain"
+        test1, contract_address, 500_000_000
     )
     print(result)
 
