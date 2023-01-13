@@ -1,11 +1,8 @@
-from typing import Optional
 from ._base import BaseAsyncAPI, sync_bind
 from ..wallet import Wallet
-from .tx import Tx, CreateTxOptions, SignerOptions
-from paloma_sdk.core.fee import Fee
+from .tx import CreateTxOptions
 from paloma_sdk.core.wasm import MsgInstantiateContract, MsgExecuteContract
 from paloma_sdk.core.coins import Coins
-from paloma_sdk.core import AccAddress
 from paloma_sdk.core.broadcast import BlockTxBroadcastResult
 __all__ = ["AsyncCw20API", "Cw20API"]
 
@@ -17,9 +14,7 @@ class AsyncCw20API(BaseAsyncAPI):
         name: str,
         symbol: str,
         decimals: int,
-        total_supply: int,
-        gas_limit: Optional[int],
-        fee_amount: Optional[str]
+        total_supply: int
     ) -> BlockTxBroadcastResult:
         """instantiate the Cw20 smart contract using code id.
             total supply amount is minted to deployer wallet.
@@ -44,7 +39,7 @@ class AsyncCw20API(BaseAsyncAPI):
                 }
             ]
         }
-        funds = Coins.from_str("1ugrain")
+        funds = Coins()
         tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgInstantiateContract(
                 wallet.key.acc_address,
@@ -53,8 +48,7 @@ class AsyncCw20API(BaseAsyncAPI):
                 "CW20",
                 instantiate_msg,
                 funds
-            )],
-            fee=Fee(gas_limit, fee_amount)
+            )]
         ))
         result = await self._c.tx.broadcast(tx)
         return result
@@ -65,9 +59,7 @@ class AsyncCw20API(BaseAsyncAPI):
         token: str,
         recipient: str,
         amount: int,
-        msg: str,
-        gas_limit: Optional[int],
-        fee_amount: Optional[str]
+        msg: str
     ) -> BlockTxBroadcastResult:
         """Send CW20 token to the other address and run msg
         Args:
@@ -84,15 +76,14 @@ class AsyncCw20API(BaseAsyncAPI):
             "amount": str(amount),
             "msg": msg
         }}
-        funds = Coins.from_str("1ugrain")
+        funds = Coins()
         tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgExecuteContract(
                 wallet.key.acc_address,
                 token,
                 execute_msg,
                 funds
-            )],
-            fee=Fee(gas_limit, fee_amount)
+            )]
         ))
         result = await self._c.tx.broadcast(tx)
         return result
@@ -102,9 +93,7 @@ class AsyncCw20API(BaseAsyncAPI):
         wallet: Wallet,
         token: str,
         recipient: str,
-        amount: int,
-        gas_limit: Optional[int],
-        fee_amount: Optional[str]
+        amount: int
     ) -> BlockTxBroadcastResult:
         """Transfer CW20 token to the other address.
         Args:
@@ -119,15 +108,14 @@ class AsyncCw20API(BaseAsyncAPI):
             "recipient": recipient,
             "amount": str(amount),
         }}
-        funds = Coins.from_str("1ugrain")
+        funds = Coins()
         tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgExecuteContract(
                 wallet.key.acc_address,
                 token,
                 execute_msg,
                 funds
-            )],
-            fee=Fee(gas_limit, fee_amount)
+            )]
         ))
         result = await self._c.tx.broadcast(tx)
         return result
@@ -136,9 +124,7 @@ class AsyncCw20API(BaseAsyncAPI):
         self,
         wallet: Wallet,
         token: str,
-        amount: int,
-        gas_limit: Optional[int],
-        fee_amount: Optional[str]
+        amount: int
     ) -> BlockTxBroadcastResult:
         """Burn CW20 token from the wallet address.
         Args:
@@ -151,15 +137,14 @@ class AsyncCw20API(BaseAsyncAPI):
         execute_msg = {"burn": {
             "amount": str(amount),
         }}
-        funds = Coins.from_str("1ugrain")
+        funds = Coins()
         tx = await wallet.create_and_sign_tx(CreateTxOptions(
             msgs=[MsgExecuteContract(
                 wallet.key.acc_address,
                 token,
                 execute_msg,
                 funds
-            )],
-            fee=Fee(gas_limit, fee_amount)
+            )]
         ))
         result = await self._c.tx.broadcast(tx)
         return result
@@ -173,9 +158,7 @@ class Cw20API(AsyncCw20API):
         name: str,
         symbol: str,
         decimals: int,
-        total_supply: int,
-        gas_limit: Optional[int],
-        fee_amount: Optional[str]
+        total_supply: int
     ) -> BlockTxBroadcastResult:
         pass
 
@@ -186,9 +169,7 @@ class Cw20API(AsyncCw20API):
         token: str,
         recipient: str,
         amount: int,
-        msg: str,
-        gas_limit: Optional[int],
-        fee_amount: Optional[str]
+        msg: str
     ) -> BlockTxBroadcastResult:
         pass
 
@@ -198,9 +179,7 @@ class Cw20API(AsyncCw20API):
         wallet: Wallet,
         token: str,
         recipient: str,
-        amount: int,
-        gas_limit: Optional[int],
-        fee_amount: Optional[str]
+        amount: int
     ) -> BlockTxBroadcastResult:
         pass
 
@@ -209,9 +188,7 @@ class Cw20API(AsyncCw20API):
         self,
         wallet: Wallet,
         token: str,
-        amount: int,
-        gas_limit: Optional[int],
-        fee_amount: Optional[str]
+        amount: int
     ) -> BlockTxBroadcastResult:
         pass
 
