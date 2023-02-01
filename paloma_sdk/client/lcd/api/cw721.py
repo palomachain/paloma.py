@@ -233,7 +233,7 @@ class AsyncCw721API(BaseAsyncAPI):
             wallet (Wallet): CW721 sender wallet
             token (str): token address
             recipient (str): token receiver address
-            token_id (str): send amount
+            token_id (str): CW721 token id
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
