@@ -197,7 +197,7 @@ class AsyncCw721API(BaseAsyncAPI):
         token: str,
         operator: str,
     ) -> BlockTxBroadcastResult:
-        """Send CW721 token to the other address and run msg
+        """Remove previously granted ApproveAll permission
         Args:
             wallet (Wallet): CW721 sender wallet
             token (str): token address
