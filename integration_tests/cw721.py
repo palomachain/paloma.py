@@ -14,7 +14,7 @@ from paloma_sdk.util.contract import get_code_id, get_contract_address, read_fil
 async def main():
     paloma = AsyncLCDClient(url="https://lcd.testnet.palomaswap.com/", chain_id="paloma-testnet-15")
     paloma.gas_prices = "0.01ugrain"
-
+    # test1 = paloma.wallets["test1"]
     acc = MnemonicKey(
         mnemonic="notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
     )
@@ -25,16 +25,16 @@ async def main():
     test1 = paloma.wallet(acc)
     test2 = paloma.wallet(acc2)
 
+    # print(test1.key.acc_address)
     store_code_tx = await test1.create_and_sign_tx(
         CreateTxOptions(
             msgs=[
                 MsgStoreCode(
                     test1.key.acc_address,
-                    read_file_as_b64(Path(__file__).parent / "./cw20_base.wasm"),
+                    read_file_as_b64(Path(__file__).parent / "./cw721_base.wasm"),
                     AccessConfig(AccessType.ACCESS_TYPE_EVERYBODY, ""),
                 )
-            ],
-            gas_adjustment=1.75,
+            ]
         )
     )
     store_code_tx_result = await paloma.tx.broadcast(store_code_tx)
@@ -42,11 +42,11 @@ async def main():
 
     code_id = get_code_id(store_code_tx_result)
 
-    # code_id = 49
+    # code_id = 1
     print(f"code_id:{code_id}")
 
-    result = await paloma.cw20.instantiate(
-        test1, code_id, "CW20 Token", "CWFT", 9, 1_000_000_000_000_000
+    result = await paloma.cw721.instantiate(
+        test1, code_id, "CW721 Token", "CWFT", test1.key.acc_address
     )
     print(result)
     
@@ -55,13 +55,38 @@ async def main():
         ][0]
     print(contract_address)
 
-    result = await paloma.cw20.transfer(
-        test1, contract_address, test2.key.acc_address, 1_000_000_000
+    result = await paloma.cw721.mint(
+        test1, contract_address, "1", test1.key.acc_address, "test uri"
     )
     print(result)
 
-    result = await paloma.cw20.burn(
-        test1, contract_address, 500_000_000
+    result = await paloma.cw721.approve(
+        test1, contract_address, test2.key.acc_address, "1"
+    )
+    print(result)
+
+    result = await paloma.cw721.revoke(
+        test1, contract_address, test2.key.acc_address, "1"
+    )
+    print(result)
+
+    result = await paloma.cw721.approve_all(
+        test1, contract_address, test2.key.acc_address
+    )
+    print(result)
+
+    result = await paloma.cw721.revoke_all(
+        test1, contract_address, test2.key.acc_address
+    )
+    print(result)
+
+    result = await paloma.cw721.transfer_nft(
+        test1, contract_address, test2.key.acc_address, "1"
+    )
+    print(result)
+
+    result = await paloma.cw721.burn(
+        test2, contract_address, "1"
     )
     print(result)
 

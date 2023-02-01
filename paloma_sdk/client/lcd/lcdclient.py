@@ -18,6 +18,7 @@ from .api.auth import AsyncAuthAPI, AuthAPI
 from .api.authz import AsyncAuthzAPI, AuthzAPI
 from .api.bank import AsyncBankAPI, BankAPI
 from .api.cw20 import AsyncCw20API, Cw20API
+from .api.cw721 import AsyncCw721API, Cw721API
 from .api.distribution import AsyncDistributionAPI, DistributionAPI
 from .api.feegrant import AsyncFeeGrantAPI, FeeGrantAPI
 from .api.gov import AsyncGovAPI, GovAPI
@@ -66,6 +67,7 @@ class AsyncLCDClient:
         self.auth = AsyncAuthAPI(self)
         self.bank = AsyncBankAPI(self)
         self.cw20 = AsyncCw20API(self)
+        self.cw721 = AsyncCw721API(self)
         self.distribution = AsyncDistributionAPI(self)
         self.feegrant = AsyncFeeGrantAPI(self)
         self.gov = AsyncGovAPI(self)
@@ -200,6 +202,9 @@ class LCDClient(AsyncLCDClient):
     cw20: Cw20API
     """:class:`Cw20API<paloma_sdk.client.lcd.api.bank.Cw20API>`."""
 
+    cw721: Cw721API
+    """:class:`Cw721API<paloma_sdk.client.lcd.api.bank.Cw721API>`."""
+
     distribution: DistributionAPI
     """:class:`DistributionAPI<paloma_sdk.client.lcd.api.distribution.DistributionAPI>`."""
 
@@ -255,6 +260,7 @@ class LCDClient(AsyncLCDClient):
         self.auth = AuthAPI(self)
         self.bank = BankAPI(self)
         self.cw20 = Cw20API(self)
+        self.cw721 = Cw721API(self)
         self.distribution = DistributionAPI(self)
         self.gov = GovAPI(self)
         self.feegrant = FeeGrantAPI(self)
