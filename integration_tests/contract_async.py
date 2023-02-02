@@ -3,7 +3,11 @@ from pathlib import Path
 
 from paloma_sdk.client.localpaloma import AsyncLocalPaloma
 from paloma_sdk.core import Coins, Fee
-from paloma_sdk.core.wasm import MsgExecuteContract, MsgInstantiateContract, MsgStoreCode
+from paloma_sdk.core.wasm import (
+    MsgExecuteContract,
+    MsgInstantiateContract,
+    MsgStoreCode,
+)
 from paloma_sdk.util.contract import get_code_id, get_contract_address, read_file_as_b64
 
 

@@ -38,6 +38,7 @@ from .wallet import AsyncWallet, Wallet
 def get_default(chain_id: str) -> [Coins, Numeric]:
     return [Coins.from_str("0.15ugrain"), Numeric.parse(1.75)]
 
+
 class AsyncLCDClient:
     def __init__(
         self,
@@ -143,7 +144,7 @@ class AsyncLCDClient:
         # raw: bool = False
     ):
 
-        actual_params : CIMultiDict = CIMultiDict()
+        actual_params: CIMultiDict = CIMultiDict()
 
         for event in events:
             if event[0] == "tx.height":

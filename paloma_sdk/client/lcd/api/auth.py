@@ -1,6 +1,5 @@
 from typing import Optional, Union
 
-from ..params import APIParams
 from paloma_sdk.core import AccAddress
 from paloma_sdk.core.auth import (
     Account,
@@ -10,6 +9,7 @@ from paloma_sdk.core.auth import (
     PeriodicVestingAccount,
 )
 
+from ..params import APIParams
 from ._base import BaseAsyncAPI, sync_bind
 
 __all__ = ["AsyncAuthAPI", "AuthAPI"]

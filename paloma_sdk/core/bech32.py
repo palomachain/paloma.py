@@ -40,7 +40,9 @@ AccAddress = NewType("AccAddress", str)
 AccAddress.__doc__ = """Paloma Bech32 Account Address -- type alias of str."""
 
 ValAddress = NewType("ValAddress", str)
-ValAddress.__doc__ = """Paloma Bech32 Validator Operator Address -- type alias of str."""
+ValAddress.__doc__ = (
+    """Paloma Bech32 Validator Operator Address -- type alias of str."""
+)
 
 AccPubKey = NewType("AccPubKey", str)
 AccPubKey.__doc__ = """Paloma Bech32 Account Address -- type alias of str."""
