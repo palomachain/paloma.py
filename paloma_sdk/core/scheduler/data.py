@@ -1,80 +1,57 @@
-import json
 import betterproto
-from typing import Union, List
+from typing import List
 from dataclasses import dataclass
-from paloma_sdk.core import AccAddress
-
 
 @dataclass(eq=False, repr=False)
 class ScheduleTrigger(betterproto.Message):
-    """
-    """
-
+    pass
 
 @dataclass(eq=False, repr=False)
 class EventTrigger(betterproto.Message):
-    """
-    """
-
+    pass
 
 @dataclass(eq=False, repr=False)
 class Trigger(betterproto.Message):
-    """
-    """
-    trigger: ScheduleTrigger = betterproto.message_field(1)
+    schedule: "ScheduleTrigger" = betterproto.message_field(1, group="trigger")
+    event: "EventTrigger" = betterproto.message_field(2, group="trigger")
 
 
 @dataclass(eq=False, repr=False)
 class Runner(betterproto.Message):
-    """
-    """
-    chainType: str = betterproto.string_field(1)
-    chainReferenceID: str = betterproto.string_field(2)
-    address: str = betterproto.string_field(2)
+    chain_type: str = betterproto.string_field(1)
+    chain_reference_id: str = betterproto.string_field(2)
+    address: bytes = betterproto.bytes_field(3)
 
 
 @dataclass(eq=False, repr=False)
 class Permissions(betterproto.Message):
-    """
-    """
-    whitelist: List[Runner] = betterproto.message_field(1)
-    blacklist: List[Runner] = betterproto.message_field(2)
+    whitelist: List["Runner"] = betterproto.message_field(1)
+    blacklist: List["Runner"] = betterproto.message_field(2)
 
 @dataclass(eq=False, repr=False)
 class Routing(betterproto.Message):
-    """
-    """
-    chainType: str = betterproto.string_field(1)
-    chainReferenceID: str = betterproto.string_field(2)
+    chain_type: str = betterproto.string_field(1)
+    chain_reference_id: str = betterproto.string_field(2)
 
 @dataclass(eq=False, repr=False)
 class Job(betterproto.Message):
-    """
-    """
-    ID: str = betterproto.string_field(1)
-    owner: str = betterproto.string_field(2)
-    routing: Routing = betterproto.message_field(3)
-    definition: str = betterproto.string_field(5)
-    payload: str = betterproto.string_field(6)
-    isPayloadModifiable: bool = betterproto.bool_field(7)
-    permissions: Permissions = betterproto.message_field(8)
-    triggers: bytes = betterproto.message_field(9)
-    address: str = betterproto.string_field(10)
-
+    id: str = betterproto.string_field(1)
+    owner: bytes = betterproto.bytes_field(2)
+    routing: "Routing" = betterproto.message_field(3)
+    definition: bytes = betterproto.bytes_field(5)
+    payload: bytes = betterproto.bytes_field(6)
+    is_payload_modifiable: bool = betterproto.bool_field(7)
+    permissions: "Permissions" = betterproto.message_field(8)
+    triggers: List["Trigger"] = betterproto.message_field(9)
+    address: bytes = betterproto.bytes_field(10)
 
 @dataclass(eq=False, repr=False)
 class MsgCreateJob(betterproto.Message):
-    """
-    MsgExecuteContract submits the given message data to a smart contract
-    """
-
-    # Job creator
     creator: str = betterproto.string_field(1)
-    # Job json
-    job: Job = betterproto.message_field(2)
-    # Msg json encoded message to be passed to the contract
+    job: "Job" = betterproto.message_field(2)
 
-def parse_msg(msg: Union[dict, str, bytes]) -> dict:
-    if type(msg) is dict:
-        return msg
-    return json.loads(msg)
+@dataclass(eq=False, repr=False)
+class MsgExecuteJob(betterproto.Message):
+    creator: str = betterproto.string_field(1)
+    job_id: str = betterproto.string_field(2)
+    payload: bytes = betterproto.bytes_field(3)

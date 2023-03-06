@@ -25,7 +25,7 @@ async def main():
     test1 = paloma.wallet(acc)
     test2 = paloma.wallet(acc2)
 
-    job_id = "testjob0"
+    job_id = "test100"
     contract_address = "0x1f576F2021b6EBdF229750f54fDFd31206141E65"
     abi = [{"inputs":[],"name":"retrieve","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"num","type":"uint256"}],"name":"store","outputs":[],"stateMutability":"nonpayable","type":"function"}]
     payload = "6057361d00000000000000000000000000000000000000000000000000000000000000ea"
@@ -35,22 +35,11 @@ async def main():
         test1, job_id, contract_address, abi, payload, chain_type, chain_reference_id
     )
     print(result)
-    
-    # contract_address = result.logs[0].events_by_type["instantiate"][
-    #         "_contract_address"
-    #     ][0]
-    # print(contract_address)
 
-    # result = await paloma.cw20.transfer(
-    #     test1, contract_address, test2.key.acc_address, 1_000_000_000
-    # )
-    # print(result)
-
-    # result = await paloma.cw20.burn(
-    #     test1, contract_address, 500_000_000
-    # )
-    # print(result)
-
+    job_id = "test100"
+    payload = "6057361d0000000000000000000000000000000000000000000000000000000000000003"
+    result = await paloma.job_scheduler.execute_job(test1, job_id, payload)
+    print(result)
     await paloma.session.close()
 
 
