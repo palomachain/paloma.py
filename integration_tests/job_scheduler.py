@@ -1,14 +1,8 @@
 import asyncio
-from pathlib import Path
-
 import uvloop
-from terra_proto.cosmwasm.wasm.v1 import AccessType
+
 from paloma_sdk.client.lcd import AsyncLCDClient
-from paloma_sdk.client.lcd.api.tx import CreateTxOptions
-from paloma_sdk.core.wasm import MsgInstantiateContract, MsgStoreCode
 from paloma_sdk.key.mnemonic import MnemonicKey
-from paloma_sdk.core.wasm.data import AccessConfig
-from paloma_sdk.util.contract import get_code_id, get_contract_address, read_file_as_b64
 
 
 async def main():
@@ -19,11 +13,7 @@ async def main():
         mnemonic="notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius"
     )
 
-    acc2 = MnemonicKey(
-        mnemonic="index light average senior silent limit usual local involve delay update rack cause inmate wall render magnet common feature laundry exact casual resource hundred"
-    )
     test1 = paloma.wallet(acc)
-    test2 = paloma.wallet(acc2)
 
     job_id = "test100"
     contract_address = "0x1f576F2021b6EBdF229750f54fDFd31206141E65"
