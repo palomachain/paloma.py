@@ -5,9 +5,8 @@ import base64
 import math
 
 import attr
-from terra_proto.cosmos.crypto.multisig.v1beta1 import (
-    CompactBitArray as CompactBitArray_pb,
-)
+from terra_proto.cosmos.crypto.multisig.v1beta1 import \
+    CompactBitArray as CompactBitArray_pb
 
 from paloma_sdk.util.json import JSONSerializable
 

@@ -3,15 +3,10 @@ import base64
 from paloma_sdk.client.lcd import LCDClient
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
 from paloma_sdk.core import Coin, Coins
-from paloma_sdk.core.staking import (
-    CommissionRates,
-    Description,
-    MsgBeginRedelegate,
-    MsgCreateValidator,
-    MsgDelegate,
-    MsgEditValidator,
-    MsgUndelegate,
-)
+from paloma_sdk.core.staking import (CommissionRates, Description,
+                                     MsgBeginRedelegate, MsgCreateValidator,
+                                     MsgDelegate, MsgEditValidator,
+                                     MsgUndelegate)
 from paloma_sdk.key.mnemonic import MnemonicKey
 
 

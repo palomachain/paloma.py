@@ -1,4 +1,5 @@
 import pytest
+
 from paloma_sdk.client.lcd import LCDClient
 from paloma_sdk.exceptions import LCDResponseError
 

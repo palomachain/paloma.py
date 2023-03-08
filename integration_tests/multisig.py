@@ -4,13 +4,8 @@ from pathlib import Path
 
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
 from paloma_sdk.client.localpaloma import LocalPaloma
-from paloma_sdk.core import (
-    Coins,
-    LegacyAminoMultisigPublicKey,
-    MultiSignature,
-    SignatureV2,
-    SignDoc,
-)
+from paloma_sdk.core import (Coins, LegacyAminoMultisigPublicKey,
+                             MultiSignature, SignatureV2, SignDoc)
 from paloma_sdk.core.bank import MsgSend
 from paloma_sdk.util.contract import get_code_id
 

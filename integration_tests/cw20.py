@@ -3,12 +3,14 @@ from pathlib import Path
 
 import uvloop
 from terra_proto.cosmwasm.wasm.v1 import AccessType
+
 from paloma_sdk.client.lcd import AsyncLCDClient
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
 from paloma_sdk.core.wasm import MsgInstantiateContract, MsgStoreCode
-from paloma_sdk.key.mnemonic import MnemonicKey
 from paloma_sdk.core.wasm.data import AccessConfig
-from paloma_sdk.util.contract import get_code_id, get_contract_address, read_file_as_b64
+from paloma_sdk.key.mnemonic import MnemonicKey
+from paloma_sdk.util.contract import (get_code_id, get_contract_address,
+                                      read_file_as_b64)
 
 
 async def main():

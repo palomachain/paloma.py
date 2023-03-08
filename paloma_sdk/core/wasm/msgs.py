@@ -10,11 +10,12 @@ from typing import Optional, Union
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
 from terra_proto.cosmwasm.wasm.v1 import MsgClearAdmin as MsgClearAdmin_pb
-from terra_proto.cosmwasm.wasm.v1 import MsgExecuteContract as MsgExecuteContract_pb
-from terra_proto.cosmwasm.wasm.v1 import (
-    MsgInstantiateContract as MsgInstantiateContract_pb,
-)
-from terra_proto.cosmwasm.wasm.v1 import MsgMigrateContract as MsgMigrateContract_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    MsgExecuteContract as MsgExecuteContract_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    MsgInstantiateContract as MsgInstantiateContract_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    MsgMigrateContract as MsgMigrateContract_pb
 from terra_proto.cosmwasm.wasm.v1 import MsgStoreCode as MsgStoreCode_pb
 from terra_proto.cosmwasm.wasm.v1 import MsgUpdateAdmin as MsgUpdateAdmin_pb
 

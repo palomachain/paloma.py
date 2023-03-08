@@ -7,7 +7,8 @@ from typing import List
 import attr
 
 from paloma_sdk.core.compact_bit_array import CompactBitArray
-from paloma_sdk.core.public_key import LegacyAminoMultisigPublicKey, SimplePublicKey
+from paloma_sdk.core.public_key import (LegacyAminoMultisigPublicKey,
+                                        SimplePublicKey)
 from paloma_sdk.core.signature_v2 import Descriptor
 from paloma_sdk.core.signature_v2 import Multi as MultiDescriptor
 from paloma_sdk.core.signature_v2 import SignatureV2

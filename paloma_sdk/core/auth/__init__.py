@@ -1,21 +1,8 @@
-from .data import (
-    Account,
-    BaseAccount,
-    ContinuousVestingAccount,
-    DelayedVestingAccount,
-    PeriodicVestingAccount,
-    Period,
-    PublicKey,
-    TxInfo,
-    TxLog,
-    parse_tx_logs,
-)
-
-from .msgs import (
-    MsgCreatePeriodicVestingAccount,
-    MsgCreateVestingAccount,
-    MsgDonateAllVestingTokens,
-)
+from .data import (Account, BaseAccount, ContinuousVestingAccount,
+                   DelayedVestingAccount, Period, PeriodicVestingAccount,
+                   PublicKey, TxInfo, TxLog, parse_tx_logs)
+from .msgs import (MsgCreatePeriodicVestingAccount, MsgCreateVestingAccount,
+                   MsgDonateAllVestingTokens)
 
 __all__ = [
     "Account",
