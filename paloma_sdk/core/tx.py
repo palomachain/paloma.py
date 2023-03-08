@@ -8,8 +8,7 @@ from typing import Dict, List, Optional
 
 import attr
 from betterproto.lib.google.protobuf import Any
-from terra_proto.cosmos.base.abci.v1beta1 import \
-    AbciMessageLog as AbciMessageLog_pb
+from terra_proto.cosmos.base.abci.v1beta1 import AbciMessageLog as AbciMessageLog_pb
 from terra_proto.cosmos.base.abci.v1beta1 import Attribute as Attribute_pb
 from terra_proto.cosmos.base.abci.v1beta1 import StringEvent as StringEvent_pb
 from terra_proto.cosmos.base.abci.v1beta1 import TxResponse as TxResponse_pb
@@ -23,8 +22,11 @@ from paloma_sdk.core.compact_bit_array import CompactBitArray
 from paloma_sdk.core.fee import Fee
 from paloma_sdk.core.mode_info import ModeInfo, ModeInfoMulti, ModeInfoSingle
 from paloma_sdk.core.msg import Msg
-from paloma_sdk.core.public_key import (LegacyAminoMultisigPublicKey,
-                                        PublicKey, SimplePublicKey)
+from paloma_sdk.core.public_key import (
+    LegacyAminoMultisigPublicKey,
+    PublicKey,
+    SimplePublicKey,
+)
 from paloma_sdk.core.signature_v2 import SignatureV2
 from paloma_sdk.util.json import JSONSerializable
 

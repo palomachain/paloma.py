@@ -12,8 +12,7 @@ from terra_proto.cosmos.gov.v1beta1 import ProposalStatus
 from terra_proto.cosmos.gov.v1beta1 import TallyResult as TallyResult_pb
 from terra_proto.cosmos.gov.v1beta1 import Vote as Vote_pb
 from terra_proto.cosmos.gov.v1beta1 import VoteOption
-from terra_proto.cosmos.gov.v1beta1 import \
-    WeightedVoteOption as WeightedVoteOption_pb
+from terra_proto.cosmos.gov.v1beta1 import WeightedVoteOption as WeightedVoteOption_pb
 
 from paloma_sdk.core import AccAddress, Coins
 from paloma_sdk.util.converter import to_isoformat

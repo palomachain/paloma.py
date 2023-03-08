@@ -1,18 +1,14 @@
-from dataclasses import dataclass
-from typing import List
-
 import betterproto
-
+from typing import List
+from dataclasses import dataclass
 
 @dataclass(eq=False, repr=False)
 class ScheduleTrigger(betterproto.Message):
     pass
 
-
 @dataclass(eq=False, repr=False)
 class EventTrigger(betterproto.Message):
     pass
-
 
 @dataclass(eq=False, repr=False)
 class Trigger(betterproto.Message):
@@ -32,12 +28,10 @@ class Permissions(betterproto.Message):
     whitelist: List["Runner"] = betterproto.message_field(1)
     blacklist: List["Runner"] = betterproto.message_field(2)
 
-
 @dataclass(eq=False, repr=False)
 class Routing(betterproto.Message):
     chain_type: str = betterproto.string_field(1)
     chain_reference_id: str = betterproto.string_field(2)
-
 
 @dataclass(eq=False, repr=False)
 class Job(betterproto.Message):
@@ -51,12 +45,10 @@ class Job(betterproto.Message):
     triggers: List["Trigger"] = betterproto.message_field(9)
     address: bytes = betterproto.bytes_field(10)
 
-
 @dataclass(eq=False, repr=False)
 class MsgCreateJob(betterproto.Message):
     creator: str = betterproto.string_field(1)
     job: "Job" = betterproto.message_field(2)
-
 
 @dataclass(eq=False, repr=False)
 class MsgExecuteJob(betterproto.Message):
