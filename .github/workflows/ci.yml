@@ -1,0 +1,28 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - uses: Gr1N/setup-poetry@v4
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
+
+      - run: poetry run pytest --cov=paloma_sdk
+      - run: poetry run flake8 paloma_sdk
+      - run: poetry run mypy -p paloma_sdk
+      - run: poetry run isort --check ./
+      - run: poetry run black --check ./
