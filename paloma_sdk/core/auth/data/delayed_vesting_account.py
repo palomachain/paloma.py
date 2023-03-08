@@ -6,9 +6,8 @@ from itertools import starmap
 from typing import List
 
 import attr
-from terra_proto.cosmos.vesting.v1beta1 import (
-    DelayedVestingAccount as DelayedVestingAccount_pb,
-)
+from terra_proto.cosmos.vesting.v1beta1 import \
+    DelayedVestingAccount as DelayedVestingAccount_pb
 
 from paloma_sdk.core import Dec
 from paloma_sdk.util.json import JSONSerializable
