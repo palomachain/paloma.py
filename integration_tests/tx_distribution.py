@@ -1,10 +1,12 @@
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
 from paloma_sdk.client.localpaloma import LocalPaloma
 from paloma_sdk.core import Coin, Coins
-from paloma_sdk.core.distribution import (MsgFundCommunityPool,
-                                          MsgSetWithdrawAddress,
-                                          MsgWithdrawDelegatorReward,
-                                          MsgWithdrawValidatorCommission)
+from paloma_sdk.core.distribution import (
+    MsgFundCommunityPool,
+    MsgSetWithdrawAddress,
+    MsgWithdrawDelegatorReward,
+    MsgWithdrawValidatorCommission,
+)
 
 
 def main():

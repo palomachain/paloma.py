@@ -1,5 +1,4 @@
-from paloma_sdk.core.staking import (MsgBeginRedelegate, MsgDelegate,
-                                     MsgUndelegate)
+from paloma_sdk.core.staking import MsgBeginRedelegate, MsgDelegate, MsgUndelegate
 
 
 def test_deserialize_msg_delegate_examples(load_msg_examples):

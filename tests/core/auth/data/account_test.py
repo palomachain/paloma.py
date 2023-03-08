@@ -1,6 +1,9 @@
-from paloma_sdk.core.auth import (BaseAccount, ContinuousVestingAccount,
-                                  DelayedVestingAccount,
-                                  PeriodicVestingAccount)
+from paloma_sdk.core.auth import (
+    BaseAccount,
+    ContinuousVestingAccount,
+    DelayedVestingAccount,
+    PeriodicVestingAccount,
+)
 
 
 def test_deserializes_account_example(load_json_examples):

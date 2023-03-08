@@ -7,8 +7,9 @@ from typing import List
 
 import attr
 from terra_proto.cosmos.vesting.v1beta1 import Period as Period_pb
-from terra_proto.cosmos.vesting.v1beta1 import \
-    PeriodicVestingAccount as PeriodicVestingAccount_pb
+from terra_proto.cosmos.vesting.v1beta1 import (
+    PeriodicVestingAccount as PeriodicVestingAccount_pb,
+)
 
 from paloma_sdk.core import Coins
 from paloma_sdk.util.json import JSONSerializable
