@@ -1,42 +1,13 @@
-from pathlib import Path
-from typing import Optional
-
 from ._base import BaseAsyncAPI, sync_bind
 from ..wallet import Wallet
 from .tx import CreateTxOptions
-from terra_proto.cosmwasm.wasm.v1 import AccessType
-from paloma_sdk.core.wasm.data import AccessConfig
-from paloma_sdk.core.wasm import MsgInstantiateContract, MsgExecuteContract, MsgStoreCode
+from paloma_sdk.core.wasm import MsgInstantiateContract, MsgExecuteContract
 from paloma_sdk.core.coins import Coins
 from paloma_sdk.core.broadcast import BlockTxBroadcastResult
-from paloma_sdk.util.contract import read_file_as_b64
 
 __all__ = ["AsyncCw20API", "Cw20API"]
 
 class AsyncCw20API(BaseAsyncAPI):
-    async def store_code(
-        self,
-        wallet: Wallet,
-        path: Optional[str] = None
-    ) -> BlockTxBroadcastResult:
-        """store code
-        """
-        if path is None:
-            path = Path(__file__).parent / "./cw20_base.wasm"
-        store_code_tx = await wallet.create_and_sign_tx(
-            CreateTxOptions(
-                msgs=[
-                    MsgStoreCode(
-                        wallet.key.acc_address,
-                        read_file_as_b64(path),
-                        AccessConfig(AccessType.ACCESS_TYPE_EVERYBODY, ""),
-                    )
-                ]
-            )
-        )
-        store_code_tx_result = await self._c.tx.broadcast(store_code_tx)
-        return store_code_tx_result
-
     async def instantiate(
         self,
         wallet: Wallet,
@@ -180,14 +151,6 @@ class AsyncCw20API(BaseAsyncAPI):
         return result
 
 class Cw20API(AsyncCw20API):
-    @sync_bind(AsyncCw20API.store_code)
-    def store_code(
-        self,
-        wallet: Wallet,
-        path: Optional[str] = None
-    ) -> BlockTxBroadcastResult:
-        pass
-
     @sync_bind(AsyncCw20API.instantiate)
     def instantiate(
         self,
@@ -230,7 +193,6 @@ class Cw20API(AsyncCw20API):
     ) -> BlockTxBroadcastResult:
         pass
 
-    store_code.__doc__ = AsyncCw20API.store_code.__doc__
     instantiate.__doc__ = AsyncCw20API.instantiate.__doc__
     send.__doc__ = AsyncCw20API.send.__doc__
     transfer.__doc__ = AsyncCw20API.transfer.__doc__

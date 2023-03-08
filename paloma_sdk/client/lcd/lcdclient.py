@@ -25,6 +25,7 @@ from .api.gov import AsyncGovAPI, GovAPI
 from .api.ibc import AsyncIbcAPI, IbcAPI
 from .api.ibc_transfer import AsyncIbcTransferAPI, IbcTransferAPI
 from .api.mint import AsyncMintAPI, MintAPI
+from .api.scheduler import AsyncJobSchedulerAPI, JobSchedulerAPI
 from .api.slashing import AsyncSlashingAPI, SlashingAPI
 from .api.staking import AsyncStakingAPI, StakingAPI
 from .api.tendermint import AsyncTendermintAPI, TendermintAPI
@@ -35,7 +36,7 @@ from .params import APIParams
 from .wallet import AsyncWallet, Wallet
 
 
-def get_default(chain_id: str) -> [Coins, Numeric]:
+def get_default(chain_id: str) -> list[Coins, Numeric]:
     return [Coins.from_str("0.15ugrain"), Numeric.parse(1.75)]
 
 class AsyncLCDClient:
@@ -72,6 +73,7 @@ class AsyncLCDClient:
         self.feegrant = AsyncFeeGrantAPI(self)
         self.gov = AsyncGovAPI(self)
         self.mint = AsyncMintAPI(self)
+        self.job_scheduler = AsyncJobSchedulerAPI(self)
         self.authz = AsyncAuthzAPI(self)
         self.slashing = AsyncSlashingAPI(self)
         self.staking = AsyncStakingAPI(self)
@@ -217,6 +219,9 @@ class LCDClient(AsyncLCDClient):
     mint: MintAPI
     """:class:`MintAPI<paloma_sdk.client.lcd.api.mint.MintAPI>`."""
 
+    job_scheduler: JobSchedulerAPI
+    """:class:`JobSchedulerAPI<paloma_sdk.client.lcd.api.scheduler.JobSchedulerAPI>`."""
+
     authz: AuthzAPI
     """:class:`AuthzAPI<paloma_sdk.client.lcd.api.authz.AuthzAPI>`."""
 
@@ -266,6 +271,7 @@ class LCDClient(AsyncLCDClient):
         self.feegrant = FeeGrantAPI(self)
         self.mint = MintAPI(self)
         self.authz = AuthzAPI(self)
+        self.job_scheduler = JobSchedulerAPI(self)
         self.slashing = SlashingAPI(self)
         self.staking = StakingAPI(self)
         self.tendermint = TendermintAPI(self)
