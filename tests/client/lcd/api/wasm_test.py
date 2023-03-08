@@ -3,7 +3,7 @@ from paloma_sdk.client.lcd import LCDClient
 from paloma_sdk.exceptions import LCDResponseError
 
 paloma = LCDClient(
-    url= "https://pisco-lcd.paloma.dev/",
+    url="https://pisco-lcd.paloma.dev/",
     chain_id="pisco-1",
 )
 
@@ -25,10 +25,12 @@ def test_code_info():
         == "CD686878A33E62CBCDAF7620E776096E4D15856CC03B0F12EDE66A1D5699D39D"
     )
 
+
 def test_code_info_with_params():
     with pytest.raises(LCDResponseError):
         paloma.wasm.code_info(72, {"height": 100})
-    
+
+
 def test_contract_query():
     result = paloma.wasm.contract_query(
         "paloma19xa33fjdjlz9qkafrw8qnrzrawc8h0vhxvfdhh6yk3f5qxuh2fps9e49zt",
@@ -36,20 +38,22 @@ def test_contract_query():
     )
     assert result is not None
 
+
 def test_contract_query_with_params():
     result = paloma.wasm.contract_query(
         "paloma19xa33fjdjlz9qkafrw8qnrzrawc8h0vhxvfdhh6yk3f5qxuh2fps9e49zt",
         {"get_count": {}},
-        {"height": 	61027}
+        {"height": 61027},
     )
-    assert result == {'count':0}
+    assert result == {"count": 0}
 
     result = paloma.wasm.contract_query(
         "paloma19xa33fjdjlz9qkafrw8qnrzrawc8h0vhxvfdhh6yk3f5qxuh2fps9e49zt",
         {"get_count": {}},
-        {"height": 	61028}
+        {"height": 61028},
     )
-    assert result == {'count':1}
+    assert result == {"count": 1}
+
 
 def test_pinned_codes():
     result = paloma.wasm.pinned_codes()

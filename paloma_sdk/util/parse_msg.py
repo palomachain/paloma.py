@@ -1,8 +1,8 @@
 # core msgs
-from paloma_sdk.core.auth import(
+from paloma_sdk.core.auth import (
     MsgDonateAllVestingTokens,
     MsgCreatePeriodicVestingAccount,
-    MsgCreateVestingAccount
+    MsgCreateVestingAccount,
 )
 from paloma_sdk.core.authz import (
     MsgExecAuthorized,
@@ -57,10 +57,11 @@ from paloma_sdk.core.wasm import (
 )
 
 from .base import create_demux, create_demux_proto, create_demux_unpack_any
+
 auth_msgs = [
     MsgCreateVestingAccount,
     MsgCreatePeriodicVestingAccount,
-    MsgDonateAllVestingTokens
+    MsgDonateAllVestingTokens,
 ]
 bank_msgs = [MsgSend, MsgMultiSend]
 distribution_msgs = [

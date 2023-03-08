@@ -8,7 +8,15 @@ from betterproto.lib.google.protobuf import Any as Any_pb
 from paloma_sdk.core import AccAddress
 from paloma_sdk.core.msg import Msg
 from paloma_sdk.util.remove_none import remove_none
-from .data import MsgCreateJob as MsgCreateJob_pb, MsgExecuteJob as MsgExecuteJob_pb, Job as Job_pb, Routing as Routing_pb, Permissions as Permissions_pb, Trigger as Trigger_pb, ScheduleTrigger as ScheduleTrigger_pb
+from .data import (
+    MsgCreateJob as MsgCreateJob_pb,
+    MsgExecuteJob as MsgExecuteJob_pb,
+    Job as Job_pb,
+    Routing as Routing_pb,
+    Permissions as Permissions_pb,
+    Trigger as Trigger_pb,
+    ScheduleTrigger as ScheduleTrigger_pb,
+)
 from paloma_sdk.util.json import JSONSerializable
 
 __all__ = [
@@ -30,6 +38,7 @@ class Job(JSONSerializable):
     permissions: dict = attr.ib()
     triggers: list = attr.ib()
     address: str = attr.ib()
+
 
 @attr.s
 class MsgCreateJob(Msg):
@@ -64,20 +73,18 @@ class MsgCreateJob(Msg):
                 owner=bytes(self.job["owner"], "ascii"),
                 routing=Routing_pb(
                     chain_type=self.job["routing"]["chain_type"],
-                    chain_reference_id=self.job["routing"]["chain_reference_id"]
+                    chain_reference_id=self.job["routing"]["chain_reference_id"],
                 ),
                 definition=bytes(self.job["definition"], "ascii"),
                 payload=bytes(self.job["payload"], "ascii"),
                 is_payload_modifiable=self.job["is_payload_modifiable"],
                 permissions=Permissions_pb(
                     whitelist=self.job["permissions"]["whitelist"],
-                    blacklist=self.job["permissions"]["blacklist"]
+                    blacklist=self.job["permissions"]["blacklist"],
                 ),
-                triggers=[Trigger_pb(
-                    schedule=ScheduleTrigger_pb()
-                )],
-                address=bytes(self.job["address"], "ascii")
-            )
+                triggers=[Trigger_pb(schedule=ScheduleTrigger_pb())],
+                address=bytes(self.job["address"], "ascii"),
+            ),
         )
 
     @classmethod
@@ -86,6 +93,7 @@ class MsgCreateJob(Msg):
             creator=proto.creator,
             job=parse_msg(proto.job),
         )
+
 
 @attr.s
 class MsgExecuteJob(Msg):
@@ -119,7 +127,7 @@ class MsgExecuteJob(Msg):
         return MsgExecuteJob_pb(
             creator=self.creator,
             job_id=self.job_id,
-            payload=bytes(self.payload, "ascii")
+            payload=bytes(self.payload, "ascii"),
         )
 
     @classmethod

@@ -6,7 +6,9 @@ from paloma_sdk.key.mnemonic import MnemonicKey
 
 
 async def main():
-    paloma = AsyncLCDClient(url="https://lcd.testnet.palomaswap.com/", chain_id="paloma-testnet-15")
+    paloma = AsyncLCDClient(
+        url="https://lcd.testnet.palomaswap.com/", chain_id="paloma-testnet-15"
+    )
     paloma.gas_prices = "0.01ugrain"
 
     acc = MnemonicKey(
@@ -17,7 +19,22 @@ async def main():
 
     job_id = "test100"
     contract_address = "0x1f576F2021b6EBdF229750f54fDFd31206141E65"
-    abi = [{"inputs":[],"name":"retrieve","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"num","type":"uint256"}],"name":"store","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    abi = [
+        {
+            "inputs": [],
+            "name": "retrieve",
+            "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+            "stateMutability": "view",
+            "type": "function",
+        },
+        {
+            "inputs": [{"internalType": "uint256", "name": "num", "type": "uint256"}],
+            "name": "store",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function",
+        },
+    ]
     payload = "6057361d00000000000000000000000000000000000000000000000000000000000000ea"
     chain_type = "evm"
     chain_reference_id = "bnb-main"

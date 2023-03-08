@@ -14,7 +14,7 @@ from .data import (
 from .msgs import (
     MsgCreatePeriodicVestingAccount,
     MsgCreateVestingAccount,
-    MsgDonateAllVestingTokens
+    MsgDonateAllVestingTokens,
 )
 
 __all__ = [
@@ -23,12 +23,11 @@ __all__ = [
     "ContinuousVestingAccount",
     "DelayedVestingAccount",
     "PeriodicVestingAccount",
-    "Period"
-    "TxLog",
+    "Period" "TxLog",
     "TxInfo",
     "PublicKey",
     "parse_tx_logs",
     "MsgCreatePeriodicVestingAccount",
     "MsgCreateVestingAccount",
-    "MsgDonateAllVestingTokens"
+    "MsgDonateAllVestingTokens",
 ]

@@ -4,6 +4,7 @@ from paloma_sdk.core import Dec, Numeric
 
 from ._base import BaseAsyncAPI, sync_bind
 from ..params import APIParams
+
 __all__ = ["AsyncMintAPI", "MintAPI"]
 
 

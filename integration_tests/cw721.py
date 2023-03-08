@@ -12,7 +12,9 @@ from paloma_sdk.util.contract import get_code_id, get_contract_address, read_fil
 
 
 async def main():
-    paloma = AsyncLCDClient(url="https://lcd.testnet.palomaswap.com/", chain_id="paloma-testnet-15")
+    paloma = AsyncLCDClient(
+        url="https://lcd.testnet.palomaswap.com/", chain_id="paloma-testnet-15"
+    )
     paloma.gas_prices = "0.01ugrain"
     # test1 = paloma.wallets["test1"]
     acc = MnemonicKey(
@@ -49,10 +51,10 @@ async def main():
         test1, code_id, "CW721 Token", "CWFT", test1.key.acc_address
     )
     print(result)
-    
+
     contract_address = result.logs[0].events_by_type["instantiate"][
-            "_contract_address"
-        ][0]
+        "_contract_address"
+    ][0]
     print(contract_address)
 
     result = await paloma.cw721.mint(
@@ -85,9 +87,7 @@ async def main():
     )
     print(result)
 
-    result = await paloma.cw721.burn(
-        test2, contract_address, "1"
-    )
+    result = await paloma.cw721.burn(test2, contract_address, "1")
     print(result)
 
     await paloma.session.close()
