@@ -1,6 +1,8 @@
 import asyncio
 import uvloop
 
+from web3 import Web3
+from web3.contract import Contract
 from paloma_sdk.client.lcd import AsyncLCDClient
 from paloma_sdk.key.mnemonic import MnemonicKey
 
@@ -32,6 +34,12 @@ async def main():
     print(result)
     await paloma.session.close()
 
+def payload(contract_address: str, abi: dict, function_name: str, parameters: list):
+    infura_key: str = ""
+    node: str = "https://mainnet.infura.io/v3/" + infura_key
+    w3: Web3 = Web3(Web3.HTTPProvider(node))
+    smart_contract: Contract = w3.eth.contract(address=contract_address, abi=abi)
+    return smart_contract.encodeABI(function_name, parameters)[2:]
 
 uvloop.install()
 asyncio.run(main())

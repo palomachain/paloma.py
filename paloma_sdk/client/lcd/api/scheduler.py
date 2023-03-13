@@ -20,7 +20,17 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         chain_type: str,
         chain_reference_id: str
     ) -> BlockTxBroadcastResult:
-        """create job
+        """Create a job with data
+        Args:
+            wallet (Wallet): Job creator paloma wallet
+            job_id (str): Job ID
+            contract_address (str): Contract address to run the message on the purpose chain
+            abi (dict): ABI data of the smart contract
+            payload (str): default payload data of the job
+            chain_type (str): purpose chain type
+            chain_reference_id (str): chain reference id in paloma
+        Returns:
+            BlockTxBroadcastResult: transaction result
         """
         definition = {"abi":json.dumps(abi, separators=[",", ":"]),"address":contract_address}
         definition_json = json.dumps(definition, separators=[",", ":"])
@@ -57,7 +67,13 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         job_id: str,
         payload: str,
     ) -> BlockTxBroadcastResult:
-        """execute job
+        """Execute a job with data
+        Args:
+            wallet (Wallet): Job creator paloma wallet
+            job_id (str): Job ID
+            payload (str): payload data of the job on execution
+        Returns:
+            BlockTxBroadcastResult: transaction result
         """
         execute_tx = await wallet.create_and_sign_tx(
             CreateTxOptions(
