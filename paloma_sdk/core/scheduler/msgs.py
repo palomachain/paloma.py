@@ -18,9 +18,22 @@ __all__ = [
 
 @attr.s
 class Job(JSONSerializable):
+    """Paloma job details attribute
+    Args:
+        id: Job ID
+        owner:
+        routing: chain type and referrence id
+        definition: This is the job definition. It is somthing arbitrary as it's different for every chain.
+        payload: The payload for the job
+        is_payload_modifiable: true if payload needs to be modified on execute. commonly true.
+        permissions: whitelist / blacklist
+        triggers: schedule triggers / event triggers
+        address:
+        """
     type_amino = "scheduler/Job"
     type_url = "/palomachain.paloma.scheduler.Job"
     prototype = Job_pb
+
     id: str = attr.ib()
     owner: str = attr.ib()
     routing: dict = attr.ib()
@@ -33,6 +46,11 @@ class Job(JSONSerializable):
 
 @attr.s
 class MsgCreateJob(Msg):
+    """Create a paloma job
+    Args:
+        creator: Job creator paloma address
+        job: Paloma job details
+        """
     type_amino = "scheduler/MsgCreateJob"
     type_url = "/palomachain.paloma.scheduler.MsgCreateJob"
     prototype = MsgCreateJob_pb
@@ -89,6 +107,12 @@ class MsgCreateJob(Msg):
 
 @attr.s
 class MsgExecuteJob(Msg):
+    """Paloma job details attribute
+    Args:
+        creator: Job runner paloma address
+        job_id: Job ID to execute
+        payload: The payload for the job execute.
+        """
     type_amino = "scheduler/MsgExecuteJob"
     type_url = "/palomachain.paloma.scheduler.MsgExecuteJob"
     prototype = MsgExecuteJob_pb
