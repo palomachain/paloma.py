@@ -8,6 +8,8 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    env:
+      OPENSSL_CONF: ./.github/openssl.cnf
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
