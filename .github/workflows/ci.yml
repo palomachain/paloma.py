@@ -21,6 +21,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-poetry-
       - run: poetry install
+      - run: openssl version
       - run: poetry run pytest --cov=paloma_sdk
         env:
           OPENSSL_CONF: /home/runner/work/paloma.py/paloma.py/.github/openssl.cnf
