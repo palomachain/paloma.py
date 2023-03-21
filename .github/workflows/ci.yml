@@ -25,6 +25,8 @@ jobs:
         env:
           OPENSSL_CONF: /home/runner/work/paloma.py/paloma.py/.github/openssl.conf
       - run: cat $OPENSSL_CONF
+        env:
+          OPENSSL_CONF: /home/runner/work/paloma.py/paloma.py/.github/openssl.conf
       - run: poetry run pytest --cov=paloma_sdk
       - run: poetry run flake8 paloma_sdk
       - run: poetry run mypy -p paloma_sdk
