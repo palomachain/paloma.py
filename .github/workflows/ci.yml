@@ -8,6 +8,8 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    env:
+      OPENSSL_CONF: /home/runner/work/paloma.py/paloma.py/.github/openssl.conf
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -20,7 +22,6 @@ jobs:
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-poetry-
-      - run: pwd
       - run: poetry install
       - run: poetry run pytest --cov=paloma_sdk
       - run: poetry run flake8 paloma_sdk
