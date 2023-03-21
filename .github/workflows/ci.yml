@@ -20,7 +20,7 @@ jobs:
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-poetry-
-      - run: poetry add --dev pytest@latest
+      - run: poetry add pytest@latest
       - run: poetry run pytest --cov=paloma_sdk
       - run: poetry run flake8 paloma_sdk
       - run: poetry run mypy -p paloma_sdk
