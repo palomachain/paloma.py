@@ -32,7 +32,7 @@ def test_random():
 
 def test_signature():
 
-    paloma = LCDClient(url="https://pisco-lcd.paloma.dev", chain_id="pisco-1")
+    paloma = LCDClient(url="https://lcd.testnet.palomaswap.com", chain_id="paloma-testnet-15")
 
     mk = MnemonicKey(
         "island relax shop such yellow opinion find know caught erode blue dolphin behind coach tattoo light focus snake common size analyst imitate employ walnut"

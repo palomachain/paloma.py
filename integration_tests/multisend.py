@@ -35,8 +35,8 @@ from paloma_sdk.core.public_key import SimplePublicKey
 
 def main():
     paloma = LCDClient(
-        url="https://pisco-lcd.paloma.dev/",
-        chain_id="pisco-1",
+        url="https://lcd.testnet.palomaswap.com/",
+        chain_id="paloma-testnet-15",
     )
     paloma = LocalPaloma()
 

@@ -1,8 +1,8 @@
 from paloma_sdk.client.lcd import LCDClient
 
 paloma = LCDClient(
-    url="https://pisco-lcd.paloma.dev/",
-    chain_id="pisco-1",
+    url="https://lcd.testnet.palomaswap.com/",
+    chain_id="paloma-testnet-15",
 )
 
 
@@ -23,7 +23,7 @@ def test_validator_set_with_height():
 def test_node_info():
     result = paloma.tendermint.node_info()
 
-    assert result["default_node_info"]["network"] == "pisco-1"
+    assert result["default_node_info"]["network"] == "paloma-testnet-15"
 
 
 def test_block_info():

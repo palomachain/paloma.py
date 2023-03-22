@@ -17,8 +17,8 @@ from paloma_sdk.key.mnemonic import MnemonicKey
 
 def main():
     paloma = LCDClient(
-        url="https://pisco-lcd.paloma.dev/",
-        chain_id="pisco-1",
+        url="https://lcd.testnet.palomaswap.com/",
+        chain_id="paloma-testnet-15",
     )
 
     mk1 = MnemonicKey(

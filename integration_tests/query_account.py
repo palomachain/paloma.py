@@ -1,6 +1,6 @@
 from paloma_sdk.client.lcd import LCDClient
 
-paloma = LCDClient(chain_id="pisco-1", url="https://pisco-lcd.paloma.dev")
+paloma = LCDClient(chain_id="paloma-testnet-15", url="https://lcd.testnet.palomaswap.com")
 
 res = paloma.auth.account_info(address="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v")
 print(res)

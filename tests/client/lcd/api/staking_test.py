@@ -5,8 +5,8 @@ from paloma_sdk.client.lcd.params import PaginationOptions
 from paloma_sdk.key.mnemonic import MnemonicKey
 
 paloma = LCDClient(
-    url="https://pisco-lcd.paloma.dev/",
-    chain_id="pisco-1",
+    url="https://lcd.testnet.palomaswap.com/",
+    chain_id="paloma-testnet-15",
 )
 
 pagOpt = PaginationOptions(limit=1, count_total=True)

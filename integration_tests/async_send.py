@@ -16,7 +16,7 @@ async def with_sem(aw, sem):
 
 
 async def main():
-    paloma = AsyncLCDClient(chain_id="pisco-1", url="https://pisco-lcd.paloma.dev/")
+    paloma = AsyncLCDClient(chain_id="paloma-testnet-15", url="https://lcd.testnet.palomaswap.com/")
     mk = MnemonicKey(
         mnemonic="index light average senior silent limit usual local involve delay update rack cause inmate wall render magnet common feature laundry exact casual resource hundred"
     )
