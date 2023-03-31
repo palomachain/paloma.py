@@ -30,7 +30,7 @@ def main():
 
     msg = MsgSend(
         address,
-        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
         Coins(ugrain=100000),
     )
     print(f"msgAmino:{msg.to_amino()}")

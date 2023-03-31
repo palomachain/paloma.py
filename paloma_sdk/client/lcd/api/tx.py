@@ -373,9 +373,9 @@ class AsyncTxAPI(BaseAsyncAPI):
             x = height
 
         res = await self._c._get(f"/cosmos/base/tendermint/v1beta1/blocks/{x}")
-
         txs = res.get("block").get("data").get("txs")
         hashes = [hash_amino(tx) for tx in txs]
+        print(hashes)
         return [
             await BaseAsyncAPI._try_await(self.tx_info(tx_hash)) for tx_hash in hashes
         ]

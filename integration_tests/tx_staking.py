@@ -36,7 +36,7 @@ def main():
         description=Description(moniker="testval_1"),
         commission=CommissionRates(rate="0.01", max_rate="0.1", max_change_rate="0.01"),
         min_self_delegation=1,
-        delegator_address="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+        delegator_address="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
         validator_address="palomavalcons1mgp3028ry5wf464r3s6gyptgmngrpnelhkuyvm",
         pubkey=ValConsPubKey(),
         value="10000000ugrain"

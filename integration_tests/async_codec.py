@@ -24,7 +24,7 @@ async def main():
 
     msg = MsgSend(
         "paloma1333veey879eeqcff8j3gfcgwt8cfrg9mq20v6f",
-        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnwcazay",
         Coins(ugrain=20),
     )
     tx = await awallet.create_and_sign_tx(

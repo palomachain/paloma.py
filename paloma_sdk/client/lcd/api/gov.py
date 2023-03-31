@@ -24,7 +24,7 @@ class AsyncGovAPI(BaseAsyncAPI):
                     "voter": voter address (str),
                     "depositor": depositor address(str)
                 }
-                example) {"proposal_status":1, "depositor":"paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp"}
+                example) {"proposal_status":1, "depositor":"paloma17lmam6zguazs5q5u6z5mmx76uj63gldnwcazay"}
 
             params (APIParams, optional): additional params for the API like pagination
 

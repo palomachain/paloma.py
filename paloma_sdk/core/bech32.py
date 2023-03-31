@@ -63,7 +63,7 @@ def is_acc_address(data: str) -> bool:
     Returns:
         bool: whether the string is a proper account address
     """
-    return check_prefix_and_length("paloma", data, 44)
+    return check_prefix_and_length("paloma", data, 45)
 
 
 def to_acc_address(data: ValAddress) -> AccAddress:
@@ -94,7 +94,7 @@ def is_val_address(data: str) -> bool:
     Returns:
         bool: whether the string is a proper validator address
     """
-    return check_prefix_and_length("palomavaloper", data, 51)
+    return check_prefix_and_length("palomavaloper", data, 52)
 
 
 def to_val_address(data: AccAddress) -> ValAddress:
@@ -124,7 +124,7 @@ def is_acc_pubkey(data: str) -> bool:
     Returns:
         bool: whether string is account pubkey
     """
-    return check_prefix_and_length("palomapub", data, 76)
+    return check_prefix_and_length("palomapub", data, 77)
 
 
 def to_acc_pubkey(data: ValPubKey) -> AccPubKey:
@@ -154,7 +154,7 @@ def is_val_pubkey(data: str) -> bool:
     Returns:
         bool: whether string is validator pubkey
     """
-    return check_prefix_and_length("palomavaloperpub", data, 83)
+    return check_prefix_and_length("palomavaloperpub", data, 84)
 
 
 def to_val_pubkey(data: AccPubKey) -> ValPubKey:
@@ -185,4 +185,4 @@ def is_valcons_pubkey(data: str) -> bool:  # -> ValConsPubKey:
     Returns:
         bool: whether string is validator consensus pubkey
     """
-    return check_prefix_and_length("palomavalconspub", data, 83)
+    return check_prefix_and_length("palomavalconspub", data, 84)

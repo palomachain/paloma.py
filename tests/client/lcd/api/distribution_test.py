@@ -8,20 +8,20 @@ paloma = LCDClient(
 
 
 def test_rewards():
-    result = paloma.distribution.rewards("paloma1mzhc9gvfyh9swxed7eaxn2d6zzc3msgftk4w9e")
+    result = paloma.distribution.rewards("paloma15gvyk43x406v7kcd4rff5qfutqmcnpj3p4ea9g")
     assert result.total.to_data()
 
 
 def test_validator_commission():
     result = paloma.distribution.validator_commission(
-        "palomavaloper1thuj2a8sgtxr7z3gr39egng3syqqwas4hmvvlg"
+        "palomavaloper15gvyk43x406v7kcd4rff5qfutqmcnpj3w9wpnm"
     )
     assert result.to_data()
 
 
 def test_withdraw_address():
     result = paloma.distribution.withdraw_address(
-        "paloma1mzhc9gvfyh9swxed7eaxn2d6zzc3msgftk4w9e"
+        "paloma15gvyk43x406v7kcd4rff5qfutqmcnpj3p4ea9g"
     )
     assert is_acc_address(result)
 

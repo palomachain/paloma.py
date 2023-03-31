@@ -29,6 +29,8 @@ def create_demux(inputs: List) -> Callable[[Dict[str, Any]], Any]:
     table = {i.type_url: i.from_data for i in inputs}
 
     def from_data(data: dict):
+        print("table_data")
+        print(table)
         return table[data["@type"]](data)
 
     return from_data

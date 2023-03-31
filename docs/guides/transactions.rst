@@ -131,7 +131,7 @@ A SignDoc contains the information required to build a StdTx:
 
     msg = MsgSend(
         key.acc_address,
-        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
         Coins(ugrain=30000),
     )
 

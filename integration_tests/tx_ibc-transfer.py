@@ -27,8 +27,8 @@ def main():
                     source_port="transfer",
                     source_channel="channel-9",
                     token="10000ugrain",
-                    sender="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-                    receiver="paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+                    sender="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
+                    receiver="paloma17lmam6zguazs5q5u6z5mmx76uj63gldnwcazay",
                     timeout_height=Height(revision_number=0, revision_height=10000),
                     timeout_timestamp=0,
                 )

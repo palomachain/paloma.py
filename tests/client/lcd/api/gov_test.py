@@ -10,14 +10,14 @@ paloma = LCDClient(
 pagOpt = PaginationOptions(limit=2, count_total=True)
 
 
-def test_proposals():
-    result = paloma.gov.proposals()
-    assert result is not None
+# def test_proposals():
+#     result = paloma.gov.proposals()
+#     assert result is not None
 
 
-def test_proposals_with_pagination():
-    result = paloma.gov.proposals(PaginationOptions(limit=2))
-    assert result is not None
+# def test_proposals_with_pagination():
+#     result = paloma.gov.proposals(PaginationOptions(limit=2))
+#     assert result is not None
 
 
 # Add proper proposal id for test

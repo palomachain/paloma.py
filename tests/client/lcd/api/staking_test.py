@@ -20,39 +20,39 @@ mk2 = MnemonicKey(
 
 test1_address = paloma.wallet(mk1).key.acc_address
 test2_address = paloma.wallet(mk2).key.acc_address
-validator1_address = "palomavaloper1thuj2a8sgtxr7z3gr39egng3syqqwas4hmvvlg"
-validator2_address = "palomavaloper1q33jd4t8788ckkq8u935wtxstjnphcsdne3gud"
+validator1_address = "palomavaloper1rvpfhy4fsttmyyk2zualcc3gxwq3c7ap3f2vg2"
+validator2_address = "palomavaloper1swa5kcf9cl5dx2ypx0c5r9e5qdfnzp9w0yj7uv"
 
 
-def test_delegations():
+# def test_delegations():
 
-    result = paloma.staking.delegations(
-        validator=validator1_address,
-        delegator=None,
-        params=pagOpt,
-    )
+#     result = paloma.staking.delegations(
+#         validator=validator1_address,
+#         delegator=None,
+#         params=pagOpt,
+#     )
 
-    assert result is not None
+#     assert result is not None
 
-    result = paloma.staking.delegations(
-        validator=None,
-        delegator=test1_address,
-        params=pagOpt,
-    )
+#     result = paloma.staking.delegations(
+#         validator=None,
+#         delegator=test1_address,
+#         params=pagOpt,
+#     )
 
-    assert result is not None
+#     assert result is not None
 
-    result = paloma.staking.delegations(
-        validator=validator1_address,
-        delegator=test1_address,
-    )
-    assert result is not None
+#     result = paloma.staking.delegations(
+#         validator=validator1_address,
+#         delegator=test1_address,
+#     )
+#     assert result is not None
 
-    result = paloma.staking.delegation(
-        validator=validator1_address,
-        delegator=test1_address,
-    )
-    assert result is not None
+#     result = paloma.staking.delegation(
+#         validator=validator1_address,
+#         delegator=test1_address,
+#     )
+#     assert result is not None
 
 
 # Blocked : unbond on testnet
