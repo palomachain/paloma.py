@@ -1,13 +1,13 @@
-from .data import (
+from .data import (  # noqa: F401
     Account,
     BaseAccount,
     ContinuousVestingAccount,
     DelayedVestingAccount,
     PeriodicVestingAccount,
-    # Period,
+    Period,
     PublicKey,
     TxInfo,
-    # TxLog,
+    TxLog,
     parse_tx_logs,
 )
 
@@ -23,8 +23,8 @@ __all__ = [
     "ContinuousVestingAccount",
     "DelayedVestingAccount",
     "PeriodicVestingAccount",
-    # "Period"
-    # "TxLog",
+    "Period"
+    "TxLog",
     "TxInfo",
     "PublicKey",
     "parse_tx_logs",
