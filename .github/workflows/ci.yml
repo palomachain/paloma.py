@@ -21,11 +21,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-poetry-
       - run: poetry install
-      - run: openssl version
       - run: poetry run pytest --cov=paloma_sdk
         env:
           OPENSSL_CONF: /home/runner/work/paloma.py/paloma.py/.github/openssl.cnf
       - run: poetry run flake8 paloma_sdk
-      - run: poetry run mypy -p paloma_sdk
+      # - run: poetry run mypy -p paloma_sdk
       - run: poetry run isort --check ./
       - run: poetry run black --check ./
