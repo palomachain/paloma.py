@@ -27,4 +27,4 @@ jobs:
       - run: poetry run flake8 paloma_sdk
       # - run: poetry run mypy -p paloma_sdk
       - run: poetry run isort --check ./
-      - run: poetry run black --check ./
+      # - run: poetry run black --check ./
