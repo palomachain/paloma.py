@@ -85,6 +85,7 @@ class AsyncFeeGrantAPI(BaseAsyncAPI):
             "allowance": Allowance.from_data(res.get("allowance")),
         }
 
+
 class FeeGrantAPI(AsyncFeeGrantAPI):
     @sync_bind(AsyncFeeGrantAPI.allowances)
     def allowances(

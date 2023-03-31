@@ -8,6 +8,7 @@ from paloma_sdk.core.coins import Coins
 from paloma_sdk.core.broadcast import BlockTxBroadcastResult
 __all__ = ["AsyncCw721API", "Cw721API"]
 
+
 class AsyncCw721API(BaseAsyncAPI):
     async def instantiate(
         self,
@@ -65,11 +66,11 @@ class AsyncCw721API(BaseAsyncAPI):
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"mint": {
-                "token_id": token_id,
-                "owner": owner,
-                "token_uri": token_uri,
-                "extension": None
-            }}
+            "token_id": token_id,
+            "owner": owner,
+            "token_uri": token_uri,
+            "extension": None
+        }}
 
         funds = Coins()
         tx = await wallet.create_and_sign_tx(CreateTxOptions(
@@ -305,7 +306,7 @@ class AsyncCw721API(BaseAsyncAPI):
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"burn": {
-                "token_id": token_id
+            "token_id": token_id
         }}
 
         funds = Coins()
@@ -319,6 +320,7 @@ class AsyncCw721API(BaseAsyncAPI):
         ))
         result = await self._c.tx.broadcast(tx)
         return result
+
 
 class Cw721API(AsyncCw721API):
     @sync_bind(AsyncCw721API.instantiate)

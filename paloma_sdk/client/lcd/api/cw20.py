@@ -7,6 +7,7 @@ from paloma_sdk.core.broadcast import BlockTxBroadcastResult
 
 __all__ = ["AsyncCw20API", "Cw20API"]
 
+
 class AsyncCw20API(BaseAsyncAPI):
     async def instantiate(
         self,
@@ -149,6 +150,7 @@ class AsyncCw20API(BaseAsyncAPI):
         ))
         result = await self._c.tx.broadcast(tx)
         return result
+
 
 class Cw20API(AsyncCw20API):
     @sync_bind(AsyncCw20API.instantiate)

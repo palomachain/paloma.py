@@ -12,8 +12,8 @@ __all__ = ["AsyncWasmAPI", "WasmAPI"]
 
 
 class AsyncWasmAPI(BaseAsyncAPI):
-    async def code_info(self, code_id: int,  params: Optional[APIParams] = None
-    ) -> dict:
+    async def code_info(self, code_id: int, params: Optional[APIParams] = None
+                        ) -> dict:
         """Fetches information about an uploaded code.
 
         Args:
@@ -24,7 +24,7 @@ class AsyncWasmAPI(BaseAsyncAPI):
             dict: code information
         """
 
-        res = await self._c._get(f"/cosmwasm/wasm/v1/code/{code_id}",params)
+        res = await self._c._get(f"/cosmwasm/wasm/v1/code/{code_id}", params)
         code_info = res.get("code_info")
         return {
             "code_id": Numeric.parse(code_info["code_id"]),
@@ -33,8 +33,8 @@ class AsyncWasmAPI(BaseAsyncAPI):
             "instantiate_permission": code_info["instantiate_permission"],
         }
 
-    async def contract_history(self, contract_address: str,  params: Optional[APIParams] = None
-    ) -> List[HistoryEntry]:
+    async def contract_history(self, contract_address: str, params: Optional[APIParams] = None
+                               ) -> List[HistoryEntry]:
         """Fetches contract history.
 
         Args:
@@ -52,8 +52,8 @@ class AsyncWasmAPI(BaseAsyncAPI):
 
         return [HistoryEntry.from_data(entry) for entry in res["entries"]]
 
-    async def contract_info(self, contract_address: str,  params: Optional[APIParams] = None
-    ) -> dict:
+    async def contract_info(self, contract_address: str, params: Optional[APIParams] = None
+                            ) -> dict:
         """Fetches information about an instantiated contract.
 
         Args:
@@ -120,31 +120,31 @@ class AsyncWasmAPI(BaseAsyncAPI):
 
 class WasmAPI(AsyncWasmAPI):
     @sync_bind(AsyncWasmAPI.code_info)
-    def code_info(self, code_id: int,  params: Optional[APIParams] = None) -> dict:
+    def code_info(self, code_id: int, params: Optional[APIParams] = None) -> dict:
         pass
 
     code_info.__doc__ = AsyncWasmAPI.code_info.__doc__
 
     @sync_bind(AsyncWasmAPI.contract_info)
-    def contract_info(self, contract_address: str,  params: Optional[APIParams] = None) -> dict:
+    def contract_info(self, contract_address: str, params: Optional[APIParams] = None) -> dict:
         pass
 
     contract_info.__doc__ = AsyncWasmAPI.contract_info.__doc__
 
     @sync_bind(AsyncWasmAPI.contract_query)
-    def contract_query(self, contract_address: str, query: Union[dict, str],  params: Optional[APIParams] = None) -> Any:
+    def contract_query(self, contract_address: str, query: Union[dict, str], params: Optional[APIParams] = None) -> Any:
         pass
 
     contract_query.__doc__ = AsyncWasmAPI.contract_query.__doc__
 
     @sync_bind(AsyncWasmAPI.pinned_codes)
-    def pinned_codes(self,  params: Optional[APIParams] = None) -> dict:
+    def pinned_codes(self, params: Optional[APIParams] = None) -> dict:
         pass
 
     pinned_codes.__doc__ = AsyncWasmAPI.pinned_codes.__doc__
 
     @sync_bind(AsyncWasmAPI.contract_history)
-    def contract_history(self, contract_address: str,  params: Optional[APIParams] = None) -> List[HistoryEntry]:
+    def contract_history(self, contract_address: str, params: Optional[APIParams] = None) -> List[HistoryEntry]:
         pass
 
     contract_history.__doc__ = AsyncWasmAPI.contract_history.__doc__

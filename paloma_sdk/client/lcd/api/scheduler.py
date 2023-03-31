@@ -32,7 +32,7 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: transaction result
         """
-        definition = {"abi":json.dumps(abi, separators=[",", ":"]),"address":contract_address}
+        definition = {"abi": json.dumps(abi, separators=[",", ":"]), "address": contract_address}
         definition_json = json.dumps(definition, separators=[",", ":"])
         payload_json = json.dumps({"hexPayload": payload}, separators=[",", ":"])
         create_tx = await wallet.create_and_sign_tx(

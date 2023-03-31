@@ -1,5 +1,5 @@
 # core msgs
-from paloma_sdk.core.auth import(
+from paloma_sdk.core.auth import (
     MsgDonateAllVestingTokens,
     MsgCreatePeriodicVestingAccount,
     MsgCreateVestingAccount

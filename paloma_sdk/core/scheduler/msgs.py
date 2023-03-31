@@ -4,7 +4,6 @@ import attr
 import json
 
 from typing import Union
-from betterproto.lib.google.protobuf import Any as Any_pb
 from paloma_sdk.core import AccAddress
 from paloma_sdk.core.msg import Msg
 from paloma_sdk.util.remove_none import remove_none
@@ -43,6 +42,7 @@ class Job(JSONSerializable):
     permissions: dict = attr.ib()
     triggers: list = attr.ib()
     address: str = attr.ib()
+
 
 @attr.s
 class MsgCreateJob(Msg):
@@ -104,6 +104,7 @@ class MsgCreateJob(Msg):
             creator=proto.creator,
             job=parse_msg(proto.job),
         )
+
 
 @attr.s
 class MsgExecuteJob(Msg):

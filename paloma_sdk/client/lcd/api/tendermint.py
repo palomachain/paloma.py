@@ -7,12 +7,12 @@ __all__ = ["AsyncTendermintAPI", "TendermintAPI"]
 
 
 class AsyncTendermintAPI(BaseAsyncAPI):
-    async def node_info(self,  params: Optional[APIParams] = None) -> dict:
+    async def node_info(self, params: Optional[APIParams] = None) -> dict:
         """Fetches the curent connected node's information.
 
         Args:
             params (APIParams): optional parameters
-            
+
         Returns:
             dict: node information
         """
@@ -22,18 +22,18 @@ class AsyncTendermintAPI(BaseAsyncAPI):
         #     "application_version": res["application_version" ""],
         # }
 
-    async def syncing(self,  params: Optional[APIParams] = None) -> bool:
+    async def syncing(self, params: Optional[APIParams] = None) -> bool:
         """Fetches whether the curent connect node is syncing with the network.
 
         Args:
             params (APIParams): optional parameters
-        
+
         Returns:
             bool: syncing status
         """
         return (await self._c._get("/status", params))
 
-    async def validator_set(self, height: Optional[int] = None,  params: Optional[APIParams] = None) -> dict:
+    async def validator_set(self, height: Optional[int] = None, params: Optional[APIParams] = None) -> dict:
         """Fetches the validator set for a height. If no height is given, defaults to latest.
 
         Args:

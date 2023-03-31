@@ -7,7 +7,6 @@ import json
 from typing import Dict, List, Optional
 
 import attr
-from betterproto.lib.google.protobuf import Any
 from terra_proto.cosmos.base.abci.v1beta1 import AbciMessageLog as AbciMessageLog_pb
 from terra_proto.cosmos.base.abci.v1beta1 import Attribute as Attribute_pb
 from terra_proto.cosmos.base.abci.v1beta1 import StringEvent as StringEvent_pb

@@ -19,7 +19,7 @@ class Rewards:
 
 
 class AsyncDistributionAPI(BaseAsyncAPI):
-    async def rewards(self, delegator: AccAddress,  params: Optional[APIParams] = None) -> Rewards:
+    async def rewards(self, delegator: AccAddress, params: Optional[APIParams] = None) -> Rewards:
         """Fetches the staking reward data for a delegator.
 
         Args:
@@ -41,7 +41,7 @@ class AsyncDistributionAPI(BaseAsyncAPI):
             total=Coins.from_data(res["total"]),
         )
 
-    async def validator_commission(self, validator: ValAddress,  params: Optional[APIParams] = None) -> Coins:
+    async def validator_commission(self, validator: ValAddress, params: Optional[APIParams] = None) -> Coins:
         """Fetches the commission reward data for a validator.
 
         Args:
@@ -58,7 +58,7 @@ class AsyncDistributionAPI(BaseAsyncAPI):
         commission = res["commission"]
         return Coins.from_data(commission["commission"])
 
-    async def withdraw_address(self, delegator: AccAddress,  params: Optional[APIParams] = None) -> AccAddress:
+    async def withdraw_address(self, delegator: AccAddress, params: Optional[APIParams] = None) -> AccAddress:
         """Fetches the withdraw address associated with a delegator.
 
         Args:
@@ -74,7 +74,7 @@ class AsyncDistributionAPI(BaseAsyncAPI):
         )
         return res.get("withdraw_address")
 
-    async def community_pool(self,  params: Optional[APIParams] = None) -> Coins:
+    async def community_pool(self, params: Optional[APIParams] = None) -> Coins:
         """Fetches the community pool.
         Args:
             params (APIParams): optional parameters
@@ -82,7 +82,7 @@ class AsyncDistributionAPI(BaseAsyncAPI):
         Returns:
             Coins: community pool
         """
-        res = await self._c._get("/cosmos/distribution/v1beta1/community_pool",params)
+        res = await self._c._get("/cosmos/distribution/v1beta1/community_pool", params)
         return Coins.from_data(res.get("pool"))
 
     async def parameters(self, params: Optional[APIParams] = None) -> dict:
