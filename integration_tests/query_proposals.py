@@ -2,8 +2,8 @@ from paloma_sdk.client.lcd import LCDClient, PaginationOptions
 from paloma_sdk.client.lcd.api.gov import ProposalStatus
 
 paloma = LCDClient(
-    url="https://pisco-lcd.paloma.dev/",
-    chain_id="pisco-1",
+    url="https://lcd.testnet.palomaswap.com/",
+    chain_id="paloma-testnet-15",
 )
 
 

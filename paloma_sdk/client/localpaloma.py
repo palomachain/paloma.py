@@ -57,7 +57,7 @@ class LocalPaloma(LCDClient):
 
     >>> paloma = LocalPaloma()
     >>> paloma.wallets['test1'].key.acc_address
-    'paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v'
+    'paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf'
     """
 
     def __init__(self, *args, **kwargs):

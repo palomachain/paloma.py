@@ -4,13 +4,8 @@ from pathlib import Path
 
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions, SignerOptions
 from paloma_sdk.client.localpaloma import LocalPaloma
-from paloma_sdk.core import (
-    Coins,
-    LegacyAminoMultisigPublicKey,
-    MultiSignature,
-    SignatureV2,
-    SignDoc,
-)
+from paloma_sdk.core import (Coins, LegacyAminoMultisigPublicKey,
+                             MultiSignature, SignatureV2, SignDoc)
 from paloma_sdk.core.bank import MsgSend
 from paloma_sdk.util.contract import get_code_id
 
@@ -30,7 +25,7 @@ def main():
 
     msg = MsgSend(
         address,
-        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
         Coins(ugrain=100000),
     )
     print(f"msgAmino:{msg.to_amino()}")

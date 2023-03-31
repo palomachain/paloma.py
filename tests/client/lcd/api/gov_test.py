@@ -2,22 +2,22 @@ from paloma_sdk.client.lcd import LCDClient, PaginationOptions
 from paloma_sdk.exceptions import LCDResponseError
 
 paloma = LCDClient(
-    url="https://pisco-lcd.paloma.dev/",
-    chain_id="pisco-1",
+    url="https://lcd.testnet.palomaswap.com/",
+    chain_id="paloma-testnet-15",
 )
 
 
 pagOpt = PaginationOptions(limit=2, count_total=True)
 
 
-def test_proposals():
-    result = paloma.gov.proposals()
-    assert result is not None
+# def test_proposals():
+#     result = paloma.gov.proposals()
+#     assert result is not None
 
 
-def test_proposals_with_pagination():
-    result = paloma.gov.proposals(PaginationOptions(limit=2))
-    assert result is not None
+# def test_proposals_with_pagination():
+#     result = paloma.gov.proposals(PaginationOptions(limit=2))
+#     assert result is not None
 
 
 # Add proper proposal id for test

@@ -1,19 +1,21 @@
 from __future__ import annotations
 
 import json
-from typing import List, Optional, Union
+from typing import Optional, Union
 
 import attr
-from terra_proto.cosmwasm.wasm.v1 import AbsoluteTxPosition as AbsoluteTxPosition_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    AbsoluteTxPosition as AbsoluteTxPosition_pb
 from terra_proto.cosmwasm.wasm.v1 import AccessConfig as AccessConfig_pb
-from terra_proto.cosmwasm.wasm.v1 import AccessConfigUpdate as AccessConfigUpdate_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    AccessConfigUpdate as AccessConfigUpdate_pb
 from terra_proto.cosmwasm.wasm.v1 import AccessType
 from terra_proto.cosmwasm.wasm.v1 import AccessTypeParam as AccessTypeParam_pb
-from terra_proto.cosmwasm.wasm.v1 import ContractCodeHistoryEntry as HistoryEntry_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    ContractCodeHistoryEntry as HistoryEntry_pb
 from terra_proto.cosmwasm.wasm.v1 import ContractCodeHistoryOperationType
 
 from paloma_sdk.core.bech32 import AccAddress
-from paloma_sdk.core.msg import Msg
 from paloma_sdk.util.json import JSONSerializable
 
 __all__ = ["AccessType", "AccessConfig", "AccessConfigUpdate", "AccessTypeParam"]

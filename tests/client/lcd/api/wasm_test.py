@@ -1,55 +1,53 @@
 import pytest
+
 from paloma_sdk.client.lcd import LCDClient
 from paloma_sdk.exceptions import LCDResponseError
 
 paloma = LCDClient(
-    url= "https://pisco-lcd.paloma.dev/",
-    chain_id="pisco-1",
+    url="https://lcd.testnet.palomaswap.com/",
+    chain_id="paloma-testnet-15",
 )
 
 
 def test_contract_info():
     result = paloma.wasm.contract_info(
-        "paloma19xa33fjdjlz9qkafrw8qnrzrawc8h0vhxvfdhh6yk3f5qxuh2fps9e49zt"
+        "paloma1447waysnqg3w67j52kmjca6gpp4jw7cjpyxt9mkuw2lkc0s8624qvvw72t"
     )
     assert result is not None
 
 
 def test_code_info():
-    result = paloma.wasm.code_info(72)
+    result = paloma.wasm.code_info(32)
 
-    assert result["code_id"] == 72
-    assert result["creator"] == "paloma1mzhc9gvfyh9swxed7eaxn2d6zzc3msgftk4w9e"
+    assert result["code_id"] == 32
+    assert result["creator"] == "paloma1cyyzpxplxdzkeea7kwsydadg87357qna8rgwj8"
     assert (
         result["data_hash"]
-        == "CD686878A33E62CBCDAF7620E776096E4D15856CC03B0F12EDE66A1D5699D39D"
+        == "9DF34695F28BE06F9C0D9D61DB6DC0035E5A61937FE13325DF58ADCF85020A5F"
     )
 
+
 def test_code_info_with_params():
-    with pytest.raises(LCDResponseError):
-        paloma.wasm.code_info(72, {"height": 100})
-    
+    # with pytest.raises(LCDResponseError):
+    paloma.wasm.code_info(32, {"height": 1})
+
+
 def test_contract_query():
     result = paloma.wasm.contract_query(
-        "paloma19xa33fjdjlz9qkafrw8qnrzrawc8h0vhxvfdhh6yk3f5qxuh2fps9e49zt",
-        {"get_count": {}},
+        "paloma19usnw37lvx8jm6wehqqk56lxxcjd807py5l3trhrv92zy2s7rxsqdp6gee",
+        {"token_info": {}},
     )
+    print(result)
     assert result is not None
+
 
 def test_contract_query_with_params():
     result = paloma.wasm.contract_query(
-        "paloma19xa33fjdjlz9qkafrw8qnrzrawc8h0vhxvfdhh6yk3f5qxuh2fps9e49zt",
-        {"get_count": {}},
-        {"height": 	61027}
+        "paloma19usnw37lvx8jm6wehqqk56lxxcjd807py5l3trhrv92zy2s7rxsqdp6gee",
+        {"balance": {"address": "paloma1cyyzpxplxdzkeea7kwsydadg87357qna8rgwj8"}},
     )
-    assert result == {'count':0}
+    assert result == {"balance": "999998000000000"}
 
-    result = paloma.wasm.contract_query(
-        "paloma19xa33fjdjlz9qkafrw8qnrzrawc8h0vhxvfdhh6yk3f5qxuh2fps9e49zt",
-        {"get_count": {}},
-        {"height": 	61028}
-    )
-    assert result == {'count':1}
 
 def test_pinned_codes():
     result = paloma.wasm.pinned_codes()

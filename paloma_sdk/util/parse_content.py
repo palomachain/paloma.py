@@ -1,30 +1,11 @@
 from typing import Union
 
-from terra_proto.cosmos.distribution.v1beta1 import (
-    CommunityPoolSpendProposal as CommunityPoolSpendProposal_pb,
-)
-from terra_proto.cosmos.gov.v1beta1 import TextProposal as TextProposal_pb
-from terra_proto.cosmos.params.v1beta1 import (
-    ParameterChangeProposal as ParameterChangeProposal_pb,
-)
-from terra_proto.cosmos.upgrade.v1beta1 import (
-    CancelSoftwareUpgradeProposal as CancelSoftwareUpgradeProposal_pb,
-)
-from terra_proto.cosmos.upgrade.v1beta1 import (
-    SoftwareUpgradeProposal as SoftwareUpgradeProposal_pb,
-)
-from terra_proto.ibc.core.client.v1 import (
-    ClientUpdateProposal as ClientUpdateProposal_pb,
-)
-
 from paloma_sdk.core.distribution.proposals import CommunityPoolSpendProposal
 from paloma_sdk.core.gov.proposals import TextProposal
 from paloma_sdk.core.ibc.proposals import ClientUpdateProposal
 from paloma_sdk.core.params.proposals import ParameterChangeProposal
-from paloma_sdk.core.upgrade import (
-    CancelSoftwareUpgradeProposal,
-    SoftwareUpgradeProposal,
-)
+from paloma_sdk.core.upgrade import (CancelSoftwareUpgradeProposal,
+                                     SoftwareUpgradeProposal)
 
 from .base import create_demux, create_demux_proto, create_demux_unpack_any
 

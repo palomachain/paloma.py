@@ -4,22 +4,11 @@ from typing import Optional
 
 import attr
 
-from paloma_sdk.core import (
-    AccAddress,
-    AccPubKey,
-    ModeInfo,
-    ModeInfoSingle,
-    SignatureV2,
-    SignDoc,
-    ValAddress,
-    ValPubKey,
-)
+from paloma_sdk.core import (AccAddress, AccPubKey, ModeInfo, ModeInfoSingle,
+                             SignatureV2, SignDoc, ValAddress, ValPubKey)
 from paloma_sdk.core.bech32 import get_bech
-from paloma_sdk.core.public_key import (
-    PublicKey,
-    address_from_public_key,
-    amino_pubkey_from_public_key,
-)
+from paloma_sdk.core.public_key import (PublicKey, address_from_public_key,
+                                        amino_pubkey_from_public_key)
 from paloma_sdk.core.signature_v2 import Descriptor
 from paloma_sdk.core.signature_v2 import Single as SingleDescriptor
 from paloma_sdk.core.tx import AuthInfo, SignerInfo, SignMode, Tx

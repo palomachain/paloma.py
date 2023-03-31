@@ -6,14 +6,13 @@ import attr
 from multidict import CIMultiDict
 
 from paloma_sdk.core import AccAddress, Coins, Dec, Numeric, PublicKey
-from paloma_sdk.core.broadcast import (
-    AsyncTxBroadcastResult,
-    BlockTxBroadcastResult,
-    SyncTxBroadcastResult,
-)
+from paloma_sdk.core.broadcast import (AsyncTxBroadcastResult,
+                                       BlockTxBroadcastResult,
+                                       SyncTxBroadcastResult)
 from paloma_sdk.core.fee import Fee
 from paloma_sdk.core.msg import Msg
-from paloma_sdk.core.tx import AuthInfo, SignerData, SignMode, Tx, TxBody, TxInfo
+from paloma_sdk.core.tx import (AuthInfo, SignerData, SignMode, Tx, TxBody,
+                                TxInfo)
 from paloma_sdk.util.hash import hash_amino
 from paloma_sdk.util.json import JSONSerializable
 
@@ -373,9 +372,9 @@ class AsyncTxAPI(BaseAsyncAPI):
             x = height
 
         res = await self._c._get(f"/cosmos/base/tendermint/v1beta1/blocks/{x}")
-
         txs = res.get("block").get("data").get("txs")
         hashes = [hash_amino(tx) for tx in txs]
+        print(hashes)
         return [
             await BaseAsyncAPI._try_await(self.tx_info(tx_hash)) for tx_hash in hashes
         ]

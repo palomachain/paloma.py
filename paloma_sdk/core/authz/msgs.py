@@ -13,7 +13,7 @@ from terra_proto.cosmos.authz.v1beta1 import MsgRevoke as MsgRevoke_pb
 from paloma_sdk.core import AccAddress
 from paloma_sdk.core.msg import Msg
 
-from .data import Authorization, AuthorizationGrant
+from .data import AuthorizationGrant
 
 __all__ = ["MsgExecAuthorized", "MsgGrantAuthorization", "MsgRevokeAuthorization"]
 

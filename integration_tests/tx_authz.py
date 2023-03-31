@@ -1,10 +1,7 @@
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
 from paloma_sdk.client.localpaloma import LocalPaloma
-from paloma_sdk.core.authz import (
-    MsgExecAuthorized,
-    MsgGrantAuthorization,
-    MsgRevokeAuthorization,
-)
+from paloma_sdk.core.authz import (MsgExecAuthorized, MsgGrantAuthorization,
+                                   MsgRevokeAuthorization)
 
 
 def main():
@@ -12,8 +9,8 @@ def main():
     test1 = paloma.wallets["test1"]
 
     msgG = MsgGrantAuthorization(
-        granter="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-        grantee="paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp"
+        granter="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
+        grantee="paloma17lmam6zguazs5q5u6z5mmx76uj63gldnwcazay"
         """
         grant=Grant(
             authorization=...,

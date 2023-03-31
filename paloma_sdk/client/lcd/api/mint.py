@@ -2,8 +2,9 @@ from typing import Optional
 
 from paloma_sdk.core import Dec, Numeric
 
-from ._base import BaseAsyncAPI, sync_bind
 from ..params import APIParams
+from ._base import BaseAsyncAPI, sync_bind
+
 __all__ = ["AsyncMintAPI", "MintAPI"]
 
 

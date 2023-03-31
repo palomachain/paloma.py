@@ -1,10 +1,11 @@
 import json
 
-from ._base import BaseAsyncAPI, sync_bind
-from ..wallet import Wallet
-from .tx import CreateTxOptions
-from paloma_sdk.core.scheduler import MsgCreateJob, MsgExecuteJob
 from paloma_sdk.core.broadcast import BlockTxBroadcastResult
+from paloma_sdk.core.scheduler import MsgCreateJob, MsgExecuteJob
+
+from ..wallet import Wallet
+from ._base import BaseAsyncAPI, sync_bind
+from .tx import CreateTxOptions
 
 __all__ = ["AsyncJobSchedulerAPI", "JobSchedulerAPI"]
 
@@ -18,7 +19,7 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         abi: dict,
         payload: str,
         chain_type: str,
-        chain_reference_id: str
+        chain_reference_id: str,
     ) -> BlockTxBroadcastResult:
         """Create a job with data
         Args:
@@ -32,29 +33,32 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: transaction result
         """
-        definition = {"abi":json.dumps(abi, separators=[",", ":"]),"address":contract_address}
+        definition = {
+            "abi": json.dumps(abi, separators=[",", ":"]),
+            "address": contract_address,
+        }
         definition_json = json.dumps(definition, separators=[",", ":"])
         payload_json = json.dumps({"hexPayload": payload}, separators=[",", ":"])
         create_tx = await wallet.create_and_sign_tx(
             CreateTxOptions(
                 msgs=[
-                    MsgCreateJob(wallet.key.acc_address, {
-                        "id": job_id,
-                        "owner": "",
-                        "routing": {
-                            "chain_type": chain_type,
-                            "chain_reference_id": chain_reference_id
+                    MsgCreateJob(
+                        wallet.key.acc_address,
+                        {
+                            "id": job_id,
+                            "owner": "",
+                            "routing": {
+                                "chain_type": chain_type,
+                                "chain_reference_id": chain_reference_id,
+                            },
+                            "definition": definition_json,
+                            "payload": payload_json,
+                            "is_payload_modifiable": True,
+                            "permissions": {"whitelist": [], "blacklist": []},
+                            "triggers": [],
+                            "address": "",
                         },
-                        "definition": definition_json,
-                        "payload": payload_json,
-                        "is_payload_modifiable": True,
-                        "permissions": {
-                            "whitelist": [],
-                            "blacklist": []
-                        },
-                        "triggers": [],
-                        "address": ""
-                    })
+                    )
                 ]
             )
         )
@@ -78,7 +82,11 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         execute_tx = await wallet.create_and_sign_tx(
             CreateTxOptions(
                 msgs=[
-                    MsgExecuteJob(wallet.key.acc_address, job_id, json.dumps({"hexPayload": payload}, separators=[",", ":"]))
+                    MsgExecuteJob(
+                        wallet.key.acc_address,
+                        job_id,
+                        json.dumps({"hexPayload": payload}, separators=[",", ":"]),
+                    )
                 ]
             )
         )
@@ -96,7 +104,7 @@ class JobSchedulerAPI(AsyncJobSchedulerAPI):
         abi: dict,
         payload: str,
         chain_type: str,
-        chain_reference_id: str
+        chain_reference_id: str,
     ) -> BlockTxBroadcastResult:
         pass
 

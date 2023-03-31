@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-import copy
 from datetime import datetime
-from typing import Union
 
 import attr
 from dateutil import parser
 from terra_proto.cosmos.staking.v1beta1 import BondStatus
 from terra_proto.cosmos.staking.v1beta1 import Commission as Commission_pb
-from terra_proto.cosmos.staking.v1beta1 import CommissionRates as CommissionRates_pb
+from terra_proto.cosmos.staking.v1beta1 import \
+    CommissionRates as CommissionRates_pb
 from terra_proto.cosmos.staking.v1beta1 import Description as Description_pb
 from terra_proto.cosmos.staking.v1beta1 import Validator as Validator_pb
 
@@ -108,11 +107,11 @@ class Commission(JSONSerializable):
             "update_time": to_isoformat(self.update_time),
         }
 
-    def to_amino(self) -> dict:
-        return {
-            "commission_rates": self.commission_rates.to_data(),
-            "update_time": to_isoformat(self.update_time),
-        }
+    # def to_amino(self) -> dict:
+    #     return {
+    #         "commission_rates": self.commission_rates.to_data(),
+    #         "update_time": to_isoformat(self.update_time),
+    #     }
 
     @classmethod
     def from_data(cls, data: dict) -> Commission:

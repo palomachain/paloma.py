@@ -21,8 +21,8 @@ def main():
     test1 = paloma.wallet(key=key)
 
     msg = MsgSend(
-        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
+        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnwcazay",
         Coins(ugrain=20000),
     )
     print(msg)

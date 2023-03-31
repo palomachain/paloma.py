@@ -15,8 +15,8 @@ def main():
 
     print(test1)
     msg = MsgSend(
-        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
+        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnwcazay",
         Coins(ugrain=1000000),
     )
     print(msg)
@@ -24,7 +24,7 @@ def main():
     print(tx)
 
     opt = BroadcastOptions(
-        sequences=[58], fee_granter="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v"
+        sequences=[58], fee_granter="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf"
     )
 
     result = paloma.tx.broadcast(tx, opt)

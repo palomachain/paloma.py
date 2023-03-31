@@ -9,8 +9,8 @@ from paloma_sdk.core.tx import TxInfo
 from paloma_sdk.key.key import Key
 from paloma_sdk.util import hash
 
-light_clinet_address = "https://pisco-lcd.paloma.dev"
-chain_id = "pisco-1"
+light_clinet_address = "https://lcd.testnet.palomaswap.com"
+chain_id = "paloma-testnet-15"
 gas_prices = requests.get("https://pisco-fcd.paloma.dev/v1/txs/gas_prices").json()
 paloma = AsyncLCDClient(
     chain_id=chain_id,

@@ -12,8 +12,8 @@ from paloma_sdk.util.contract import get_code_id
 
 async def main():
     paloma = AsyncLCDClient(
-        url="https://pisco-lcd.paloma.dev/",
-        chain_id="pisco-1",
+        url="https://lcd.testnet.palomaswap.com/",
+        chain_id="paloma-testnet-15",
     )
 
     result = await paloma.tx.tx_infos_by_height(None)

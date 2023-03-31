@@ -4,30 +4,30 @@ from __future__ import annotations
 
 import base64
 import json
-from copyreg import add_extension
-from curses import init_color
 from typing import List, Union
 
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
-from terra_proto.cosmwasm.wasm.v1 import ClearAdminProposal as ClearAdminProposal_pb
-from terra_proto.cosmwasm.wasm.v1 import (
-    ExecuteContractProposal as ExecuteContractProposal_pb,
-)
-from terra_proto.cosmwasm.wasm.v1 import (
-    InstantiateContractProposal as InstantiateContractProposal_pb,
-)
-from terra_proto.cosmwasm.wasm.v1 import (
-    MigrateContractProposal as MigrateContractProposal_pb,
-)
-from terra_proto.cosmwasm.wasm.v1 import PinCodesProposal as PinCodesProposal_pb
-from terra_proto.cosmwasm.wasm.v1 import StoreCodeProposal as StoreCodeProposal_pb
-from terra_proto.cosmwasm.wasm.v1 import SudoContractProposal as SudoContractProposal_pb
-from terra_proto.cosmwasm.wasm.v1 import UnpinCodesProposal as UnpinCodesProposal_pb
-from terra_proto.cosmwasm.wasm.v1 import UpdateAdminProposal as UpdateAdminProposal_pb
-from terra_proto.cosmwasm.wasm.v1 import (
-    UpdateInstantiateConfigProposal as UpdateInstantiateConfigProposal_pb,
-)
+from terra_proto.cosmwasm.wasm.v1 import \
+    ClearAdminProposal as ClearAdminProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    ExecuteContractProposal as ExecuteContractProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    InstantiateContractProposal as InstantiateContractProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    MigrateContractProposal as MigrateContractProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    PinCodesProposal as PinCodesProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    StoreCodeProposal as StoreCodeProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    SudoContractProposal as SudoContractProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    UnpinCodesProposal as UnpinCodesProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    UpdateAdminProposal as UpdateAdminProposal_pb
+from terra_proto.cosmwasm.wasm.v1 import \
+    UpdateInstantiateConfigProposal as UpdateInstantiateConfigProposal_pb
 
 from paloma_sdk.core.bech32 import AccAddress
 from paloma_sdk.core.coins import Coins

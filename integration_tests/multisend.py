@@ -14,11 +14,11 @@ import lcd_ibc_transfer
 """
 
 from paloma_sdk.client.lcd import LCDClient
-
 # import lcd_tx
 from paloma_sdk.client.lcd.api.tx import CreateTxOptions
 from paloma_sdk.client.localpaloma import LocalPaloma
-from paloma_sdk.core.bank import MsgMultiSend, MsgSend, MultiSendInput, MultiSendOutput
+from paloma_sdk.core.bank import (MsgMultiSend, MsgSend, MultiSendInput,
+                                  MultiSendOutput)
 from paloma_sdk.core.tx import SignMode
 from paloma_sdk.key.mnemonic import MnemonicKey
 from paloma_sdk.util.json import JSONSerializable
@@ -35,8 +35,8 @@ from paloma_sdk.core.public_key import SimplePublicKey
 
 def main():
     paloma = LCDClient(
-        url="https://pisco-lcd.paloma.dev/",
-        chain_id="pisco-1",
+        url="https://lcd.testnet.palomaswap.com/",
+        chain_id="paloma-testnet-15",
     )
     paloma = LocalPaloma()
 
@@ -47,19 +47,19 @@ def main():
     test1 = paloma.wallets["test1"]
 
     msg = MsgSend(
-        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
-        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+        "paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
+        "paloma17lmam6zguazs5q5u6z5mmx76uj63gldnwcazay",
         Coins(ugrain=30000),
     )
     inputs = [
         MultiSendInput(
-            address="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v",
+            address="paloma1x46rqay4d3cssq8gxxvqz8xt6nwlz4td5wpjhf",
             coins=Coins(ugrain=30000),
         )
     ]
     outputs = [
         MultiSendOutput(
-            address="paloma17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp",
+            address="paloma17lmam6zguazs5q5u6z5mmx76uj63gldnwcazay",
             coins=Coins(ugrain=10000),
         ),
         MultiSendOutput(

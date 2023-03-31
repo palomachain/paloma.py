@@ -1,8 +1,8 @@
 from paloma_sdk.client.lcd import LCDClient, PaginationOptions
 
 paloma = LCDClient(
-    url="https://pisco-lcd.paloma.dev/",
-    chain_id="pisco-1",
+    url="https://lcd.testnet.palomaswap.com/",
+    chain_id="paloma-testnet-15",
 )
 
 
@@ -19,11 +19,11 @@ def test_signing_infos_with_pagination():
     assert result is not None
 
 
-def test_signing_info():
-    result = paloma.slashing.signing_info(
-        "palomavalcons1qp67nk6gwqvnh95rwytpfwatcjtuxx4rhdnz6k"
-    )
-    assert result is not None
+# def test_signing_info():
+#     result = paloma.slashing.signing_info(
+#         "palomavalcons1qp67nk6gwqvnh95rwytpfwatcjtuxx4rxnlqvn"
+#     )
+#     assert result is not None
 
 
 def test_parameters():

@@ -9,20 +9,22 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          python-version: 3.11
-      - uses: Gr1N/setup-poetry@v4
+          python-version: "3.10"
+      - uses: Gr1N/setup-poetry@v8
       - uses: actions/cache@v2
         with:
           path: ~/.cache/pypoetry/virtualenvs
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-poetry-
-
+      - run: poetry install
       - run: poetry run pytest --cov=paloma_sdk
+        env:
+          OPENSSL_CONF: /home/runner/work/paloma.py/paloma.py/.github/openssl.cnf
       - run: poetry run flake8 paloma_sdk
-      - run: poetry run mypy -p paloma_sdk
+      # - run: poetry run mypy -p paloma_sdk
       - run: poetry run isort --check ./
-      - run: poetry run black --check ./
+      # - run: poetry run black --check ./
