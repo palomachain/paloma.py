@@ -1,20 +1,9 @@
-from .data import (  # noqa: F401
-    Account,
-    BaseAccount,
-    ContinuousVestingAccount,
-    DelayedVestingAccount,
-    Period,
-    PeriodicVestingAccount,
-    PublicKey,
-    TxInfo,
-    TxLog,
-    parse_tx_logs,
-)
-from .msgs import (
-    MsgCreatePeriodicVestingAccount,
-    MsgCreateVestingAccount,
-    MsgDonateAllVestingTokens,
-)
+from .data import BaseAccount  # noqa: F401
+from .data import (Account, ContinuousVestingAccount, DelayedVestingAccount,
+                   Period, PeriodicVestingAccount, PublicKey, TxInfo, TxLog,
+                   parse_tx_logs)
+from .msgs import (MsgCreatePeriodicVestingAccount, MsgCreateVestingAccount,
+                   MsgDonateAllVestingTokens)
 
 __all__ = [
     "Account",

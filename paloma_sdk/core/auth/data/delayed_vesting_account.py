@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import attr
-from terra_proto.cosmos.vesting.v1beta1 import (
-    DelayedVestingAccount as DelayedVestingAccount_pb,
-)
+from terra_proto.cosmos.vesting.v1beta1 import \
+    DelayedVestingAccount as DelayedVestingAccount_pb
 
 from ...public_key import PublicKey
 from .base_vesting_account import BaseVestingAccount

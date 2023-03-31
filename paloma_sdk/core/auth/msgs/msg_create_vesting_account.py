@@ -2,9 +2,8 @@
 
 from __future__ import annotations
 
-from terra_proto.cosmos.vesting.v1beta1 import (
-    MsgCreateVestingAccount as MsgCreateVestingAccount_pb,
-)
+from terra_proto.cosmos.vesting.v1beta1 import \
+    MsgCreateVestingAccount as MsgCreateVestingAccount_pb
 
 from paloma_sdk.core import AccAddress, Coins
 from paloma_sdk.core.msg import Msg
