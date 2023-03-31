@@ -1,8 +1,9 @@
 import asyncio
-import uvloop
 
+import uvloop
 from web3 import Web3
 from web3.contract import Contract
+
 from paloma_sdk.client.lcd import AsyncLCDClient
 from paloma_sdk.key.mnemonic import MnemonicKey
 

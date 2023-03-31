@@ -1,62 +1,40 @@
 # core msgs
-from paloma_sdk.core.auth import (
-    MsgDonateAllVestingTokens,
-    MsgCreatePeriodicVestingAccount,
-    MsgCreateVestingAccount
-)
-from paloma_sdk.core.authz import (
-    MsgExecAuthorized,
-    MsgGrantAuthorization,
-    MsgRevokeAuthorization,
-)
+from paloma_sdk.core.auth import (MsgCreatePeriodicVestingAccount,
+                                  MsgCreateVestingAccount,
+                                  MsgDonateAllVestingTokens)
+from paloma_sdk.core.authz import (MsgExecAuthorized, MsgGrantAuthorization,
+                                   MsgRevokeAuthorization)
 from paloma_sdk.core.bank import MsgMultiSend, MsgSend
 from paloma_sdk.core.crisis import MsgVerifyInvariant
-from paloma_sdk.core.distribution import (
-    MsgFundCommunityPool,
-    MsgSetWithdrawAddress,
-    MsgWithdrawDelegatorReward,
-    MsgWithdrawValidatorCommission,
-)
+from paloma_sdk.core.distribution import (MsgFundCommunityPool,
+                                          MsgSetWithdrawAddress,
+                                          MsgWithdrawDelegatorReward,
+                                          MsgWithdrawValidatorCommission)
 from paloma_sdk.core.feegrant import MsgGrantAllowance, MsgRevokeAllowance
 from paloma_sdk.core.gov.msgs import MsgDeposit, MsgSubmitProposal, MsgVote
-from paloma_sdk.core.ibc.msgs import (
-    MsgAcknowledgement,
-    MsgChannelCloseConfirm,
-    MsgChannelCloseInit,
-    MsgChannelOpenAck,
-    MsgChannelOpenConfirm,
-    MsgChannelOpenInit,
-    MsgChannelOpenTry,
-    MsgConnectionOpenAck,
-    MsgConnectionOpenConfirm,
-    MsgConnectionOpenInit,
-    MsgConnectionOpenTry,
-    MsgCreateClient,
-    MsgRecvPacket,
-    MsgSubmitMisbehaviour,
-    MsgTimeout,
-    MsgUpdateClient,
-    MsgUpgradeClient,
-)
+from paloma_sdk.core.ibc.msgs import (MsgAcknowledgement,
+                                      MsgChannelCloseConfirm,
+                                      MsgChannelCloseInit, MsgChannelOpenAck,
+                                      MsgChannelOpenConfirm,
+                                      MsgChannelOpenInit, MsgChannelOpenTry,
+                                      MsgConnectionOpenAck,
+                                      MsgConnectionOpenConfirm,
+                                      MsgConnectionOpenInit,
+                                      MsgConnectionOpenTry, MsgCreateClient,
+                                      MsgRecvPacket, MsgSubmitMisbehaviour,
+                                      MsgTimeout, MsgUpdateClient,
+                                      MsgUpgradeClient)
 from paloma_sdk.core.ibc_transfer import MsgTransfer
 from paloma_sdk.core.slashing import MsgUnjail
-from paloma_sdk.core.staking import (
-    MsgBeginRedelegate,
-    MsgCreateValidator,
-    MsgDelegate,
-    MsgEditValidator,
-    MsgUndelegate,
-)
-from paloma_sdk.core.wasm import (
-    MsgClearAdmin,
-    MsgExecuteContract,
-    MsgInstantiateContract,
-    MsgMigrateContract,
-    MsgStoreCode,
-    MsgUpdateAdmin,
-)
+from paloma_sdk.core.staking import (MsgBeginRedelegate, MsgCreateValidator,
+                                     MsgDelegate, MsgEditValidator,
+                                     MsgUndelegate)
+from paloma_sdk.core.wasm import (MsgClearAdmin, MsgExecuteContract,
+                                  MsgInstantiateContract, MsgMigrateContract,
+                                  MsgStoreCode, MsgUpdateAdmin)
 
 from .base import create_demux, create_demux_proto, create_demux_unpack_any
+
 auth_msgs = [
     MsgCreateVestingAccount,
     MsgCreatePeriodicVestingAccount,

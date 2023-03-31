@@ -3,6 +3,7 @@ from typing import Dict, Optional
 import attr
 
 from paloma_sdk.core import AccAddress, Coins, ValAddress
+
 from ..params import APIParams
 from ._base import BaseAsyncAPI, sync_bind
 

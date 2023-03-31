@@ -1,14 +1,22 @@
 from __future__ import annotations
 
-import attr
 import json
-
 from typing import Union
+
+import attr
+
 from paloma_sdk.core import AccAddress
 from paloma_sdk.core.msg import Msg
-from paloma_sdk.util.remove_none import remove_none
-from .data import MsgCreateJob as MsgCreateJob_pb, MsgExecuteJob as MsgExecuteJob_pb, Job as Job_pb, Routing as Routing_pb, Permissions as Permissions_pb, Trigger as Trigger_pb, ScheduleTrigger as ScheduleTrigger_pb
 from paloma_sdk.util.json import JSONSerializable
+from paloma_sdk.util.remove_none import remove_none
+
+from .data import Job as Job_pb
+from .data import MsgCreateJob as MsgCreateJob_pb
+from .data import MsgExecuteJob as MsgExecuteJob_pb
+from .data import Permissions as Permissions_pb
+from .data import Routing as Routing_pb
+from .data import ScheduleTrigger as ScheduleTrigger_pb
+from .data import Trigger as Trigger_pb
 
 __all__ = [
     "MsgCreateJob",

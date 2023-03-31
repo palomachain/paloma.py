@@ -1,6 +1,7 @@
-import betterproto
-from typing import List
 from dataclasses import dataclass
+from typing import List
+
+import betterproto
 
 
 @dataclass(eq=False, repr=False)

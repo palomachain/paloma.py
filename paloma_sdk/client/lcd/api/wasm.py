@@ -1,11 +1,11 @@
 import base64
 import json
 from typing import Any, List, Optional, Union
-from ..params import APIParams
 
 from paloma_sdk.core import Numeric
 from paloma_sdk.core.wasm.data import AbsoluteTxPosition, HistoryEntry
 
+from ..params import APIParams
 from ._base import BaseAsyncAPI, sync_bind
 
 __all__ = ["AsyncWasmAPI", "WasmAPI"]

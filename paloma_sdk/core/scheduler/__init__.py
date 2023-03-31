@@ -1,7 +1,4 @@
-from .msgs import (
-    MsgCreateJob,
-    MsgExecuteJob
-)
+from .msgs import MsgCreateJob, MsgExecuteJob
 
 __all__ = [
     "MsgCreateJob",

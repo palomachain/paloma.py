@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from terra_proto.cosmos.vesting.v1beta1 import (
-    MsgCreatePeriodicVestingAccount as MsgCreatePeriodicVestingAccount_pb,
-)
-from paloma_sdk.core.auth.data.periodic_vesting_account import Period
-
 from typing import List
+
+from terra_proto.cosmos.vesting.v1beta1 import \
+    MsgCreatePeriodicVestingAccount as MsgCreatePeriodicVestingAccount_pb
+
 from paloma_sdk.core import AccAddress
+from paloma_sdk.core.auth.data.periodic_vesting_account import Period
 from paloma_sdk.core.msg import Msg
 
 __all__ = ["MsgCreatePeriodicVestingAccount"]

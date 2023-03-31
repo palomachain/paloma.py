@@ -1,7 +1,7 @@
 from typing import Optional
 
-from ._base import BaseAsyncAPI, sync_bind
 from ..params import APIParams
+from ._base import BaseAsyncAPI, sync_bind
 
 __all__ = ["AsyncTendermintAPI", "TendermintAPI"]
 
