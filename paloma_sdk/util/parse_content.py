@@ -4,8 +4,10 @@ from paloma_sdk.core.distribution.proposals import CommunityPoolSpendProposal
 from paloma_sdk.core.gov.proposals import TextProposal
 from paloma_sdk.core.ibc.proposals import ClientUpdateProposal
 from paloma_sdk.core.params.proposals import ParameterChangeProposal
-from paloma_sdk.core.upgrade import (CancelSoftwareUpgradeProposal,
-                                     SoftwareUpgradeProposal)
+from paloma_sdk.core.upgrade import (
+    CancelSoftwareUpgradeProposal,
+    SoftwareUpgradeProposal,
+)
 
 from .base import create_demux, create_demux_proto, create_demux_unpack_any
 

@@ -32,7 +32,9 @@ def test_random():
 
 def test_signature():
 
-    paloma = LCDClient(url="https://lcd.testnet.palomaswap.com", chain_id="paloma-testnet-15")
+    paloma = LCDClient(
+        url="https://lcd.testnet.palomaswap.com", chain_id="paloma-testnet-15"
+    )
 
     mk = MnemonicKey(
         "island relax shop such yellow opinion find know caught erode blue dolphin behind coach tattoo light focus snake common size analyst imitate employ walnut"
@@ -69,12 +71,12 @@ def test_signature():
     sigBytes = base64.b64encode(signature.data.single.signature)
     assert (
         sigBytes
-        == b'cS2EmpEmii+RUS40aI8v2NACVM41gewA8sq1e+y4J8c6gduDdcMCA78RB2vUXopBKOpq/VHAvEiTIgV+Q6b/TQ=='
+        == b"cS2EmpEmii+RUS40aI8v2NACVM41gewA8sq1e+y4J8c6gduDdcMCA78RB2vUXopBKOpq/VHAvEiTIgV+Q6b/TQ=="
     )
 
     signature_amino = account.key.create_signature_amino(signDoc)
     sigBytes2 = base64.b64encode(signature_amino.data.single.signature)
     assert (
         sigBytes2
-        == b'GNeQX0eRFa+4ylP2ArBFVn7h9pommOZEd2z4fC7idzVHg0qBBRV2pAa2AXP9AU5Wc9ydrx7lk62YRvHVIBQSXw=='
+        == b"GNeQX0eRFa+4ylP2ArBFVn7h9pommOZEd2z4fC7idzVHg0qBBRV2pAa2AXP9AU5Wc9ydrx7lk62YRvHVIBQSXw=="
     )

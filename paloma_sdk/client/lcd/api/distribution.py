@@ -20,7 +20,9 @@ class Rewards:
 
 
 class AsyncDistributionAPI(BaseAsyncAPI):
-    async def rewards(self, delegator: AccAddress, params: Optional[APIParams] = None) -> Rewards:
+    async def rewards(
+        self, delegator: AccAddress, params: Optional[APIParams] = None
+    ) -> Rewards:
         """Fetches the staking reward data for a delegator.
 
         Args:
@@ -31,8 +33,7 @@ class AsyncDistributionAPI(BaseAsyncAPI):
             Rewards: delegator rewards
         """
         res = await self._c._get(
-            f"/cosmos/distribution/v1beta1/delegators/{delegator}/rewards",
-            params
+            f"/cosmos/distribution/v1beta1/delegators/{delegator}/rewards", params
         )
         return Rewards(
             rewards={
@@ -42,7 +43,9 @@ class AsyncDistributionAPI(BaseAsyncAPI):
             total=Coins.from_data(res["total"]),
         )
 
-    async def validator_commission(self, validator: ValAddress, params: Optional[APIParams] = None) -> Coins:
+    async def validator_commission(
+        self, validator: ValAddress, params: Optional[APIParams] = None
+    ) -> Coins:
         """Fetches the commission reward data for a validator.
 
         Args:
@@ -53,13 +56,14 @@ class AsyncDistributionAPI(BaseAsyncAPI):
             ValidatorCommission: validator rewards
         """
         res = await self._c._get(
-            f"/cosmos/distribution/v1beta1/validators/{validator}/commission",
-            params
+            f"/cosmos/distribution/v1beta1/validators/{validator}/commission", params
         )
         commission = res["commission"]
         return Coins.from_data(commission["commission"])
 
-    async def withdraw_address(self, delegator: AccAddress, params: Optional[APIParams] = None) -> AccAddress:
+    async def withdraw_address(
+        self, delegator: AccAddress, params: Optional[APIParams] = None
+    ) -> AccAddress:
         """Fetches the withdraw address associated with a delegator.
 
         Args:
@@ -71,7 +75,7 @@ class AsyncDistributionAPI(BaseAsyncAPI):
         """
         res = await self._c._get(
             f"/cosmos/distribution/v1beta1/delegators/{delegator}/withdraw_address",
-            params
+            params,
         )
         return res.get("withdraw_address")
 
@@ -100,19 +104,25 @@ class AsyncDistributionAPI(BaseAsyncAPI):
 
 class DistributionAPI(AsyncDistributionAPI):
     @sync_bind(AsyncDistributionAPI.rewards)
-    def rewards(self, delegator: AccAddress, params: Optional[APIParams] = None) -> Rewards:
+    def rewards(
+        self, delegator: AccAddress, params: Optional[APIParams] = None
+    ) -> Rewards:
         pass
 
     rewards.__doc__ = AsyncDistributionAPI.rewards.__doc__
 
     @sync_bind(AsyncDistributionAPI.validator_commission)
-    def validator_commission(self, validator: ValAddress, params: Optional[APIParams] = None) -> Coins:
+    def validator_commission(
+        self, validator: ValAddress, params: Optional[APIParams] = None
+    ) -> Coins:
         pass
 
     validator_commission.__doc__ = AsyncDistributionAPI.validator_commission.__doc__
 
     @sync_bind(AsyncDistributionAPI.withdraw_address)
-    def withdraw_address(self, delegator: AccAddress, params: Optional[APIParams] = None) -> AccAddress:
+    def withdraw_address(
+        self, delegator: AccAddress, params: Optional[APIParams] = None
+    ) -> AccAddress:
         pass
 
     withdraw_address.__doc__ = AsyncDistributionAPI.withdraw_address.__doc__

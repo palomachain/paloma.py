@@ -17,7 +17,7 @@ class AsyncCw20API(BaseAsyncAPI):
         name: str,
         symbol: str,
         decimals: int,
-        total_supply: int
+        total_supply: int,
     ) -> BlockTxBroadcastResult:
         """instantiate the Cw20 smart contract using code id.
             total supply amount is minted to deployer wallet.
@@ -36,33 +36,29 @@ class AsyncCw20API(BaseAsyncAPI):
             "symbol": symbol,
             "decimals": decimals,
             "initial_balances": [
-                {
-                    "address": wallet.key.acc_address,
-                    "amount": str(total_supply)
-                }
-            ]
+                {"address": wallet.key.acc_address, "amount": str(total_supply)}
+            ],
         }
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgInstantiateContract(
-                wallet.key.acc_address,
-                None,
-                code_id,
-                "CW20",
-                instantiate_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgInstantiateContract(
+                        wallet.key.acc_address,
+                        None,
+                        code_id,
+                        "CW20",
+                        instantiate_msg,
+                        funds,
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
     async def send(
-        self,
-        wallet: Wallet,
-        token: str,
-        contract: str,
-        amount: int,
-        msg: str
+        self, wallet: Wallet, token: str, contract: str, amount: int, msg: str
     ) -> BlockTxBroadcastResult:
         """Send CW20 token to the other address and run msg
         Args:
@@ -74,29 +70,24 @@ class AsyncCw20API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"send": {
-            "contract": contract,
-            "amount": str(amount),
-            "msg": msg
-        }}
+        execute_msg = {
+            "send": {"contract": contract, "amount": str(amount), "msg": msg}
+        }
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
     async def transfer(
-        self,
-        wallet: Wallet,
-        token: str,
-        recipient: str,
-        amount: int
+        self, wallet: Wallet, token: str, recipient: str, amount: int
     ) -> BlockTxBroadcastResult:
         """Transfer CW20 token to the other address.
         Args:
@@ -107,27 +98,27 @@ class AsyncCw20API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"transfer": {
-            "recipient": recipient,
-            "amount": str(amount),
-        }}
+        execute_msg = {
+            "transfer": {
+                "recipient": recipient,
+                "amount": str(amount),
+            }
+        }
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
     async def burn(
-        self,
-        wallet: Wallet,
-        token: str,
-        amount: int
+        self, wallet: Wallet, token: str, amount: int
     ) -> BlockTxBroadcastResult:
         """Burn CW20 token from the wallet address.
         Args:
@@ -137,18 +128,21 @@ class AsyncCw20API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"burn": {
-            "amount": str(amount),
-        }}
+        execute_msg = {
+            "burn": {
+                "amount": str(amount),
+            }
+        }
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
@@ -162,38 +156,24 @@ class Cw20API(AsyncCw20API):
         name: str,
         symbol: str,
         decimals: int,
-        total_supply: int
+        total_supply: int,
     ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw20API.send)
     def send(
-        self,
-        wallet: Wallet,
-        token: str,
-        recipient: str,
-        amount: int,
-        msg: str
+        self, wallet: Wallet, token: str, recipient: str, amount: int, msg: str
     ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw20API.transfer)
     def transfer(
-        self,
-        wallet: Wallet,
-        token: str,
-        recipient: str,
-        amount: int
+        self, wallet: Wallet, token: str, recipient: str, amount: int
     ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw20API.burn)
-    def burn(
-        self,
-        wallet: Wallet,
-        token: str,
-        amount: int
-    ) -> BlockTxBroadcastResult:
+    def burn(self, wallet: Wallet, token: str, amount: int) -> BlockTxBroadcastResult:
         pass
 
     instantiate.__doc__ = AsyncCw20API.instantiate.__doc__

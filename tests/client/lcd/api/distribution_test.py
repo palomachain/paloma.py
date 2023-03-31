@@ -8,7 +8,9 @@ paloma = LCDClient(
 
 
 def test_rewards():
-    result = paloma.distribution.rewards("paloma15gvyk43x406v7kcd4rff5qfutqmcnpj3p4ea9g")
+    result = paloma.distribution.rewards(
+        "paloma15gvyk43x406v7kcd4rff5qfutqmcnpj3p4ea9g"
+    )
     assert result.total.to_data()
 
 

@@ -8,16 +8,18 @@ from typing import List, Optional
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
 from dateutil import parser
-from terra_proto.cosmos.authz.v1beta1 import \
-    GenericAuthorization as GenericAuthorization_pb
+from terra_proto.cosmos.authz.v1beta1 import (
+    GenericAuthorization as GenericAuthorization_pb,
+)
 from terra_proto.cosmos.authz.v1beta1 import Grant as Grant_pb
-from terra_proto.cosmos.bank.v1beta1 import \
-    SendAuthorization as SendAuthorization_pb
+from terra_proto.cosmos.bank.v1beta1 import SendAuthorization as SendAuthorization_pb
 from terra_proto.cosmos.staking.v1beta1 import AuthorizationType
-from terra_proto.cosmos.staking.v1beta1 import \
-    StakeAuthorization as StakeAuthorization_pb
-from terra_proto.cosmos.staking.v1beta1 import \
-    StakeAuthorizationValidators as StakeAuthorizationValidators_pb
+from terra_proto.cosmos.staking.v1beta1 import (
+    StakeAuthorization as StakeAuthorization_pb,
+)
+from terra_proto.cosmos.staking.v1beta1 import (
+    StakeAuthorizationValidators as StakeAuthorizationValidators_pb,
+)
 
 from paloma_sdk.core import AccAddress, Coin, Coins
 from paloma_sdk.util.base import BasePalomaData
@@ -39,8 +41,7 @@ class Authorization(BasePalomaData):
 
     @staticmethod
     def from_amino(amino: dict) -> Authorization:
-        from paloma_sdk.util.parse_authorization import \
-            parse_authorization_amino
+        from paloma_sdk.util.parse_authorization import parse_authorization_amino
 
         return parse_authorization_amino(amino)
 
@@ -52,15 +53,13 @@ class Authorization(BasePalomaData):
 
     @staticmethod
     def from_proto(proto: Any_pb) -> Authorization:
-        from paloma_sdk.util.parse_authorization import \
-            parse_authorization_proto
+        from paloma_sdk.util.parse_authorization import parse_authorization_proto
 
         return parse_authorization_proto(proto)
 
     @staticmethod
     def unpack_any(proto: Any_pb) -> Authorization:
-        from paloma_sdk.util.parse_authorization import \
-            parse_authorization_unpack_any
+        from paloma_sdk.util.parse_authorization import parse_authorization_unpack_any
 
         return parse_authorization_unpack_any(proto)
 

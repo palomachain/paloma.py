@@ -13,12 +13,7 @@ __all__ = ["AsyncCw721API", "Cw721API"]
 
 class AsyncCw721API(BaseAsyncAPI):
     async def instantiate(
-        self,
-        wallet: Wallet,
-        code_id: int,
-        name: str,
-        symbol: str,
-        minter: str
+        self, wallet: Wallet, code_id: int, name: str, symbol: str, minter: str
     ) -> BlockTxBroadcastResult:
         """instantiate the Cw721 smart contract using code id.
         Args:
@@ -30,32 +25,27 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        instantiate_msg = {
-            "name": name,
-            "symbol": symbol,
-            "minter": minter
-        }
+        instantiate_msg = {"name": name, "symbol": symbol, "minter": minter}
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgInstantiateContract(
-                wallet.key.acc_address,
-                None,
-                code_id,
-                "CW721",
-                instantiate_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgInstantiateContract(
+                        wallet.key.acc_address,
+                        None,
+                        code_id,
+                        "CW721",
+                        instantiate_msg,
+                        funds,
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
     async def mint(
-        self,
-        wallet: Wallet,
-        token: str,
-        token_id: str,
-        owner: str,
-        token_uri: str
+        self, wallet: Wallet, token: str, token_id: str, owner: str, token_uri: str
     ) -> BlockTxBroadcastResult:
         """Mint CW721 token
         Args:
@@ -67,22 +57,25 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"mint": {
-            "token_id": token_id,
-            "owner": owner,
-            "token_uri": token_uri,
-            "extension": None
-        }}
+        execute_msg = {
+            "mint": {
+                "token_id": token_id,
+                "owner": owner,
+                "token_uri": token_uri,
+                "extension": None,
+            }
+        }
 
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
@@ -92,7 +85,7 @@ class AsyncCw721API(BaseAsyncAPI):
         token: str,
         spender: str,
         token_id: str,
-        expires: Optional[dict] = None
+        expires: Optional[dict] = None,
     ) -> BlockTxBroadcastResult:
         """Allows operator to transfer / send the token from the owner's account.
             If expiration is set, then this allowance has a time/height limit.
@@ -105,32 +98,26 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"approve": {
-            "spender": spender,
-            "token_id": token_id
-        }}
+        execute_msg = {"approve": {"spender": spender, "token_id": token_id}}
 
         if expires is not None:
             execute_msg["approve"]["expires"] = expires
 
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
     async def revoke(
-        self,
-        wallet: Wallet,
-        token: str,
-        spender: str,
-        token_id: str
+        self, wallet: Wallet, token: str, spender: str, token_id: str
     ) -> BlockTxBroadcastResult:
         """Remove previously granted Approval
         Args:
@@ -141,29 +128,23 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"revoke": {
-            "spender": spender,
-            "token_id": token_id
-        }}
+        execute_msg = {"revoke": {"spender": spender, "token_id": token_id}}
 
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
     async def approve_all(
-        self,
-        wallet: Wallet,
-        token: str,
-        operator: str,
-        expires: Optional[dict] = None
+        self, wallet: Wallet, token: str, operator: str, expires: Optional[dict] = None
     ) -> BlockTxBroadcastResult:
         """Allows operator to transfer / send any token from the owner's account.
             If expiration is set, then this allowance has a time/height limit
@@ -175,22 +156,21 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"approve_all": {
-            "operator": operator
-        }}
+        execute_msg = {"approve_all": {"operator": operator}}
 
         if expires is not None:
             execute_msg["approve_all"]["expires"] = expires
 
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
@@ -208,28 +188,23 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"revoke_all": {
-            "operator": operator
-        }}
+        execute_msg = {"revoke_all": {"operator": operator}}
 
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
     async def transfer_nft(
-        self,
-        wallet: Wallet,
-        token: str,
-        recipient: str,
-        token_id: str
+        self, wallet: Wallet, token: str, recipient: str, token_id: str
     ) -> BlockTxBroadcastResult:
         """Send CW721 token to the other address
         Args:
@@ -240,30 +215,23 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"transfer_nft": {
-            "recipient": recipient,
-            "token_id": token_id
-        }}
+        execute_msg = {"transfer_nft": {"recipient": recipient, "token_id": token_id}}
 
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
     async def send_nft(
-        self,
-        wallet: Wallet,
-        token: str,
-        contract: str,
-        token_id: str,
-        msg: str
+        self, wallet: Wallet, token: str, contract: str, token_id: str, msg: str
     ) -> BlockTxBroadcastResult:
         """Send CW721 token to the other address and run msg
         Args:
@@ -275,21 +243,20 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"send_nft": {
-            "contract": contract,
-            "token_id": token_id,
-            "msg": msg
-        }}
+        execute_msg = {
+            "send_nft": {"contract": contract, "token_id": token_id, "msg": msg}
+        }
 
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
@@ -307,19 +274,18 @@ class AsyncCw721API(BaseAsyncAPI):
         Returns:
             BlockTxBroadcastResult: Transaction Broadcast Result
         """
-        execute_msg = {"burn": {
-            "token_id": token_id
-        }}
+        execute_msg = {"burn": {"token_id": token_id}}
 
         funds = Coins()
-        tx = await wallet.create_and_sign_tx(CreateTxOptions(
-            msgs=[MsgExecuteContract(
-                wallet.key.acc_address,
-                token,
-                execute_msg,
-                funds
-            )]
-        ))
+        tx = await wallet.create_and_sign_tx(
+            CreateTxOptions(
+                msgs=[
+                    MsgExecuteContract(
+                        wallet.key.acc_address, token, execute_msg, funds
+                    )
+                ]
+            )
+        )
         result = await self._c.tx.broadcast(tx)
         return result
 
@@ -327,23 +293,13 @@ class AsyncCw721API(BaseAsyncAPI):
 class Cw721API(AsyncCw721API):
     @sync_bind(AsyncCw721API.instantiate)
     def instantiate(
-        self,
-        wallet: Wallet,
-        code_id: int,
-        name: str,
-        symbol: str,
-        minter: str
+        self, wallet: Wallet, code_id: int, name: str, symbol: str, minter: str
     ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.mint)
     def mint(
-        self,
-        wallet: Wallet,
-        token: str,
-        token_id: str,
-        owner: str,
-        token_uri: str
+        self, wallet: Wallet, token: str, token_id: str, owner: str, token_uri: str
     ) -> BlockTxBroadcastResult:
         pass
 
@@ -354,27 +310,19 @@ class Cw721API(AsyncCw721API):
         token: str,
         spender: str,
         token_id: str,
-        expires: Optional[str] = None
+        expires: Optional[str] = None,
     ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.revoke)
     def revoke(
-        self,
-        wallet: Wallet,
-        token: str,
-        spender: str,
-        token_id: str
+        self, wallet: Wallet, token: str, spender: str, token_id: str
     ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.approve_all)
     def approve_all(
-        self,
-        wallet: Wallet,
-        token: str,
-        operator: str,
-        expires: Optional[str] = None
+        self, wallet: Wallet, token: str, operator: str, expires: Optional[str] = None
     ) -> BlockTxBroadcastResult:
         pass
 
@@ -389,22 +337,13 @@ class Cw721API(AsyncCw721API):
 
     @sync_bind(AsyncCw721API.transfer_nft)
     def transfer_nft(
-        self,
-        wallet: Wallet,
-        token: str,
-        recipient: str,
-        token_id: str
+        self, wallet: Wallet, token: str, recipient: str, token_id: str
     ) -> BlockTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.send_nft)
     def send_nft(
-        self,
-        wallet: Wallet,
-        token: str,
-        contract: str,
-        token_id: str,
-        msg: str
+        self, wallet: Wallet, token: str, contract: str, token_id: str, msg: str
     ) -> BlockTxBroadcastResult:
         pass
 

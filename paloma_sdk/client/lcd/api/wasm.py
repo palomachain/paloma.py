@@ -12,8 +12,7 @@ __all__ = ["AsyncWasmAPI", "WasmAPI"]
 
 
 class AsyncWasmAPI(BaseAsyncAPI):
-    async def code_info(self, code_id: int, params: Optional[APIParams] = None
-                        ) -> dict:
+    async def code_info(self, code_id: int, params: Optional[APIParams] = None) -> dict:
         """Fetches information about an uploaded code.
 
         Args:
@@ -33,8 +32,9 @@ class AsyncWasmAPI(BaseAsyncAPI):
             "instantiate_permission": code_info["instantiate_permission"],
         }
 
-    async def contract_history(self, contract_address: str, params: Optional[APIParams] = None
-                               ) -> List[HistoryEntry]:
+    async def contract_history(
+        self, contract_address: str, params: Optional[APIParams] = None
+    ) -> List[HistoryEntry]:
         """Fetches contract history.
 
         Args:
@@ -46,14 +46,14 @@ class AsyncWasmAPI(BaseAsyncAPI):
         """
 
         res = await self._c._get(
-            f"/cosmwasm/wasm/v1/contract/{contract_address}/history",
-            params
+            f"/cosmwasm/wasm/v1/contract/{contract_address}/history", params
         )
 
         return [HistoryEntry.from_data(entry) for entry in res["entries"]]
 
-    async def contract_info(self, contract_address: str, params: Optional[APIParams] = None
-                            ) -> dict:
+    async def contract_info(
+        self, contract_address: str, params: Optional[APIParams] = None
+    ) -> dict:
         """Fetches information about an instantiated contract.
 
         Args:
@@ -64,7 +64,9 @@ class AsyncWasmAPI(BaseAsyncAPI):
             dict: contract information
         """
 
-        res = await self._c._get(f"/cosmwasm/wasm/v1/contract/{contract_address}", params)
+        res = await self._c._get(
+            f"/cosmwasm/wasm/v1/contract/{contract_address}", params
+        )
         contract_info = res.get("contract_info")
         contract_address = res.get("address")
         history_entries = self.contract_history(contract_address)
@@ -82,7 +84,10 @@ class AsyncWasmAPI(BaseAsyncAPI):
         }
 
     async def contract_query(
-        self, contract_address: str, query: Union[dict, str], params: Optional[APIParams] = None
+        self,
+        contract_address: str,
+        query: Union[dict, str],
+        params: Optional[APIParams] = None,
     ) -> Any:
         """Runs a QueryMsg on a contract.
 
@@ -97,8 +102,7 @@ class AsyncWasmAPI(BaseAsyncAPI):
 
         query_msg = base64.b64encode(json.dumps(query).encode("utf-8")).decode("utf-8")
         res = await self._c._get(
-            f"/cosmwasm/wasm/v1/contract/{contract_address}/smart/{query_msg}",
-            params
+            f"/cosmwasm/wasm/v1/contract/{contract_address}/smart/{query_msg}", params
         )
         return res.get("data")
 
@@ -126,13 +130,20 @@ class WasmAPI(AsyncWasmAPI):
     code_info.__doc__ = AsyncWasmAPI.code_info.__doc__
 
     @sync_bind(AsyncWasmAPI.contract_info)
-    def contract_info(self, contract_address: str, params: Optional[APIParams] = None) -> dict:
+    def contract_info(
+        self, contract_address: str, params: Optional[APIParams] = None
+    ) -> dict:
         pass
 
     contract_info.__doc__ = AsyncWasmAPI.contract_info.__doc__
 
     @sync_bind(AsyncWasmAPI.contract_query)
-    def contract_query(self, contract_address: str, query: Union[dict, str], params: Optional[APIParams] = None) -> Any:
+    def contract_query(
+        self,
+        contract_address: str,
+        query: Union[dict, str],
+        params: Optional[APIParams] = None,
+    ) -> Any:
         pass
 
     contract_query.__doc__ = AsyncWasmAPI.contract_query.__doc__
@@ -144,7 +155,9 @@ class WasmAPI(AsyncWasmAPI):
     pinned_codes.__doc__ = AsyncWasmAPI.pinned_codes.__doc__
 
     @sync_bind(AsyncWasmAPI.contract_history)
-    def contract_history(self, contract_address: str, params: Optional[APIParams] = None) -> List[HistoryEntry]:
+    def contract_history(
+        self, contract_address: str, params: Optional[APIParams] = None
+    ) -> List[HistoryEntry]:
         pass
 
     contract_history.__doc__ = AsyncWasmAPI.contract_history.__doc__

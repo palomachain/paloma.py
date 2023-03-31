@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-from terra_proto.cosmos.vesting.v1beta1 import \
-    MsgDonateAllVestingTokens as MsgDonateAllVestingTokens_pb
+from terra_proto.cosmos.vesting.v1beta1 import (
+    MsgDonateAllVestingTokens as MsgDonateAllVestingTokens_pb,
+)
 
 from paloma_sdk.core import AccAddress
 from paloma_sdk.core.msg import Msg
@@ -48,7 +49,9 @@ class MsgDonateAllVestingTokens(Msg):
         }
 
     @classmethod
-    def from_proto(cls, proto: MsgDonateAllVestingTokens_pb) -> MsgDonateAllVestingTokens:
+    def from_proto(
+        cls, proto: MsgDonateAllVestingTokens_pb
+    ) -> MsgDonateAllVestingTokens:
         return cls(
             from_address=proto.from_address,
         )

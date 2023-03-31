@@ -36,7 +36,8 @@ class Job(JSONSerializable):
         permissions: whitelist / blacklist
         triggers: schedule triggers / event triggers
         address:
-        """
+    """
+
     type_amino = "scheduler/Job"
     type_url = "/palomachain.paloma.scheduler.Job"
     prototype = Job_pb
@@ -58,7 +59,8 @@ class MsgCreateJob(Msg):
     Args:
         creator: Job creator paloma address
         job: Paloma job details
-        """
+    """
+
     type_amino = "scheduler/MsgCreateJob"
     type_url = "/palomachain.paloma.scheduler.MsgCreateJob"
     prototype = MsgCreateJob_pb
@@ -90,20 +92,18 @@ class MsgCreateJob(Msg):
                 owner=bytes(self.job["owner"], "ascii"),
                 routing=Routing_pb(
                     chain_type=self.job["routing"]["chain_type"],
-                    chain_reference_id=self.job["routing"]["chain_reference_id"]
+                    chain_reference_id=self.job["routing"]["chain_reference_id"],
                 ),
                 definition=bytes(self.job["definition"], "ascii"),
                 payload=bytes(self.job["payload"], "ascii"),
                 is_payload_modifiable=self.job["is_payload_modifiable"],
                 permissions=Permissions_pb(
                     whitelist=self.job["permissions"]["whitelist"],
-                    blacklist=self.job["permissions"]["blacklist"]
+                    blacklist=self.job["permissions"]["blacklist"],
                 ),
-                triggers=[Trigger_pb(
-                    schedule=ScheduleTrigger_pb()
-                )],
-                address=bytes(self.job["address"], "ascii")
-            )
+                triggers=[Trigger_pb(schedule=ScheduleTrigger_pb())],
+                address=bytes(self.job["address"], "ascii"),
+            ),
         )
 
     @classmethod
@@ -121,7 +121,8 @@ class MsgExecuteJob(Msg):
         creator: Job runner paloma address
         job_id: Job ID to execute
         payload: The payload for the job execute.
-        """
+    """
+
     type_amino = "scheduler/MsgExecuteJob"
     type_url = "/palomachain.paloma.scheduler.MsgExecuteJob"
     prototype = MsgExecuteJob_pb
@@ -152,7 +153,7 @@ class MsgExecuteJob(Msg):
         return MsgExecuteJob_pb(
             creator=self.creator,
             job_id=self.job_id,
-            payload=bytes(self.payload, "ascii")
+            payload=bytes(self.payload, "ascii"),
         )
 
     @classmethod

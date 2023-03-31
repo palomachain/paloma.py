@@ -5,13 +5,16 @@ from typing import List
 
 import attr
 from betterproto.lib.google.protobuf import Any as Any_pb
-from terra_proto.ibc.core.client.v1 import \
-    ClientConsensusStates as ClientConsensusStates_pb
-from terra_proto.ibc.core.client.v1 import \
-    ConsensusStateWithHeight as ConsensusStateWithHeight_pb
+from terra_proto.ibc.core.client.v1 import (
+    ClientConsensusStates as ClientConsensusStates_pb,
+)
+from terra_proto.ibc.core.client.v1 import (
+    ConsensusStateWithHeight as ConsensusStateWithHeight_pb,
+)
 from terra_proto.ibc.core.client.v1 import Height as Height_pb
-from terra_proto.ibc.core.client.v1 import \
-    IdentifiedClientState as IdentifiedClientState_pb
+from terra_proto.ibc.core.client.v1 import (
+    IdentifiedClientState as IdentifiedClientState_pb,
+)
 from terra_proto.ibc.core.client.v1 import Params as Params_pb
 
 from paloma_sdk.util.json import JSONSerializable
@@ -80,9 +83,7 @@ class IdentifiedClientState(JSONSerializable):
 
     @classmethod
     def from_proto(cls, proto: IdentifiedClientState_pb) -> IdentifiedClientState:
-        return cls(
-            client_id=proto.client_id, client_state=proto.client_state.to_dict()
-        )
+        return cls(client_id=proto.client_id, client_state=proto.client_state.to_dict())
 
 
 @attr.s

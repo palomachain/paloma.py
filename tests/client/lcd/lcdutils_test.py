@@ -13,5 +13,5 @@ def test_validators_with_voting_power():
     # validators_with_voting_power = paloma.utils.validators_with_voting_power()
     # print(validators_with_voting_power)
     # assert validators_with_voting_power is not None
-    
+
     pass

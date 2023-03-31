@@ -31,9 +31,11 @@ class AsyncTendermintAPI(BaseAsyncAPI):
         Returns:
             bool: syncing status
         """
-        return (await self._c._get("/status", params))
+        return await self._c._get("/status", params)
 
-    async def validator_set(self, height: Optional[int] = None, params: Optional[APIParams] = None) -> dict:
+    async def validator_set(
+        self, height: Optional[int] = None, params: Optional[APIParams] = None
+    ) -> dict:
         """Fetches the validator set for a height. If no height is given, defaults to latest.
 
         Args:
@@ -46,7 +48,9 @@ class AsyncTendermintAPI(BaseAsyncAPI):
         x = "" if height is None else height
         return await self._c._get(f"/validators?height={x}", params)
 
-    async def block_info(self, height: Optional[int] = None, params: Optional[APIParams] = None) -> dict:
+    async def block_info(
+        self, height: Optional[int] = None, params: Optional[APIParams] = None
+    ) -> dict:
         """Fetches the block information for a given height. If no height is given, defaults to latest block.
 
         Args:
@@ -74,13 +78,17 @@ class TendermintAPI(AsyncTendermintAPI):
     syncing.__doc__ = AsyncTendermintAPI.syncing.__doc__
 
     @sync_bind(AsyncTendermintAPI.validator_set)
-    def validator_set(self, height: Optional[int] = None, params: Optional[APIParams] = None) -> dict:
+    def validator_set(
+        self, height: Optional[int] = None, params: Optional[APIParams] = None
+    ) -> dict:
         pass
 
     validator_set.__doc__ = AsyncTendermintAPI.validator_set.__doc__
 
     @sync_bind(AsyncTendermintAPI.block_info)
-    def block_info(self, height: Optional[int] = None, params: Optional[APIParams] = None) -> dict:
+    def block_info(
+        self, height: Optional[int] = None, params: Optional[APIParams] = None
+    ) -> dict:
         pass
 
     block_info.__doc__ = AsyncTendermintAPI.block_info.__doc__

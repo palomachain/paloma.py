@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import attr
-from terra_proto.cosmos.feegrant.v1beta1 import \
-    MsgGrantAllowance as MsgGrantAllowance_pb
-from terra_proto.cosmos.feegrant.v1beta1 import \
-    MsgRevokeAllowance as MsgRevokeAllowance_pb
+from terra_proto.cosmos.feegrant.v1beta1 import (
+    MsgGrantAllowance as MsgGrantAllowance_pb,
+)
+from terra_proto.cosmos.feegrant.v1beta1 import (
+    MsgRevokeAllowance as MsgRevokeAllowance_pb,
+)
 
 from paloma_sdk.core import AccAddress
 from paloma_sdk.core.msg import Msg

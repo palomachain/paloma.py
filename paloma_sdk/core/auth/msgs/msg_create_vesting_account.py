@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-from terra_proto.cosmos.vesting.v1beta1 import \
-    MsgCreateVestingAccount as MsgCreateVestingAccount_pb
+from terra_proto.cosmos.vesting.v1beta1 import (
+    MsgCreateVestingAccount as MsgCreateVestingAccount_pb,
+)
 
 from paloma_sdk.core import AccAddress, Coins
 from paloma_sdk.core.msg import Msg
@@ -43,7 +44,7 @@ class MsgCreateVestingAccount(Msg):
                 "to_address": self.to_address,
                 "amount": self.amount.to_amino(),
                 "end_time": str(self.end_time),
-                "delayed": self.delayed
+                "delayed": self.delayed,
             },
         }
 
@@ -54,7 +55,7 @@ class MsgCreateVestingAccount(Msg):
             to_address=data["to_address"],
             amount=Coins.from_data(data["amount"]),
             end_time=int(data["end_time"]),
-            delayed=data["delayed"]
+            delayed=data["delayed"],
         )
 
     def to_data(self) -> dict:
@@ -64,7 +65,7 @@ class MsgCreateVestingAccount(Msg):
             "to_address": self.to_address,
             "amount": self.amount.to_data(),
             "end_time": str(self.end_time),
-            "delayed": self.delayed
+            "delayed": self.delayed,
         }
 
     @classmethod
@@ -74,7 +75,7 @@ class MsgCreateVestingAccount(Msg):
             to_address=proto.to_address,
             amount=Coins.from_proto(proto.amount),
             end_time=proto.end_time,
-            delayed=proto.delayed
+            delayed=proto.delayed,
         )
 
     def to_proto(self) -> MsgCreateVestingAccount_pb:
