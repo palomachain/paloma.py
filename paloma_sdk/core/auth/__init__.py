@@ -1,3 +1,4 @@
+# isort: skip_file
 from .data import BaseAccount
 from .data import (Account, ContinuousVestingAccount, DelayedVestingAccount,  # noqa: F401
                    Period, PeriodicVestingAccount, PublicKey, TxInfo, TxLog,
