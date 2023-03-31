@@ -1,6 +1,6 @@
-from .data import (
+from .data import (  # noqa: F401
     Account,
-    BaseAccount,  # noqa: F401
+    BaseAccount,
     ContinuousVestingAccount,
     DelayedVestingAccount,
     Period,
