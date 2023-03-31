@@ -1,5 +1,5 @@
-from .data import BaseAccount  # noqa: F401
-from .data import (Account, ContinuousVestingAccount, DelayedVestingAccount,
+from .data import BaseAccount  
+from .data import (Account, ContinuousVestingAccount, DelayedVestingAccount,  # noqa: F401
                    Period, PeriodicVestingAccount, PublicKey, TxInfo, TxLog,
                    parse_tx_logs)
 from .msgs import (MsgCreatePeriodicVestingAccount, MsgCreateVestingAccount,
