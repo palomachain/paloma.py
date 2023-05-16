@@ -1,6 +1,6 @@
 from typing import Optional
 
-from paloma_sdk.core.broadcast import BlockTxBroadcastResult
+from paloma_sdk.core.broadcast import SyncTxBroadcastResult
 from paloma_sdk.core.coins import Coins
 from paloma_sdk.core.wasm import MsgExecuteContract, MsgInstantiateContract
 
@@ -14,7 +14,7 @@ __all__ = ["AsyncCw721API", "Cw721API"]
 class AsyncCw721API(BaseAsyncAPI):
     async def instantiate(
         self, wallet: Wallet, code_id: int, name: str, symbol: str, minter: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """instantiate the Cw721 smart contract using code id.
         Args:
             wallet (Wallet): CW721 deployer wallet
@@ -23,7 +23,7 @@ class AsyncCw721API(BaseAsyncAPI):
             symbol (str): CW721 token symbol
             minter (str): CW721 token minter
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         instantiate_msg = {"name": name, "symbol": symbol, "minter": minter}
         funds = Coins()
@@ -41,12 +41,12 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
     async def mint(
         self, wallet: Wallet, token: str, token_id: str, owner: str, token_uri: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Mint CW721 token
         Args:
             wallet (Wallet): CW721 sender wallet
@@ -55,7 +55,7 @@ class AsyncCw721API(BaseAsyncAPI):
             owner (str): owner who will receive the CW721
             token_uri (str): URI of the minting token
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {
             "mint": {
@@ -76,7 +76,7 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
     async def approve(
@@ -86,7 +86,7 @@ class AsyncCw721API(BaseAsyncAPI):
         spender: str,
         token_id: str,
         expires: Optional[dict] = None,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Allows operator to transfer / send the token from the owner's account.
             If expiration is set, then this allowance has a time/height limit.
         Args:
@@ -96,7 +96,7 @@ class AsyncCw721API(BaseAsyncAPI):
             token_id (str): token id of the CW721 token
             expires: (dict, optional) {"at_height": height(u64)} / {"at_time":timestamp(nanosecond, u64)}
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"approve": {"spender": spender, "token_id": token_id}}
 
@@ -113,12 +113,12 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
     async def revoke(
         self, wallet: Wallet, token: str, spender: str, token_id: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Remove previously granted Approval
         Args:
             wallet (Wallet): CW721 sender wallet
@@ -126,7 +126,7 @@ class AsyncCw721API(BaseAsyncAPI):
             spender (str): token approved address
             token_id (str): CW721 token id
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"revoke": {"spender": spender, "token_id": token_id}}
 
@@ -140,12 +140,12 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
     async def approve_all(
         self, wallet: Wallet, token: str, operator: str, expires: Optional[dict] = None
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Allows operator to transfer / send any token from the owner's account.
             If expiration is set, then this allowance has a time/height limit
         Args:
@@ -154,7 +154,7 @@ class AsyncCw721API(BaseAsyncAPI):
             operator (str): token operator address
             expires: (dict, optional) {"at_height": height(u64)} / {"at_time":timestamp(nanosecond, u64)}
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"approve_all": {"operator": operator}}
 
@@ -171,7 +171,7 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
     async def revoke_all(
@@ -179,14 +179,14 @@ class AsyncCw721API(BaseAsyncAPI):
         wallet: Wallet,
         token: str,
         operator: str,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Remove previously granted ApproveAll permission
         Args:
             wallet (Wallet): CW721 sender wallet
             token (str): token address
             operator (str): token approved operator address
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"revoke_all": {"operator": operator}}
 
@@ -200,12 +200,12 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
     async def transfer_nft(
         self, wallet: Wallet, token: str, recipient: str, token_id: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Send CW721 token to the other address
         Args:
             wallet (Wallet): CW721 sender wallet
@@ -213,7 +213,7 @@ class AsyncCw721API(BaseAsyncAPI):
             recipient (str): token receiver address
             token_id (str): CW721 token id
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"transfer_nft": {"recipient": recipient, "token_id": token_id}}
 
@@ -227,12 +227,12 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
     async def send_nft(
         self, wallet: Wallet, token: str, contract: str, token_id: str, msg: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Send CW721 token to the other address and run msg
         Args:
             wallet (Wallet): CW721 sender wallet
@@ -241,7 +241,7 @@ class AsyncCw721API(BaseAsyncAPI):
             token_id (str): CW721 token id
             msg (str): Base64 encoded message string
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {
             "send_nft": {"contract": contract, "token_id": token_id, "msg": msg}
@@ -257,7 +257,7 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
     async def burn(
@@ -265,14 +265,14 @@ class AsyncCw721API(BaseAsyncAPI):
         wallet: Wallet,
         token: str,
         token_id: str,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Burn CW721 token
         Args:
             wallet (Wallet): CW721 sender wallet
             token (str): CW721 token address
             token_id (str): CW721 token id
         Returns:
-            BlockTxBroadcastResult: Transaction Broadcast Result
+            SyncTxBroadcastResult: Transaction Broadcast Result
         """
         execute_msg = {"burn": {"token_id": token_id}}
 
@@ -286,7 +286,7 @@ class AsyncCw721API(BaseAsyncAPI):
                 ]
             )
         )
-        result = await self._c.tx.broadcast(tx)
+        result = await self._c.tx.broadcast_sync(tx)
         return result
 
 
@@ -294,13 +294,13 @@ class Cw721API(AsyncCw721API):
     @sync_bind(AsyncCw721API.instantiate)
     def instantiate(
         self, wallet: Wallet, code_id: int, name: str, symbol: str, minter: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.mint)
     def mint(
         self, wallet: Wallet, token: str, token_id: str, owner: str, token_uri: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.approve)
@@ -311,19 +311,19 @@ class Cw721API(AsyncCw721API):
         spender: str,
         token_id: str,
         expires: Optional[str] = None,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.revoke)
     def revoke(
         self, wallet: Wallet, token: str, spender: str, token_id: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.approve_all)
     def approve_all(
         self, wallet: Wallet, token: str, operator: str, expires: Optional[str] = None
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.revoke_all)
@@ -332,19 +332,19 @@ class Cw721API(AsyncCw721API):
         wallet: Wallet,
         token: str,
         operator: str,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.transfer_nft)
     def transfer_nft(
         self, wallet: Wallet, token: str, recipient: str, token_id: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.send_nft)
     def send_nft(
         self, wallet: Wallet, token: str, contract: str, token_id: str, msg: str
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncCw721API.burn)
@@ -353,7 +353,7 @@ class Cw721API(AsyncCw721API):
         wallet: Wallet,
         token: str,
         token_id: str,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     instantiate.__doc__ = AsyncCw721API.instantiate.__doc__

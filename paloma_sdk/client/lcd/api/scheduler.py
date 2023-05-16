@@ -1,6 +1,6 @@
 import json
 
-from paloma_sdk.core.broadcast import BlockTxBroadcastResult
+from paloma_sdk.core.broadcast import SyncTxBroadcastResult
 from paloma_sdk.core.scheduler import MsgCreateJob, MsgExecuteJob
 
 from ..wallet import Wallet
@@ -20,7 +20,7 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         payload: str,
         chain_type: str,
         chain_reference_id: str,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Create a job with data
         Args:
             wallet (Wallet): Job creator paloma wallet
@@ -31,7 +31,7 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
             chain_type (str): purpose chain type
             chain_reference_id (str): chain reference id in paloma
         Returns:
-            BlockTxBroadcastResult: transaction result
+            SyncTxBroadcastResult: transaction result
         """
         definition = {
             "abi": json.dumps(abi, separators=[",", ":"]),
@@ -62,7 +62,7 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
                 ]
             )
         )
-        create_tx_result = await self._c.tx.broadcast(create_tx)
+        create_tx_result = await self._c.tx.broadcast_sync(create_tx)
         return create_tx_result
 
     async def execute_job(
@@ -70,14 +70,14 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         wallet: Wallet,
         job_id: str,
         payload: str,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         """Execute a job with data
         Args:
             wallet (Wallet): Job creator paloma wallet
             job_id (str): Job ID
             payload (str): payload data of the job on execution
         Returns:
-            BlockTxBroadcastResult: transaction result
+            SyncTxBroadcastResult: transaction result
         """
         execute_tx = await wallet.create_and_sign_tx(
             CreateTxOptions(
@@ -90,7 +90,7 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
                 ]
             )
         )
-        create_tx_result = await self._c.tx.broadcast(execute_tx)
+        create_tx_result = await self._c.tx.broadcast_sync(execute_tx)
         return create_tx_result
 
 
@@ -105,7 +105,7 @@ class JobSchedulerAPI(AsyncJobSchedulerAPI):
         payload: str,
         chain_type: str,
         chain_reference_id: str,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     @sync_bind(AsyncJobSchedulerAPI.execute_job)
@@ -114,7 +114,7 @@ class JobSchedulerAPI(AsyncJobSchedulerAPI):
         wallet: Wallet,
         job_id: str,
         payload: str,
-    ) -> BlockTxBroadcastResult:
+    ) -> SyncTxBroadcastResult:
         pass
 
     create_job.__doc__ = AsyncJobSchedulerAPI.create_job.__doc__
