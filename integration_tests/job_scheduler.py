@@ -6,6 +6,7 @@ from web3.contract import Contract
 
 from paloma_sdk.client.lcd import AsyncLCDClient
 from paloma_sdk.key.mnemonic import MnemonicKey
+import time
 
 
 async def main():
@@ -20,7 +21,7 @@ async def main():
 
     test1 = paloma.wallet(acc)
 
-    job_id = "test100"
+    job_id = "test102"
     contract_address = "0x1f576F2021b6EBdF229750f54fDFd31206141E65"
     abi = [
         {
@@ -38,17 +39,19 @@ async def main():
             "type": "function",
         },
     ]
+    creator = test1.key.acc_address
+    signers = [test1.key.acc_address]
     payload = "6057361d00000000000000000000000000000000000000000000000000000000000000ea"
     chain_type = "evm"
     chain_reference_id = "bnb-main"
     result = await paloma.job_scheduler.create_job(
-        test1, job_id, contract_address, abi, payload, chain_type, chain_reference_id
+        test1, job_id, contract_address, abi, payload, chain_type, chain_reference_id, creator, signers
     )
     print(result)
-
-    job_id = "test100"
-    payload = "6057361d0000000000000000000000000000000000000000000000000000000000000003"
-    result = await paloma.job_scheduler.execute_job(test1, job_id, payload)
+    time.sleep(10)
+    job_id = "test102"
+    payload = "6057361d00000000000000000000000000000000000000000000000000000000000000ea"
+    result = await paloma.job_scheduler.execute_job(test1, job_id, payload, creator, signers)
     print(result)
     await paloma.session.close()
 

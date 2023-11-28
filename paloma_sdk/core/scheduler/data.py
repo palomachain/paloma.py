@@ -40,6 +40,12 @@ class Routing(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class Metadata(betterproto.Message):
+    creator: bytes = betterproto.bytes_field(1)
+    signers: List[bytes] = betterproto.message_field(2)
+
+
+@dataclass(eq=False, repr=False)
 class Job(betterproto.Message):
     id: str = betterproto.string_field(1)
     owner: bytes = betterproto.bytes_field(2)
@@ -56,6 +62,7 @@ class Job(betterproto.Message):
 class MsgCreateJob(betterproto.Message):
     creator: str = betterproto.string_field(1)
     job: "Job" = betterproto.message_field(2)
+    metadata: "Metadata" = betterproto.message_field(3)
 
 
 @dataclass(eq=False, repr=False)
@@ -63,3 +70,4 @@ class MsgExecuteJob(betterproto.Message):
     creator: str = betterproto.string_field(1)
     job_id: str = betterproto.string_field(2)
     payload: bytes = betterproto.bytes_field(3)
+    metadata: "Metadata" = betterproto.message_field(4)

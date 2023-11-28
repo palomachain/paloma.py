@@ -20,6 +20,8 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         payload: str,
         chain_type: str,
         chain_reference_id: str,
+        creator: str,
+        signers: list[str],
     ) -> SyncTxBroadcastResult:
         """Create a job with data
         Args:
@@ -30,6 +32,8 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
             payload (str): default payload data of the job
             chain_type (str): purpose chain type
             chain_reference_id (str): chain reference id in paloma
+            creator (str): job creator
+            signers (list[str]): signers list
         Returns:
             SyncTxBroadcastResult: transaction result
         """
@@ -58,6 +62,10 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
                             "triggers": [],
                             "address": "",
                         },
+                        {
+                            "creator": creator,
+                            "signers": signers,
+                        },
                     )
                 ]
             )
@@ -70,12 +78,16 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
         wallet: Wallet,
         job_id: str,
         payload: str,
+        creator: str,
+        signers: list[str],
     ) -> SyncTxBroadcastResult:
         """Execute a job with data
         Args:
             wallet (Wallet): Job creator paloma wallet
             job_id (str): Job ID
             payload (str): payload data of the job on execution
+            creator (str): job creator
+            signers (list[str]): signers list
         Returns:
             SyncTxBroadcastResult: transaction result
         """
@@ -86,6 +98,10 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
                         wallet.key.acc_address,
                         job_id,
                         json.dumps({"hexPayload": payload}, separators=[",", ":"]),
+                        {
+                            "creator": creator,
+                            "signers": signers,
+                        },
                     )
                 ]
             )
@@ -105,6 +121,8 @@ class JobSchedulerAPI(AsyncJobSchedulerAPI):
         payload: str,
         chain_type: str,
         chain_reference_id: str,
+        creator: str,
+        signers: list[str],
     ) -> SyncTxBroadcastResult:
         pass
 
@@ -114,6 +132,8 @@ class JobSchedulerAPI(AsyncJobSchedulerAPI):
         wallet: Wallet,
         job_id: str,
         payload: str,
+        creator: str,
+        signers: list[str],
     ) -> SyncTxBroadcastResult:
         pass
 

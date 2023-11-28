@@ -15,6 +15,7 @@ from .data import MsgCreateJob as MsgCreateJob_pb
 from .data import MsgExecuteJob as MsgExecuteJob_pb
 from .data import Permissions as Permissions_pb
 from .data import Routing as Routing_pb
+from .data import Metadata as Metadata_pb
 from .data import ScheduleTrigger as ScheduleTrigger_pb
 from .data import Trigger as Trigger_pb
 
@@ -67,6 +68,7 @@ class MsgCreateJob(Msg):
 
     creator: AccAddress = attr.ib()
     job: Job = attr.ib()
+    metadata: dict = attr.ib()
 
     def to_amino(self) -> dict:
         return {
@@ -74,6 +76,7 @@ class MsgCreateJob(Msg):
             "value": {
                 "creator": self.creator,
                 "job": remove_none(self.job),
+                "metadata": remove_none(self.metadata),
             },
         }
 
@@ -82,6 +85,7 @@ class MsgCreateJob(Msg):
         return cls(
             creator=data["creator"],
             job=parse_msg(data["job"]),
+            metadata=parse_msg(data["metadata"]),
         )
 
     def to_proto(self) -> MsgCreateJob_pb:
@@ -103,6 +107,10 @@ class MsgCreateJob(Msg):
                 ),
                 triggers=[Trigger_pb(schedule=ScheduleTrigger_pb())],
                 address=bytes(self.job["address"], "ascii"),
+            ),
+            metadata=Metadata_pb(
+                creator=bytes(self.metadata["creator"], "ascii"),
+                signers=[bytes(signer, "ascii") for signer in self.metadata["signers"]],
             ),
         )
 
@@ -130,6 +138,7 @@ class MsgExecuteJob(Msg):
     creator: AccAddress = attr.ib()
     job_id: str = attr.ib()
     payload: str = attr.ib()
+    metadata: dict = attr.ib()
 
     def to_amino(self) -> dict:
         return {
@@ -138,6 +147,7 @@ class MsgExecuteJob(Msg):
                 "creator": self.creator,
                 "job_id": self.job_id,
                 "payload": self.payload,
+                "metadata": self.metadata,
             },
         }
 
@@ -147,6 +157,7 @@ class MsgExecuteJob(Msg):
             creator=data["creator"],
             job_id=data["job_id"],
             payload=data["payload"],
+            metadata=parse_msg(data["metadata"]),
         )
 
     def to_proto(self) -> MsgExecuteJob_pb:
@@ -154,6 +165,10 @@ class MsgExecuteJob(Msg):
             creator=self.creator,
             job_id=self.job_id,
             payload=bytes(self.payload, "ascii"),
+            metadata=Metadata_pb(
+                creator=bytes(self.metadata["creator"], "ascii"),
+                signers=[bytes(signer, "ascii") for signer in self.metadata["signers"]],
+            ),
         )
 
     @classmethod
