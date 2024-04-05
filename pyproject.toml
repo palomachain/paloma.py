@@ -9,7 +9,8 @@ classifiers = [
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10"
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11"
 ]
 description = "The Python SDK for Paloma"
 documentation = "http://docs.palomachain.coml"
@@ -19,7 +20,7 @@ license = "MIT"
 packages = [{ include = "paloma_sdk" }]
 readme = "README.md"
 repository = "https://github.com/palomachain/paloma.py"
-version = "3.0.19"
+version = "3.0.20"
 
 [tool.poetry.dependencies]
 aiohttp = "^3.8.1"

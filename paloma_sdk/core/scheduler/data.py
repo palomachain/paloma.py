@@ -60,14 +60,12 @@ class Job(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class MsgCreateJob(betterproto.Message):
-    creator: str = betterproto.string_field(1)
     job: "Job" = betterproto.message_field(2)
     metadata: "Metadata" = betterproto.message_field(3)
 
 
 @dataclass(eq=False, repr=False)
 class MsgExecuteJob(betterproto.Message):
-    creator: str = betterproto.string_field(1)
     job_id: str = betterproto.string_field(2)
     payload: bytes = betterproto.bytes_field(3)
     metadata: "Metadata" = betterproto.message_field(4)
