@@ -66,7 +66,6 @@ class MsgCreateJob(Msg):
     type_url = "/palomachain.paloma.scheduler.MsgCreateJob"
     prototype = MsgCreateJob_pb
 
-    creator: AccAddress = attr.ib()
     job: Job = attr.ib()
     metadata: dict = attr.ib()
 
@@ -74,7 +73,6 @@ class MsgCreateJob(Msg):
         return {
             "type": self.type_amino,
             "value": {
-                "creator": self.creator,
                 "job": remove_none(self.job),
                 "metadata": remove_none(self.metadata),
             },
@@ -83,14 +81,12 @@ class MsgCreateJob(Msg):
     @classmethod
     def from_data(cls, data: dict) -> MsgCreateJob:
         return cls(
-            creator=data["creator"],
             job=parse_msg(data["job"]),
             metadata=parse_msg(data["metadata"]),
         )
 
     def to_proto(self) -> MsgCreateJob_pb:
         return MsgCreateJob_pb(
-            creator=self.creator,
             job=Job_pb(
                 id=self.job["id"],
                 owner=bytes(self.job["owner"], "ascii"),
@@ -117,8 +113,8 @@ class MsgCreateJob(Msg):
     @classmethod
     def from_proto(cls, proto: MsgCreateJob_pb) -> MsgCreateJob:
         return cls(
-            creator=proto.creator,
             job=parse_msg(proto.job),
+            metadata=parse_msg(proto.metadata)
         )
 
 
@@ -135,7 +131,6 @@ class MsgExecuteJob(Msg):
     type_url = "/palomachain.paloma.scheduler.MsgExecuteJob"
     prototype = MsgExecuteJob_pb
 
-    creator: AccAddress = attr.ib()
     job_id: str = attr.ib()
     payload: str = attr.ib()
     metadata: dict = attr.ib()
@@ -144,7 +139,6 @@ class MsgExecuteJob(Msg):
         return {
             "type": self.type_amino,
             "value": {
-                "creator": self.creator,
                 "job_id": self.job_id,
                 "payload": self.payload,
                 "metadata": self.metadata,
@@ -154,7 +148,6 @@ class MsgExecuteJob(Msg):
     @classmethod
     def from_data(cls, data: dict) -> MsgExecuteJob:
         return cls(
-            creator=data["creator"],
             job_id=data["job_id"],
             payload=data["payload"],
             metadata=parse_msg(data["metadata"]),
@@ -162,7 +155,6 @@ class MsgExecuteJob(Msg):
 
     def to_proto(self) -> MsgExecuteJob_pb:
         return MsgExecuteJob_pb(
-            creator=self.creator,
             job_id=self.job_id,
             payload=bytes(self.payload, "ascii"),
             metadata=Metadata_pb(
@@ -174,8 +166,8 @@ class MsgExecuteJob(Msg):
     @classmethod
     def from_proto(cls, proto: MsgExecuteJob_pb) -> MsgExecuteJob:
         return cls(
-            creator=proto.creator,
             job_id=proto.job_id,
+            metadata=proto.metadata
         )
 
 
