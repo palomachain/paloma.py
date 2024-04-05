@@ -47,7 +47,6 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
             CreateTxOptions(
                 msgs=[
                     MsgCreateJob(
-                        wallet.key.acc_address,
                         {
                             "id": job_id,
                             "owner": "",
@@ -95,7 +94,6 @@ class AsyncJobSchedulerAPI(BaseAsyncAPI):
             CreateTxOptions(
                 msgs=[
                     MsgExecuteJob(
-                        wallet.key.acc_address,
                         job_id,
                         json.dumps({"hexPayload": payload}, separators=[",", ":"]),
                         {
